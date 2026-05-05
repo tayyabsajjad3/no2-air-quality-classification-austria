@@ -23,7 +23,7 @@ This repository follows a structured naming convention:
 
 ### data/
 
-* Raw datasets: raw_<dataset-name>.parquet
+* Raw datasets: `raw_<dataset-name>.parquet`
 * Processed datasets: processed_<dataset-name>.csv
 
 ### src/
