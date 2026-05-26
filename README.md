@@ -14,6 +14,8 @@ The goal is to build a machine learning model that predicts air quality classes 
 * Data hub: https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d
 * Access date: 18 March 2026
 * Format: Parquet files (raw data)
+* Raw files: 16 station-specific Parquet files in `data/raw/`
+* Data inventory: `data/data-inventory.csv`
 
 ---
 
@@ -23,8 +25,10 @@ This repository follows a structured naming convention:
 
 ### data/
 
-* Raw datasets: `raw_<dataset-name>.parquet`
-* Processed datasets: processed_<dataset-name>.csv
+* Raw datasets: original EEA Parquet filenames are retained in `data/raw/` to preserve provenance.
+* Raw data documentation: `data/raw/README.md`
+* Raw data inventory: `data/data-inventory.csv`
+* Processed datasets: `processed_<dataset-name>.csv`
 
 ### src/
 
