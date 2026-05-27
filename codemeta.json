@@ -1,0 +1,53 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
+  "description": "Python project for classifying nitrogen dioxide (NO2) air quality levels across Austrian monitoring stations using European Environment Agency hourly measurement data.",
+  "version": "1.0.0",
+  "codeRepository": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
+  "license": "https://spdx.org/licenses/MIT",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.14",
+  "applicationCategory": "Data science; environmental monitoring; machine learning",
+  "developmentStatus": "active",
+  "keywords": [
+    "NO2",
+    "air quality",
+    "Austria",
+    "European Environment Agency",
+    "machine learning",
+    "FAIR data"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Glent",
+      "familyName": "Rembeci"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Somayeh",
+      "familyName": "Zeraati"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Muhammed",
+      "familyName": "Tayyab"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sina",
+      "familyName": "Sadeghi"
+    }
+  ],
+  "softwareRequirements": [
+    "pandas==2.3.3",
+    "scikit-learn==1.8.0",
+    "matplotlib==3.10.8",
+    "pyarrow==23.0.1",
+    "requests==2.33.1",
+    "notebook==7.5.5"
+  ],
+  "readme": "README.md",
+  "issueTracker": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/issues"
+}
