@@ -6,7 +6,7 @@ Status date: 2026-05-27
 
 | Task | Requirement | Owner | Status | Notes |
 | --- | --- | --- | --- | --- |
-| T2.1 | 3NF schema design, SQL statements, ER diagram, DBRepo table creation, database/table metadata | A | Partially done | `docs/schema.sql`, `docs/er-diagram.md`, `docs/dbrepo-metadata-plan.md`, and `notebooks/dbrepo_setup_template.ipynb` are done. DBRepo table creation and DBRepo metadata still require DBRepo access/API execution. |
+| T2.1 | 3NF schema design, SQL statements, ER diagram, DBRepo table creation, database/table metadata | A | Partially done | `docs/schema.sql`, `docs/er-diagram.md`, `docs/dbrepo-metadata-plan.md`, and `notebooks/dbrepo_setup_template.ipynb` are done. DBRepo database `no2_air_quality_classification_austria` was created, and table `sampling_points` was created manually. Remaining DBRepo tables and metadata still need to be created. |
 | T3.1 | RO-Crate | A | Blocked, prepared | `docs/ro-crate-plan.md` lists required entities and identifiers. Final `ro-crate-metadata.json` needs DOI/deposit/DBRepo links. |
 | T3.5 | Model Card | A | Drafted, not final | `docs/model-card.md` has required sections. Final metrics, model details, training DOI, and licence must be filled after training/deposits. |
 | T3.9 | Model deposit in TUWRD | A | Blocked | Requires trained model artefact, model metadata, licence, related identifiers, and TUWRD access. |
@@ -18,7 +18,7 @@ Status date: 2026-05-27
 
 | Task | Requirement | Owner | Status | Notes |
 | --- | --- | --- | --- | --- |
-| T2.2 | Semantic attribute mapping and DBRepo metadata mapping | B | Partially done | `docs/semantic-mapping.md` and the semantic mapping payload in `notebooks/dbrepo_setup_template.ipynb` are done. DBRepo metadata update still requires DBRepo API execution. |
+| T2.2 | Semantic attribute mapping and DBRepo metadata mapping | B | Partially done | `docs/semantic-mapping.md` and the semantic mapping payload in `notebooks/dbrepo_setup_template.ipynb` are done. DBRepo database exists now; semantic metadata should be added after all DBRepo tables/columns are created. |
 | T2.7 | Second GitHub release | B | Prepared, blocked | `docs/release-notes-v2-draft.md` started. Final release must wait for all WP2 tasks. |
 | T3.2 | CodeMeta | B | Drafted, not final | `codemeta.json`, `requirements.txt`, and `docs/codemeta-notes.md` added. ORCIDs and final dependencies still required. |
 | T3.6 | Licences | B | Partially done | `LICENSE`, `docs/licences.md`, and `docs/eea-licence-review.md` added. Exact item-level EEA input-data licence should still be checked on the data hub record before final submission. |
