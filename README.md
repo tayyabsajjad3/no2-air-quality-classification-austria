@@ -46,6 +46,9 @@ This repository follows a structured naming convention:
 ### docs/
 
 * Documentation files (reports, metadata, model cards)
+* Database schema: `docs/schema.sql`
+* Entity-relationship diagram: `docs/er-diagram.md`
+* Semantic attribute mapping: `docs/semantic-mapping.md`
 
 ### Configuration files
 
@@ -61,6 +64,10 @@ All file names follow lowercase naming with underscores for consistency.
 * pandas
 * scikit-learn
 * matplotlib
+* pyarrow
+* requests
+
+Dependencies are pinned in `requirements.txt`.
 
 ---
 
@@ -78,4 +85,21 @@ The workflow includes:
 
 ## License
 
-To be defined in later stages (WP3).
+The software/code in this repository is licensed under the MIT License; see `LICENSE`.
+
+Input data from the European Environment Agency remains subject to the EEA source-specific licence or reuse terms, which must be verified from the original data hub record before final submission. Produced artefacts such as trained models, predictions, and figures are proposed for CC BY 4.0 release unless the verified input-data licence requires a different compatible licence. The licence decision record is documented in `docs/licences.md`.
+
+---
+
+## Metadata And Documentation
+
+* CodeMeta draft: `codemeta.json`
+* CodeMeta notes: `docs/codemeta-notes.md`
+* Licence decisions: `docs/licences.md`
+* EEA licence review: `docs/eea-licence-review.md`
+* Model Card draft: `docs/model-card.md`
+* RO-Crate preparation notes: `docs/ro-crate-plan.md`
+* DBRepo metadata plan: `docs/dbrepo-metadata-plan.md`
+* DBRepo notebook template: `notebooks/dbrepo_setup_template.ipynb`
+* OSTrails test assignment: `docs/ostrails-test-assignment.md`
+* A/B task status: `docs/a-b-task-status.md`
