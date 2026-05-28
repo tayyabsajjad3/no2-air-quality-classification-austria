@@ -91,6 +91,34 @@ Input data from the European Environment Agency remains subject to the EEA sourc
 
 ---
 
+## SQL Views (T2.4)
+
+The following SQL views are defined in `docs/views.sql` to de-normalize data into accessible formats for the ML pipeline:
+
+*   **`view_no2_classification_features`**: A primary feature table that flattens raw NO2 measurements with sampling point details, suitable for direct ML input. It includes a `high_pollution_label` as a target variable.
+*   **`view_balanced_pollution_samples`**: Provides a class-balanced sample of NO2 measurements, useful for addressing class imbalance in ML training. It combines a subsample of normal pollution events with all high pollution events.
+*   **`view_regional_daily_aggregates`**: Exposes engineered trend features by aggregating daily NO2 values (average, max, min) per station, providing temporal context.
+
+---
+
+## DBRepo API (T2.6)
+
+The experiment's data loading will be reimplemented to retrieve data exclusively from the DBRepo REST API.
+
+*   **Base URL**: `[To be added]`
+*   **Endpoints Used**: `[To be added, e.g., /api/views/view_no2_classification_features]`
+*   **Authentication**: `[To be added, e.g., Bearer Token]`
+
+---
+
+## Zenodo DOI (T3.8)
+
+[!DOI](https://doi.org/YOUR_ZENODO_DOI_HERE) `[To be added]`
+
+A `CITATION.cff` file is available in the repository root, referencing the Zenodo DOI.
+
+---
+
 ## Metadata And Documentation
 
 * CodeMeta draft: `codemeta.json`
