@@ -1,6 +1,6 @@
 # DBRepo Metadata Plan
 
-This plan supports T2.1 and T2.2. The DBRepo database and table schemas were created manually in DBRepo on 2026-05-29. Semantic metadata should be added from a Jupyter notebook using the DBRepo REST API once an API token is available. The SQL schema uses DBRepo-compatible data types such as `serial`, `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
+This plan supports T2.1 and T2.2. The DBRepo database and table schemas were created manually in DBRepo on 2026-05-29. Semantic metadata should be added from a Jupyter notebook using the DBRepo REST API once an API token is available, or manually in DBRepo where the table UI exposes concept and unit URI fields. The SQL schema uses DBRepo-compatible data types such as `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
 
 ## T2.1 Database And Table Metadata
 
@@ -45,3 +45,10 @@ The semantic mappings documented in `docs/semantic-mapping.md` should be added t
 | `measurements` | `value` | `sosa:hasSimpleResult` |
 | `measurement_units` | `unit_code` | `qudt:unit` |
 | `observation_logs` | `observation_log_id` | `prov:Entity` |
+
+Manual DBRepo UI checklist:
+
+1. Open the DBRepo database `ed890fa1-154c-4a66-8529-4088c97f68db`.
+2. Open each table and add the concept URI for the attributes listed above where the UI provides a concept field.
+3. For unit metadata, add `http://qudt.org/vocab/unit/MicroGM-PER-M3` to the unit URI field for `measurements.value` if DBRepo allows a unit URI on numeric attributes.
+4. If DBRepo does not allow editing these fields after table creation, keep this document and `notebooks/dbrepo_setup_template.ipynb` as the required metadata mapping evidence and add the mappings through the REST API once a token is available.

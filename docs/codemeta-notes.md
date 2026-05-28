@@ -1,6 +1,6 @@
 # CodeMeta Notes
 
-`codemeta.json` has been drafted from the current repository metadata and the pinned dependencies in `requirements.txt`.
+`codemeta.json` has been drafted from the current repository metadata, the pinned dependencies in `requirements.txt`, and the current Zenodo DOI recorded in `CITATION.cff`.
 
 Before final submission, the group must add each author's ORCID to the corresponding `Person` object. The assignment explicitly requires authors with ORCIDs, and these identifiers should not be guessed.
 

@@ -1,12 +1,12 @@
 # RO-Crate Preparation Notes
 
-The final `ro-crate-metadata.json` cannot be completed until the group has the final GitHub/Zenodo DOI, trained model deposit DOI, generated-data deposit DOI, selected licences, and final artefact filenames. The current DBRepo database identifier is already available and should be included in the final crate.
+The final `ro-crate-metadata.json` cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, selected licences, and final artefact filenames. The current Zenodo DOI and DBRepo database identifier are already available and should be included in the final crate.
 
 ## Entities To Include
 
 | Entity | Current source | Final identifier needed |
 | --- | --- | --- |
-| Repository | GitHub repository | Zenodo DOI after GitHub-Zenodo release |
+| Repository | GitHub repository | Zenodo DOI: `https://doi.org/10.5281/zenodo.20432795` |
 | Raw EEA input data | `data/raw/*.parquet`, `data/data-inventory.csv` | Source URL and verified input-data licence |
 | Database schema | `docs/schema.sql` | DBRepo database URL: `https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db` |
 | ER diagram | `docs/er-diagram.md` | Repository path |
@@ -24,4 +24,4 @@ The final `ro-crate-metadata.json` cannot be completed until the group has the f
 - FAIR4ML metadata describes the trained model and references the Model Card.
 - CodeMeta describes the software source code.
 - Croissant metadata describes the input dataset.
-- TUWRD deposits and Zenodo DOI are related identifiers for the repository artefacts.
+- TUWRD deposits, the Zenodo DOI, and the DBRepo database URL are related identifiers for the repository artefacts.

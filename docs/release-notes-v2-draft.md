@@ -11,11 +11,14 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - Entity-relationship diagram and 3NF rationale in `docs/er-diagram.md`.
 - Semantic attribute mapping in `docs/semantic-mapping.md`.
 - Visible DBRepo database and manually created table schemas for the normalised 3NF model.
+- SQL view definitions draft in `docs/views.sql`.
+- Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
+- Croissant dataset metadata in `croissant.json`.
 
 ## To Add Before Release
 
 - DBRepo metadata for database and tables.
 - Unit mapping metadata from T2.3.
-- SQL view definitions from T2.4.
+- SQL view execution and schema-compatibility verification from T2.4/T2.5.
 - DBRepo data loading and view verification from T2.5.
 - API-based data loading implementation from T2.6.
