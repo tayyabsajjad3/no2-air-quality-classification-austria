@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/"
+  },
+  "@type": "cr:Dataset",
+  "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
+  "description": "Hourly nitrogen dioxide (NO2) measurements from Austrian monitoring sampling points, sourced from the European Environment Agency data hub.",
+  "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distribution": [
+    {
+      "@type": "cr:FileSet",
+      "@id": "raw_parquet_files",
+      "name": "Raw EEA Parquet Files",
+      "includes": "data/raw/*.parquet",
+      "encodingFormat": "application/x-parquet",
+      "description": "Directory containing raw Parquet files with NO2 measurements."
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "measurements",
+      "name": "Air Quality Measurements",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "start_time",
+          "name": "start_time",
+          "dataType": "cr:DateTime",
+          "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Start" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "measured_value",
+          "name": "measured_value",
+          "dataType": "cr:Float",
+          "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Value" } },
+          "http://schema.org/unitCode": "http://qudt.org/vocab/unit/MicroGM-PER-M3"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "end_time",
+          "name": "end_time",
+          "dataType": "cr:DateTime",
+          "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "End" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "sampling_point",
+          "name": "sampling_point",
+          "dataType": "cr:Text",
+          "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Samplingpoint" } }
+        }
+      ]
+    }
+  ]
+}
