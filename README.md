@@ -121,6 +121,8 @@ A `CITATION.cff` file is available in the repository root, referencing the Zenod
 
 ## Metadata And Documentation
 
+DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db
+
 * CodeMeta draft: `codemeta.json`
 * CodeMeta notes: `docs/codemeta-notes.md`
 * Licence decisions: `docs/licences.md`

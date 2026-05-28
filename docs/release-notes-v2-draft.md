@@ -10,10 +10,10 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - 3NF relational schema in `docs/schema.sql`.
 - Entity-relationship diagram and 3NF rationale in `docs/er-diagram.md`.
 - Semantic attribute mapping in `docs/semantic-mapping.md`.
+- Visible DBRepo database and manually created table schemas for the normalised 3NF model.
 
 ## To Add Before Release
 
-- DBRepo database and table creation via notebook/API.
 - DBRepo metadata for database and tables.
 - Unit mapping metadata from T2.3.
 - SQL view definitions from T2.4.

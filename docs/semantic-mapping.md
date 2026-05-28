@@ -41,12 +41,12 @@ When adding these mappings to DBRepo metadata, the columns should be annotated a
 | `sampling_points` | `sampling_point_code` | `sosa:FeatureOfInterest` / `sosa:Platform` |
 | `pollutants` | `pollutant_id`, `pollutant_name`, `pollutant_formula` | `sosa:observedProperty`, `CHEBI_33101` |
 | `measurement_units` | `unit_code`, `unit_uri` | `qudt:unit` |
-| `aggregation_types` | `aggregation_type_code` | `sosa:usedProcedure`, `time:unitHour` |
+| `aggregation_types` | `aggregation_code` | `sosa:usedProcedure`, `time:unitHour` |
 | `observation_logs` | `observation_log_id` | `prov:Entity` |
-| `observation_logs` | `result_time` | `sosa:resultTime`, `prov:generatedAtTime` |
 | `measurements` | `start_time` | `sosa:phenomenonTime`, `time:hasBeginning` |
 | `measurements` | `end_time` | `sosa:phenomenonTime`, `time:hasEnd` |
-| `measurements` | `measured_value` | `sosa:hasSimpleResult` |
+| `measurements` | `result_time` | `sosa:resultTime`, `prov:generatedAtTime` |
+| `measurements` | `value` | `sosa:hasSimpleResult` |
 
 ## Limitations
 

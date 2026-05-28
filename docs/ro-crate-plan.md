@@ -1,6 +1,6 @@
 # RO-Crate Preparation Notes
 
-The final `ro-crate-metadata.json` cannot be completed until the group has the final GitHub/Zenodo DOI, DBRepo entry URL, trained model deposit DOI, generated-data deposit DOI, selected licences, and final artefact filenames.
+The final `ro-crate-metadata.json` cannot be completed until the group has the final GitHub/Zenodo DOI, trained model deposit DOI, generated-data deposit DOI, selected licences, and final artefact filenames. The current DBRepo database identifier is already available and should be included in the final crate.
 
 ## Entities To Include
 
@@ -8,7 +8,7 @@ The final `ro-crate-metadata.json` cannot be completed until the group has the f
 | --- | --- | --- |
 | Repository | GitHub repository | Zenodo DOI after GitHub-Zenodo release |
 | Raw EEA input data | `data/raw/*.parquet`, `data/data-inventory.csv` | Source URL and verified input-data licence |
-| Database schema | `docs/schema.sql` | DBRepo database/table URL |
+| Database schema | `docs/schema.sql` | DBRepo database URL: `https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db` |
 | ER diagram | `docs/er-diagram.md` | Repository path |
 | Semantic mapping | `docs/semantic-mapping.md` | Repository path and DBRepo metadata reference |
 | Code metadata | `codemeta.json` | Repository path |

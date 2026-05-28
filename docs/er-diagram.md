@@ -13,7 +13,7 @@ erDiagram
     sampling_points {
         integer sampling_point_id PK
         varchar sampling_point_code UK
-        char country_code
+        varchar country_code
         varchar station_code
         varchar source_file
         varchar source_publisher
@@ -35,40 +35,41 @@ erDiagram
 
     aggregation_types {
         integer aggregation_type_id PK
-        varchar aggregation_type_code UK
-        varchar aggregation_type_label
+        varchar aggregation_code UK
+        varchar aggregation_label
     }
 
     validity_flags {
         integer validity_id PK
+        integer validity_code UK
         varchar validity_label
-        text validity_description
     }
 
     verification_flags {
         integer verification_id PK
+        integer verification_code UK
         varchar verification_label
-        text verification_description
     }
 
     observation_logs {
-        varchar observation_log_id PK
-        timestamp result_time
-        numeric data_capture
+        integer observation_log_id PK
+        varchar observation_log_uuid UK
     }
 
     measurements {
-        bigint measurement_id PK
+        integer measurement_id PK
         integer sampling_point_id FK
         integer pollutant_id FK
         integer unit_id FK
         integer aggregation_type_id FK
         integer validity_id FK
         integer verification_id FK
-        varchar observation_log_id FK
+        integer observation_log_id FK
         timestamp start_time
         timestamp end_time
-        numeric measured_value
+        timestamp result_time
+        numeric value
+        numeric data_capture
     }
 ```
 
@@ -76,7 +77,7 @@ erDiagram
 
 The raw EEA files contain hourly NO2 measurements with repeated values for sampling point, pollutant, unit, aggregation type, validity, verification, and observation log. The schema separates these repeated concepts into reference tables and stores the numeric observation itself in `measurements`.
 
-This design avoids update anomalies and keeps each non-key attribute dependent on the key of its own table. For example, the unit label and future unit URI are stored once in `measurement_units`, while each measurement references that unit by key. The `measurements` table keeps only observation-specific facts: time interval, measured value, and references to the related entities.
+This design avoids update anomalies and keeps each non-key attribute dependent on the key of its own table. For example, the unit label and future unit URI are stored once in `measurement_units`, while each measurement references that unit by key. The `measurements` table keeps only observation-specific facts: time interval, measured value, optional result time, optional data-capture value, and references to the related entities.
 
 ## Source Data Summary
 

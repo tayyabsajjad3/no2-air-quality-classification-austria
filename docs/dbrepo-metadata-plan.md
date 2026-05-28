@@ -1,10 +1,17 @@
 # DBRepo Metadata Plan
 
-This plan supports T2.1 and T2.2. The actual DBRepo updates must be executed from a Jupyter notebook using the DBRepo REST API once the group has DBRepo access credentials and the target database identifier. The SQL schema uses DBRepo-compatible data types such as `serial`, `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
+This plan supports T2.1 and T2.2. The DBRepo database and table schemas were created manually in DBRepo on 2026-05-29. Semantic metadata should be added from a Jupyter notebook using the DBRepo REST API once an API token is available. The SQL schema uses DBRepo-compatible data types such as `serial`, `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
 
 ## T2.1 Database And Table Metadata
 
 Owner: A
+
+DBRepo database:
+
+- ID: `ed890fa1-154c-4a66-8529-4088c97f68db`
+- Name: `no2_air_quality_classification_austria`
+- Internal name: `no2_air_quality_classification_austria_jlnb`
+- Tables created: `sampling_points`, `pollutants`, `measurement_units`, `aggregation_types`, `validity_flags`, `verification_flags`, `observation_logs`, `measurements`
 
 Recommended database title:
 
@@ -34,7 +41,7 @@ The semantic mappings documented in `docs/semantic-mapping.md` should be added t
 | `pollutants` | `pollutant_id`, `pollutant_name` | `sosa:observedProperty`, `CHEBI_33101` |
 | `measurements` | `start_time` | `sosa:phenomenonTime`, `time:hasBeginning` |
 | `measurements` | `end_time` | `sosa:phenomenonTime`, `time:hasEnd` |
-| `measurements` | `measured_value` | `sosa:hasSimpleResult` |
+| `measurements` | `result_time` | `sosa:resultTime`, `prov:generatedAtTime` |
+| `measurements` | `value` | `sosa:hasSimpleResult` |
 | `measurement_units` | `unit_code` | `qudt:unit` |
 | `observation_logs` | `observation_log_id` | `prov:Entity` |
-| `observation_logs` | `result_time` | `sosa:resultTime`, `prov:generatedAtTime` |
