@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "NO2 Air Quality Classification across Austrian Monitoring Stations"
+version: 2.0.0
+date-released: 2026-05-28
+doi: 10.5281/zenodo.20432795
+url: "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria"
+license: MIT
+repository-code: "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria"
+abstract: "A FAIR Data Science project classifying NO2 air quality levels across Austrian monitoring stations using EEA hourly measurement data from 2024."
+keywords:
+  - NO2
+  - air quality
+  - Austria
+  - machine learning
+  - FAIR data
+  - European Environment Agency
+authors:
+  - family-names: Tayyab
+    given-names: Muhammed
+    affiliation: "TU Wien"
+  - family-names: Sadeghi
+    given-names: Sina
+    affiliation: "TU Wien"
+  - family-names: Rembeci
+    given-names: Glent
+    affiliation: "TU Wien"
+  - family-names: Zeraati
+    given-names: Somayeh
+    affiliation: "TU Wien"

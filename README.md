@@ -113,7 +113,7 @@ The experiment's data loading will be reimplemented to retrieve data exclusively
 
 ## Zenodo DOI (T3.8)
 
-[!DOI](https://doi.org/YOUR_ZENODO_DOI_HERE) `[To be added]`
+[![DOI](https://zenodo.org/badge/1230137926.svg)](https://doi.org/10.5281/zenodo.20432795)
 
 A `CITATION.cff` file is available in the repository root, referencing the Zenodo DOI.
 
