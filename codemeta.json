@@ -25,7 +25,9 @@
     {
       "@type": "Person",
       "givenName": "Glent",
-      "familyName": "Rembeci"
+      "familyName": "Rembeci",
+      "@id": "https://orcid.org/0009-0003-3981-8301",
+      "identifier": "https://orcid.org/0009-0003-3981-8301"
     },
     {
       "@type": "Person",
@@ -42,7 +44,9 @@
     {
       "@type": "Person",
       "givenName": "Sina",
-      "familyName": "Sadeghi"
+      "familyName": "Sadeghi",
+      "@id": "https://orcid.org/0009-0008-1996-4666",
+      "identifier": "https://orcid.org/0009-0008-1996-4666"
     }
   ],
   "softwareRequirements": [

@@ -1,6 +1,6 @@
 # RO-Crate Preparation Notes
 
-The draft `ro-crate-metadata.json` is available in the repository root. The generated-output licence is recorded as CC BY 4.0 unless the verified EEA source-data licence requires a different compatible licence. The final RO-Crate cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, remaining ORCIDs, DBRepo PID, and final artefact filenames. The current Zenodo DOI and DBRepo database identifier are already included in the draft crate.
+The draft `ro-crate-metadata.json` is available in the repository root. The generated-output licence is recorded as CC BY 4.0 unless the verified EEA source-data licence requires a different compatible licence. The final RO-Crate cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, Muhammed Tayyab's ORCID, DBRepo PID, and final artefact filenames. The current Zenodo DOI and DBRepo database identifier are already included in the draft crate.
 
 ## Entities To Include
 
