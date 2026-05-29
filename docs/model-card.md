@@ -38,4 +38,4 @@ Air-quality analysis can influence public interpretation of environmental risk, 
 
 ## Licence
 
-The software code is licensed under the MIT License. Produced artefacts such as the trained model and generated outputs are proposed to be released under CC BY 4.0, unless the verified EEA source-data licence requires a different compatible licence. The final model deposit must state the selected output-data licence explicitly.
+The software code is licensed under the MIT License. Produced artefacts such as the trained model and generated outputs are selected for release under CC BY 4.0, unless the verified EEA source-data licence requires a different compatible licence. The final model deposit must state the selected output-data licence explicitly.

@@ -25,7 +25,7 @@
           "@id": "https://spdx.org/licenses/MIT"
         },
         {
-          "@id": "#generated-data-licence-pending"
+          "@id": "https://creativecommons.org/licenses/by/4.0/"
         }
       ],
       "creator": [
@@ -265,10 +265,10 @@
       "name": "MIT License"
     },
     {
-      "@id": "#generated-data-licence-pending",
+      "@id": "https://creativecommons.org/licenses/by/4.0/",
       "@type": "CreativeWork",
-      "name": "Generated data licence pending",
-      "description": "The final generated/output-data licence must be confirmed before final submission."
+      "name": "Creative Commons Attribution 4.0 International",
+      "description": "Selected licence for generated outputs unless the verified EEA source-data licence requires a different compatible licence."
     },
     {
       "@id": "#glent-rembeci",

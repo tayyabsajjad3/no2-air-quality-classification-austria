@@ -16,7 +16,7 @@ The MIT License applies to original code and software documentation in this repo
 
 ## Produced / Output Data
 
-Produced artefacts such as trained models, predictions, evaluation tables, and generated figures should be licensed separately from the software. The recommended output-data licence for this project is Creative Commons Attribution 4.0 International (CC BY 4.0), unless the verified EEA input-data licence imposes a more restrictive or share-alike requirement.
+Produced artefacts such as trained models, predictions, evaluation tables, and generated figures should be licensed separately from the software. The selected output-data licence for this project is Creative Commons Attribution 4.0 International (CC BY 4.0), unless the verified EEA input-data licence imposes a more restrictive or share-alike requirement.
 
 The final TU Wien Research Data Repository deposits for the model and generated data must state the selected output-data licence explicitly. The same licence should be referenced in the README, RO-Crate, FAIR4ML metadata, Model Card, and deposit metadata.
 
@@ -26,4 +26,4 @@ The final TU Wien Research Data Repository deposits for the model and generated 
 | --- | --- | --- |
 | Input data | EEA source-specific licence/reuse terms | Must be verified from the EEA data hub before final submission |
 | Software/code | MIT License | Added as `LICENSE` |
-| Produced/output data | CC BY 4.0, unless input licence requires otherwise | Proposed; must be confirmed before TUWRD deposits |
+| Produced/output data | CC BY 4.0, unless input licence requires otherwise | Selected for generated outputs; verify source compatibility before TUWRD deposits |

@@ -14,11 +14,11 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - SQL view definitions draft in `docs/views.sql`.
 - Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
 - Croissant dataset metadata in `croissant.json`.
+- Licence decision record selecting CC BY 4.0 for generated outputs, subject to final source-licence compatibility verification.
 
 ## To Add Before Release
 
-- DBRepo metadata for database and tables.
-- Unit mapping metadata from T2.3.
+- Remaining DBRepo metadata/PID for database and tables.
 - SQL view execution and schema-compatibility verification from T2.4/T2.5.
 - DBRepo data loading and view verification from T2.5.
 - API-based data loading implementation from T2.6.
