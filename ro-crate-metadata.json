@@ -1,0 +1,318 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "dateCreated": "2026-05-29"
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
+      "description": "A FAIR Data Science project package for classifying nitrogen dioxide (NO2) air-quality levels across Austrian monitoring stations using European Environment Agency hourly measurement data.",
+      "identifier": "https://doi.org/10.5281/zenodo.20432795",
+      "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
+      "datePublished": "2026-05-28",
+      "license": [
+        {
+          "@id": "https://spdx.org/licenses/MIT"
+        },
+        {
+          "@id": "#generated-data-licence-pending"
+        }
+      ],
+      "creator": [
+        {
+          "@id": "#glent-rembeci"
+        },
+        {
+          "@id": "https://orcid.org/0009-0001-3666-0911"
+        },
+        {
+          "@id": "#muhammed-tayyab"
+        },
+        {
+          "@id": "#sina-sadeghi"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "README.md"
+        },
+        {
+          "@id": "CITATION.cff"
+        },
+        {
+          "@id": "codemeta.json"
+        },
+        {
+          "@id": "croissant.json"
+        },
+        {
+          "@id": "requirements.txt"
+        },
+        {
+          "@id": "LICENSE"
+        },
+        {
+          "@id": "data/data-inventory.csv"
+        },
+        {
+          "@id": "data/raw/"
+        },
+        {
+          "@id": "docs/schema.sql"
+        },
+        {
+          "@id": "docs/er-diagram.md"
+        },
+        {
+          "@id": "docs/semantic-mapping.md"
+        },
+        {
+          "@id": "docs/dbrepo-metadata-plan.md"
+        },
+        {
+          "@id": "docs/licences.md"
+        },
+        {
+          "@id": "docs/eea-licence-review.md"
+        },
+        {
+          "@id": "docs/model-card.md"
+        },
+        {
+          "@id": "docs/ro-crate-plan.md"
+        },
+        {
+          "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
+        },
+        {
+          "@id": "#trained-model-pending"
+        },
+        {
+          "@id": "#generated-data-pending"
+        }
+      ],
+      "keywords": [
+        "NO2",
+        "air quality",
+        "Austria",
+        "European Environment Agency",
+        "machine learning",
+        "FAIR data",
+        "DBRepo"
+      ]
+    },
+    {
+      "@id": "https://doi.org/10.5281/zenodo.20432795",
+      "@type": "CreativeWork",
+      "name": "Zenodo software release DOI",
+      "url": "https://doi.org/10.5281/zenodo.20432795"
+    },
+    {
+      "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db",
+      "@type": "Dataset",
+      "name": "NO2 air quality classification Austria DBRepo database",
+      "description": "Visible DBRepo database containing the normalized relational schema for EEA NO2 air-quality measurements and reference tables.",
+      "encodingFormat": "DBRepo relational database",
+      "isBasedOn": {
+        "@id": "data/raw/"
+      }
+    },
+    {
+      "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d",
+      "@type": "Dataset",
+      "name": "European Environment Agency source data hub record",
+      "publisher": {
+        "@id": "#eea"
+      },
+      "url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
+    },
+    {
+      "@id": "data/raw/",
+      "@type": "Dataset",
+      "name": "Raw EEA NO2 Parquet input files",
+      "description": "Original station-specific EEA NO2 Parquet files retained for provenance.",
+      "isBasedOn": {
+        "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
+      }
+    },
+    {
+      "@id": "#trained-model-pending",
+      "@type": "CreativeWork",
+      "name": "Trained NO2 classification model",
+      "description": "Placeholder for the final trained model artefact and TUWRD model DOI. This entity must be replaced when the model deposit is complete.",
+      "sameAs": {
+        "@id": "#tuwrd-model-doi-pending"
+      }
+    },
+    {
+      "@id": "#generated-data-pending",
+      "@type": "Dataset",
+      "name": "Generated classification outputs",
+      "description": "Placeholder for predictions, evaluation figures, confusion matrices, and the TUWRD generated-data DOI. This entity must be replaced when the generated data deposit is complete.",
+      "sameAs": {
+        "@id": "#tuwrd-generated-data-doi-pending"
+      }
+    },
+    {
+      "@id": "README.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Project README"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "Citation metadata"
+    },
+    {
+      "@id": "codemeta.json",
+      "@type": "File",
+      "encodingFormat": "application/json",
+      "name": "CodeMeta software metadata",
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "croissant.json",
+      "@type": "File",
+      "encodingFormat": "application/ld+json",
+      "name": "Croissant dataset metadata"
+    },
+    {
+      "@id": "requirements.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "Pinned Python dependencies"
+    },
+    {
+      "@id": "LICENSE",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "MIT software licence"
+    },
+    {
+      "@id": "data/data-inventory.csv",
+      "@type": "File",
+      "encodingFormat": "text/csv",
+      "name": "Raw data inventory"
+    },
+    {
+      "@id": "docs/schema.sql",
+      "@type": "File",
+      "encodingFormat": "application/sql",
+      "name": "DBRepo relational schema"
+    },
+    {
+      "@id": "docs/er-diagram.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Entity relationship diagram"
+    },
+    {
+      "@id": "docs/semantic-mapping.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Semantic attribute mapping"
+    },
+    {
+      "@id": "docs/dbrepo-metadata-plan.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "DBRepo metadata plan"
+    },
+    {
+      "@id": "docs/licences.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Licence decision record"
+    },
+    {
+      "@id": "docs/eea-licence-review.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "EEA licence review"
+    },
+    {
+      "@id": "docs/model-card.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Model Card draft",
+      "about": {
+        "@id": "#trained-model-pending"
+      }
+    },
+    {
+      "@id": "docs/ro-crate-plan.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "RO-Crate preparation notes"
+    },
+    {
+      "@id": "https://spdx.org/licenses/MIT",
+      "@type": "CreativeWork",
+      "name": "MIT License"
+    },
+    {
+      "@id": "#generated-data-licence-pending",
+      "@type": "CreativeWork",
+      "name": "Generated data licence pending",
+      "description": "The final generated/output-data licence must be confirmed before final submission."
+    },
+    {
+      "@id": "#glent-rembeci",
+      "@type": "Person",
+      "name": "Glent Rembeci",
+      "affiliation": {
+        "@id": "#tu-wien"
+      }
+    },
+    {
+      "@id": "https://orcid.org/0009-0001-3666-0911",
+      "@type": "Person",
+      "name": "Somayeh Zeraati",
+      "affiliation": {
+        "@id": "#tu-wien"
+      }
+    },
+    {
+      "@id": "#muhammed-tayyab",
+      "@type": "Person",
+      "name": "Muhammed Tayyab",
+      "affiliation": {
+        "@id": "#tu-wien"
+      }
+    },
+    {
+      "@id": "#sina-sadeghi",
+      "@type": "Person",
+      "name": "Sina Sadeghi",
+      "affiliation": {
+        "@id": "#tu-wien"
+      }
+    },
+    {
+      "@id": "#tu-wien",
+      "@type": "Organization",
+      "name": "TU Wien",
+      "url": "https://www.tuwien.at/"
+    },
+    {
+      "@id": "#eea",
+      "@type": "Organization",
+      "name": "European Environment Agency",
+      "url": "https://www.eea.europa.eu/"
+    }
+  ]
+}

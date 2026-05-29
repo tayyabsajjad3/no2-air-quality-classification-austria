@@ -124,6 +124,7 @@ A `CITATION.cff` file is available in the repository root, referencing the Zenod
 DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db
 
 * CodeMeta draft: `codemeta.json`
+* RO-Crate metadata draft: `ro-crate-metadata.json`
 * CodeMeta notes: `docs/codemeta-notes.md`
 * Licence decisions: `docs/licences.md`
 * EEA licence review: `docs/eea-licence-review.md`
@@ -132,4 +133,3 @@ DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-85
 * DBRepo metadata plan: `docs/dbrepo-metadata-plan.md`
 * DBRepo notebook template: `notebooks/dbrepo_setup_template.ipynb`
 * OSTrails test assignment: `docs/ostrails-test-assignment.md`
-* A/B task status: `docs/a-b-task-status.md`

@@ -1,6 +1,6 @@
 # RO-Crate Preparation Notes
 
-The final `ro-crate-metadata.json` cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, selected licences, and final artefact filenames. The current Zenodo DOI and DBRepo database identifier are already available and should be included in the final crate.
+The draft `ro-crate-metadata.json` is available in the repository root. The final RO-Crate cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, selected licences, remaining ORCIDs, DBRepo PID, and final artefact filenames. The current Zenodo DOI and DBRepo database identifier are already included in the draft crate.
 
 ## Entities To Include
 
