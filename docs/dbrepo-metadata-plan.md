@@ -1,6 +1,6 @@
 # DBRepo Metadata Plan
 
-This plan supports T2.1 and T2.2. The DBRepo database and table schemas were created manually in DBRepo on 2026-05-29. Semantic metadata should be added from a Jupyter notebook using the DBRepo REST API once an API token is available, or manually in DBRepo where the table UI exposes concept and unit URI fields. The SQL schema uses DBRepo-compatible data types such as `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
+This plan supports T2.1 and T2.2. The DBRepo database and table schemas were created manually in DBRepo on 2026-05-29. Semantic metadata was added manually in DBRepo through the table schema UI where concept and unit URI fields were available. The SQL schema uses DBRepo-compatible data types such as `varchar`, `int`, `decimal`, and `timestamp`; source UUID values are stored as `VARCHAR(36)` because DBRepo's public table-creation type list does not expose a dedicated UUID column type.
 
 ## T2.1 Database And Table Metadata
 
@@ -33,7 +33,7 @@ The EEA must be credited as the source/publisher of the input data. The student 
 
 Owner: B
 
-The semantic mappings documented in `docs/semantic-mapping.md` should be added to DBRepo attribute metadata. The highest-priority mappings are:
+The semantic mappings documented in `docs/semantic-mapping.md` were added to DBRepo attribute metadata for the main analysis columns. The highest-priority mappings are:
 
 | Table | Attribute | Concept |
 | --- | --- | --- |
@@ -46,9 +46,10 @@ The semantic mappings documented in `docs/semantic-mapping.md` should be added t
 | `measurement_units` | `unit_code` | `qudt:unit` |
 | `observation_logs` | `observation_log_id` | `prov:Entity` |
 
-Manual DBRepo UI checklist:
+Manual DBRepo UI completion notes:
 
-1. Open the DBRepo database `ed890fa1-154c-4a66-8529-4088c97f68db`.
-2. Open each table and add the concept URI for the attributes listed above where the UI provides a concept field.
-3. For unit metadata, add `http://qudt.org/vocab/unit/MicroGM-PER-M3` to the unit URI field for `measurements.value` if DBRepo allows a unit URI on numeric attributes.
-4. If DBRepo does not allow editing these fields after table creation, keep this document and `notebooks/dbrepo_setup_template.ipynb` as the required metadata mapping evidence and add the mappings through the REST API once a token is available.
+1. The DBRepo database `ed890fa1-154c-4a66-8529-4088c97f68db` was opened in the DBRepo UI.
+2. The relevant table schema pages were edited through the available Concept and Measurement Unit fields.
+3. The NO2 value column was annotated with concept `http://www.w3.org/ns/sosa/hasSimpleResult`.
+4. The NO2 value column was annotated with unit URI `http://qudt.org/vocab/unit/MicroGM-PER-M3`.
+5. The timestamp, sampling point, pollutant, unit, aggregation, and observation-log mappings listed above were added manually where the UI exposed editable metadata fields.

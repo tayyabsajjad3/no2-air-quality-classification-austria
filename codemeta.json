@@ -30,7 +30,9 @@
     {
       "@type": "Person",
       "givenName": "Somayeh",
-      "familyName": "Zeraati"
+      "familyName": "Zeraati",
+      "@id": "https://orcid.org/0009-0001-3666-0911",
+      "identifier": "https://orcid.org/0009-0001-3666-0911"
     },
     {
       "@type": "Person",

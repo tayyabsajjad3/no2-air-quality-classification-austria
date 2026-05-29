@@ -34,7 +34,7 @@ The main ontology for the observation model is the W3C/OGC Semantic Sensor Netwo
 
 ## DBRepo Metadata Notes
 
-When adding these mappings to DBRepo metadata, the columns should be annotated at table or attribute level as follows:
+These mappings were added manually in DBRepo metadata where the table schema UI exposed editable Concept and Measurement Unit fields:
 
 | Table | Column | Recommended semantic annotation |
 | --- | --- | --- |
