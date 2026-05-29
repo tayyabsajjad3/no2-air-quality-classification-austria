@@ -39,7 +39,9 @@
     {
       "@type": "Person",
       "givenName": "Muhammed",
-      "familyName": "Tayyab"
+      "familyName": "Tayyab",
+      "@id": "https://orcid.org/0009-0000-6631-8482",
+      "identifier": "https://orcid.org/0009-0000-6631-8482"
     },
     {
       "@type": "Person",
