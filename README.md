@@ -105,9 +105,8 @@ The following SQL views are defined in `docs/views.sql` to de-normalize data int
 
 The experiment's data loading will be reimplemented to retrieve data exclusively from the DBRepo REST API.
 
-*   **Base URL**: `[To be added]`
-*   **Endpoints Used**: `[To be added, e.g., /api/views/view_no2_classification_features]`
-*   **Authentication**: `[To be added, e.g., Bearer Token]`
+*   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
+*   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
 
 ---
 
