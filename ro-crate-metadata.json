@@ -59,6 +59,12 @@
           "@id": "requirements.txt"
         },
         {
+          "@id": "pyproject.toml"
+        },
+        {
+          "@id": "uv.lock"
+        },
+        {
           "@id": "LICENSE"
         },
         {
@@ -69,6 +75,9 @@
         },
         {
           "@id": "docs/schema.sql"
+        },
+        {
+          "@id": "docs/views.sql"
         },
         {
           "@id": "docs/er-diagram.md"
@@ -90,6 +99,9 @@
         },
         {
           "@id": "docs/ro-crate-plan.md"
+        },
+        {
+          "@id": "src/ingest_dbrepo.py"
         },
         {
           "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
@@ -203,6 +215,18 @@
       "name": "Pinned Python dependencies"
     },
     {
+      "@id": "pyproject.toml",
+      "@type": "File",
+      "encodingFormat": "application/toml",
+      "name": "Python project metadata"
+    },
+    {
+      "@id": "uv.lock",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "uv dependency lock file"
+    },
+    {
       "@id": "LICENSE",
       "@type": "File",
       "encodingFormat": "text/plain",
@@ -219,6 +243,12 @@
       "@type": "File",
       "encodingFormat": "application/sql",
       "name": "DBRepo relational schema"
+    },
+    {
+      "@id": "docs/views.sql",
+      "@type": "File",
+      "encodingFormat": "application/sql",
+      "name": "DBRepo SQL view definitions"
     },
     {
       "@id": "docs/er-diagram.md",
@@ -264,6 +294,12 @@
       "@type": "File",
       "encodingFormat": "text/markdown",
       "name": "RO-Crate preparation notes"
+    },
+    {
+      "@id": "src/ingest_dbrepo.py",
+      "@type": "File",
+      "encodingFormat": "text/x-python",
+      "name": "DBRepo API ingestion script"
     },
     {
       "@id": "https://spdx.org/licenses/MIT",

@@ -66,6 +66,7 @@ All file names follow lowercase naming with underscores for consistency.
 * matplotlib
 * pyarrow
 * requests
+* python-dotenv
 
 Dependencies are pinned in `requirements.txt`.
 
@@ -107,6 +108,8 @@ The experiment's data loading will be reimplemented to retrieve data exclusively
 
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
 *   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
+*   **Implementation**: `src/ingest_dbrepo.py`
+*   **Configuration**: `DBREPO_BASE_URL`, `DBREPO_DATABASE_ID`, optional `DBREPO_API_TOKEN`, and optional `DBREPO_VIEW_DATA_PATH_TEMPLATE`
 
 ---
 
