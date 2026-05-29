@@ -134,6 +134,9 @@
       "publisher": {
         "@id": "#eea"
       },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
       "url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
     },
     {
@@ -141,6 +144,9 @@
       "@type": "Dataset",
       "name": "Raw EEA NO2 Parquet input files",
       "description": "Original station-specific EEA NO2 Parquet files retained for provenance.",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
       "isBasedOn": {
         "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
       }
@@ -268,7 +274,7 @@
       "@id": "https://creativecommons.org/licenses/by/4.0/",
       "@type": "CreativeWork",
       "name": "Creative Commons Attribution 4.0 International",
-      "description": "Selected licence for generated outputs unless the verified EEA source-data licence requires a different compatible licence."
+      "description": "Verified licence for the EEA source-data metadata record and selected licence for generated project outputs."
     },
     {
       "@id": "#glent-rembeci",

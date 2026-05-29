@@ -1,6 +1,6 @@
 # EEA Licence Review
 
-This note supports T3.6 by recording the current licence evidence for the EEA input data.
+This note supports T3.6 by recording the licence evidence for the EEA input data.
 
 ## Findings
 
@@ -8,15 +8,19 @@ The EEA legal notice states that, unless otherwise indicated, EEA website materi
 
 The EEA data policy states that EEA aims to support full, free, and open access where possible, while recognising third-party data ownership and item-specific data licences. It also states that data providers should specify intellectual-property rights, reuse conditions, and quality statements in metadata.
 
+The source-specific metadata factsheet for the EEA data hub record used by this project was checked on 2026-05-29. It identifies the licence as Creative Commons Attribution 4.0 International (CC BY 4.0) and lists the European Environment Agency as the copyright holder.
+
 ## Project Decision
 
-For this project, the input data should be documented as EEA-sourced data with item-specific licence verification required. The group should not claim authorship or publisher status over the raw data. The source/publisher should be recorded as the European Environment Agency, while the group can be described as curating or republishing a normalised DBRepo representation for the exercise.
+For this project, the input data is documented as EEA-sourced CC BY 4.0 data. The group should not claim authorship or publisher status over the raw data. The source/publisher should be recorded as the European Environment Agency, while the group can be described as curating or republishing a normalised DBRepo representation for the exercise.
 
-Until the exact licence shown on the EEA data hub item is confirmed, the safer wording is:
+Recommended wording:
 
-`Input data from the European Environment Agency remains subject to the EEA source-specific licence or reuse terms. EEA materials are generally reusable under CC-BY unless item-specific conditions state otherwise; the final submission must cite the licence or reuse terms shown on the original data hub record.`
+`Input data from the European Environment Agency is reused under the CC BY 4.0 licence identified in the source-specific EEA metadata factsheet. The raw data remains EEA-sourced material and must be cited with the original data hub record, access date, and provenance information.`
 
 ## References
 
 - EEA data policy: https://www.eea.europa.eu/en/datahub/eea-data-policy
 - EEA legal notice: https://www.eea.europa.eu/en/legal-notice
+- EEA source data hub record: https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d
+- EEA source metadata factsheet: https://sdi.eea.europa.eu/catalogue/datahub/api/records/fe809728-9cec-41c0-a9be-3a8f04600974/formatters/xsl-view?approved=true&language=eng&output=pdf

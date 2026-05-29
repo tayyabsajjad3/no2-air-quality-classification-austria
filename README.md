@@ -87,7 +87,7 @@ The workflow includes:
 
 The software/code in this repository is licensed under the MIT License; see `LICENSE`.
 
-Input data from the European Environment Agency remains subject to the EEA source-specific licence or reuse terms, which must be verified from the original data hub record before final submission. Produced artefacts such as trained models, predictions, and figures are selected for CC BY 4.0 release unless the verified input-data licence requires a different compatible licence. The licence decision record is documented in `docs/licences.md`.
+Input data from the European Environment Agency is reused under the CC BY 4.0 licence identified in the source-specific EEA metadata factsheet. The raw data remains EEA-sourced material and must be cited with the original data hub record, access date, and provenance information. Produced artefacts such as trained models, predictions, and figures are selected for CC BY 4.0 release. The licence decision record is documented in `docs/licences.md`.
 
 ---
 

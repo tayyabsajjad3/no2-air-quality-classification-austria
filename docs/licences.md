@@ -6,7 +6,9 @@ This document records the licence decisions for the three artefact categories re
 
 The input data consists of nitrogen dioxide (NO2) monitoring measurements downloaded from the European Environment Agency (EEA) data hub. The raw Parquet files are retained under their original EEA filenames in `data/raw/` to preserve provenance.
 
-The EEA legal notice states that, unless otherwise indicated, EEA materials are published under a CC-BY licence. The EEA data policy also states that data made available by EEA can be accompanied by item-specific licences or third-party reuse conditions. Therefore, the final submission must cite the exact licence or reuse terms shown on the EEA data hub record used for the download. Until that source-specific licence text is confirmed, the repository documents the source, publisher, access date, file inventory, and provenance, but does not re-license the raw EEA data as if it were created by this group.
+The EEA legal notice states that, unless otherwise indicated, EEA materials are published under a CC-BY licence. The EEA data policy also states that data made available by EEA can be accompanied by item-specific licences or third-party reuse conditions.
+
+The source-specific EEA metadata factsheet for the data hub record used in this project was checked on 2026-05-29. It lists the licence as Creative Commons Attribution 4.0 International (CC BY 4.0) and the copyright holder as the European Environment Agency. Therefore, the raw input data is documented as EEA-sourced CC BY 4.0 material. The group does not claim authorship over the raw data; the EEA source, access date, file inventory, and provenance must remain cited.
 
 ## Software / Code
 
@@ -24,6 +26,6 @@ The final TU Wien Research Data Repository deposits for the model and generated 
 
 | Artefact category | Proposed licence | Status |
 | --- | --- | --- |
-| Input data | EEA source-specific licence/reuse terms | Must be verified from the EEA data hub before final submission |
+| Input data | CC BY 4.0, EEA as source/copyright holder | Verified from the source-specific EEA metadata factsheet on 2026-05-29 |
 | Software/code | MIT License | Added as `LICENSE` |
 | Produced/output data | CC BY 4.0, unless input licence requires otherwise | Selected for generated outputs; verify source compatibility before TUWRD deposits |
