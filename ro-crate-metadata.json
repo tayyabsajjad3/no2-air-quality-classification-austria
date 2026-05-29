@@ -36,7 +36,7 @@
           "@id": "https://orcid.org/0009-0001-3666-0911"
         },
         {
-          "@id": "#muhammed-tayyab"
+          "@id": "https://orcid.org/0009-0000-6631-8482"
         },
         {
           "@id": "https://orcid.org/0009-0008-1996-4666"
@@ -329,7 +329,7 @@
       }
     },
     {
-      "@id": "#muhammed-tayyab",
+      "@id": "https://orcid.org/0009-0000-6631-8482",
       "@type": "Person",
       "name": "Muhammed Tayyab",
       "affiliation": {
