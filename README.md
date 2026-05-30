@@ -98,7 +98,7 @@ cp .env.example .env
 python scripts/load_dbrepo_import_csvs.py
 
 # 3. Run the experiment using DBRepo views
-python src/ingest_dbrepo.py
+python src/data_ingestion/ingest_dbrepo.py
 ```
 
 ### DBRepo Configuration
@@ -204,10 +204,10 @@ The experiment's data loading and retrieval are documented for DBRepo. Table loa
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
 *   **Database ID**: `ed890fa1-154c-4a66-8529-4088c97f68db`
 *   **DBRepo DOI**: `https://doi.org/10.82556/3zan-dn41`
-*   **Endpoints Used**: `/api/v1/database/{database_id}/table/{table_id}/data` (View logic is performed client-side using Pandas because DBRepo View creation requires DB Owner permissions).
+*   **Endpoints Used**: `/api/v1/database/{database_id}/table/{table_id}/data`
 *   **Authentication**: None required (publicly accessible database)
 *   **Data loading**: `python scripts/load_dbrepo_import_csvs.py`
-*   **Implementation**: `src/ingest_dbrepo.py`
+*   **Implementation**: `src/data_ingestion/ingest_dbrepo.py`
 *   **Configuration**: `DBREPO_BASE_URL`, `DBREPO_DATABASE_ID`, optional `DBREPO_API_TOKEN`, and optional `DBREPO_VIEW_DATA_PATH_TEMPLATE`
 
 Loaded DBRepo row counts: `sampling_points` 16, `pollutants` 1, `measurement_units` 1, `aggregation_types` 1, `validity_flags` 2, `verification_flags` 1, `observation_logs` 19, and `measurements` 140,160.
