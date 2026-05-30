@@ -33,18 +33,3 @@ JOIN
     verification_flags ver ON m.verification_id = ver.verification_id
 WHERE 
     p.pollutant_name = 'NO2';
-
--- VIEW 2: Class-Balanced Samples (Addressing Imbalance)
-CREATE VIEW view_balanced_pollution_samples AS
-(
-    SELECT * FROM view_no2_classification_features
-    WHERE target_elevated_no2 = 0
-    ORDER BY start_time DESC
-    LIMIT 5000
-)
-UNION ALL
-(
-    SELECT * FROM view_no2_classification_features
-    WHERE target_elevated_no2 = 1
-    ORDER BY start_time DESC 
-);

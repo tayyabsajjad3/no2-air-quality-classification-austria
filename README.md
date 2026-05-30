@@ -189,11 +189,9 @@ All file names follow lowercase naming with underscores for consistency.
 
 ## SQL Views (T2.4)
 
-The following SQL views are defined in `docs/views.sql`:
+The following SQL view is defined in `docs/views.sql`:
 
 - **`view_no2_classification_features`**: Primary feature table with flattened NO2 measurements and an `elevated_no2_label` target variable based on `Value >= 40 µg/m³`
-- **`view_balanced_pollution_samples`**: Class-balanced sample combining normal and elevated NO2 events
-- **`view_regional_daily_aggregates`**: Daily aggregates (average, max, min) per station for temporal trend features
 
 ---
 
@@ -204,7 +202,7 @@ The experiment's data loading and retrieval are documented for DBRepo. Table loa
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
 *   **Database ID**: `ed890fa1-154c-4a66-8529-4088c97f68db`
 *   **DBRepo DOI**: `https://doi.org/10.82556/3zan-dn41`
-*   **Endpoints Used**: `/api/v1/database/{database_id}/table/{table_id}/data`
+*   **Endpoints Used**: `/api/v1/database/{database_id}/view/{viewId}/data`
 *   **Authentication**: None required (publicly accessible database)
 *   **Data loading**: `python scripts/load_dbrepo_import_csvs.py`
 *   **Implementation**: `src/data_ingestion/ingest_dbrepo.py`
