@@ -107,12 +107,6 @@
           "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
         },
         {
-          "@id": "#trained-model-pending"
-        },
-        {
-          "@id": "#generated-data-pending"
-        },
-        {
           "@id": "scripts/load_dbrepo_import_csvs.py"
         },
         {
@@ -120,6 +114,24 @@
         },
         {
           "@id": "https://doi.org/10.82556/3zan-dn41"
+        },
+        {
+          "@id": "scripts/train_no2_classifier.py"
+        },
+        {
+          "@id": "outputs/models/no2_air_quality_classifier.joblib"
+        },
+        {
+          "@id": "outputs/results/model_metrics.json"
+        },
+        {
+          "@id": "outputs/results/confusion_matrix.csv"
+        },
+        {
+          "@id": "outputs/results/test_predictions.csv"
+        },
+        {
+          "@id": "outputs/figures/confusion_matrix.png"
         }
       ],
       "keywords": [
@@ -182,24 +194,6 @@
       },
       "isBasedOn": {
         "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
-      }
-    },
-    {
-      "@id": "#trained-model-pending",
-      "@type": "CreativeWork",
-      "name": "Trained NO2 classification model",
-      "description": "Placeholder for the final trained model artefact and TUWRD model DOI. This entity must be replaced when the model deposit is complete.",
-      "sameAs": {
-        "@id": "#tuwrd-model-doi-pending"
-      }
-    },
-    {
-      "@id": "#generated-data-pending",
-      "@type": "Dataset",
-      "name": "Generated classification outputs",
-      "description": "Placeholder for predictions, evaluation figures, confusion matrices, and the TUWRD generated-data DOI. This entity must be replaced when the generated data deposit is complete.",
-      "sameAs": {
-        "@id": "#tuwrd-generated-data-doi-pending"
       }
     },
     {
@@ -305,9 +299,9 @@
       "@id": "docs/model-card.md",
       "@type": "File",
       "encodingFormat": "text/markdown",
-      "name": "Model Card draft",
+      "name": "Model Card",
       "about": {
-        "@id": "#trained-model-pending"
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
       }
     },
     {
@@ -409,6 +403,78 @@
       },
       "isPartOf": {
         "@id": "./"
+      }
+    },
+    {
+      "@id": "scripts/train_no2_classifier.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode"
+      ],
+      "name": "NO2 classifier training script",
+      "description": "Trains the baseline elevated-NO2 classifier and writes the model, metrics, predictions, and confusion matrix outputs.",
+      "programmingLanguage": "Python",
+      "encodingFormat": "text/x-python",
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "outputs/models/no2_air_quality_classifier.joblib",
+      "@type": [
+        "File",
+        "SoftwareApplication"
+      ],
+      "name": "Trained NO2 elevated-class classifier",
+      "description": "Baseline RandomForestClassifier model for the educational elevated-NO2 target Value >= 40 ug/m3.",
+      "encodingFormat": "application/octet-stream",
+      "isBasedOn": {
+        "@id": "data/raw/"
+      },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sameAs": {
+        "@id": "#tuwrd-model-doi-pending"
+      }
+    },
+    {
+      "@id": "outputs/results/model_metrics.json",
+      "@type": "File",
+      "name": "NO2 classifier evaluation metrics",
+      "encodingFormat": "application/json",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      }
+    },
+    {
+      "@id": "outputs/results/confusion_matrix.csv",
+      "@type": "File",
+      "name": "NO2 classifier confusion matrix",
+      "encodingFormat": "text/csv",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      }
+    },
+    {
+      "@id": "outputs/results/test_predictions.csv",
+      "@type": "File",
+      "name": "NO2 classifier test predictions",
+      "encodingFormat": "text/csv",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "sameAs": {
+        "@id": "#tuwrd-generated-data-doi-pending"
+      }
+    },
+    {
+      "@id": "outputs/figures/confusion_matrix.png",
+      "@type": "File",
+      "name": "NO2 classifier confusion matrix figure",
+      "encodingFormat": "image/png",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
       }
     }
   ]

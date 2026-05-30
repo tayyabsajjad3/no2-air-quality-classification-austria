@@ -7,11 +7,11 @@ SELECT
     EXTRACT(HOUR FROM m.start_time) AS feature_hour,  
     m.value AS no2_value,
     
-    -- Target Variable: Automatically binary-classify high pollution events 
+    -- Label for the exercise baseline model.
     CASE 
-        WHEN m.value > 100 THEN 1 
+        WHEN m.value >= 40 THEN 1
         ELSE 0 
-    END AS high_pollution_label,
+    END AS elevated_no2_label,
     
     sp.station_code,
     sp.sampling_point_code,
@@ -30,14 +30,14 @@ WHERE
 CREATE VIEW view_balanced_pollution_samples AS
 (
     SELECT * FROM view_no2_classification_features
-    WHERE high_pollution_label = 0 
+    WHERE elevated_no2_label = 0
     ORDER BY measurement_timestamp DESC
     LIMIT 5000
 )
 UNION ALL
 (
     SELECT * FROM view_no2_classification_features
-    WHERE high_pollution_label = 1
+    WHERE elevated_no2_label = 1
     ORDER BY measurement_timestamp DESC 
 );
 

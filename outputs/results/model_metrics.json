@@ -1,0 +1,53 @@
+{
+  "model_name": "no2_air_quality_classifier",
+  "algorithm": "RandomForestClassifier",
+  "target": "Value >= 40.0 ug/m3",
+  "target_note": "The measured Value column is used to create the label but is not used as a model feature.",
+  "features_used": [
+    "hour",
+    "month",
+    "weekday",
+    "Validity",
+    "Verification",
+    "data_capture_missing",
+    "Samplingpoint"
+  ],
+  "threshold_ug_m3": 40.0,
+  "random_state": 42,
+  "rows_total": 140160,
+  "rows_train": 112128,
+  "rows_test": 28032,
+  "positive_rows_total": 9352,
+  "positive_rate_total": 0.06672374429223744,
+  "accuracy": 0.8004780251141552,
+  "precision": 0.21072261072261073,
+  "recall": 0.7251336898395722,
+  "f1": 0.32655027092113187,
+  "classification_report": {
+    "normal": {
+      "precision": 0.9762003982034542,
+      "recall": 0.8058634660958642,
+      "f1-score": 0.8828911828137105,
+      "support": 26162.0
+    },
+    "elevated": {
+      "precision": 0.21072261072261073,
+      "recall": 0.7251336898395722,
+      "f1-score": 0.32655027092113187,
+      "support": 1870.0
+    },
+    "accuracy": 0.8004780251141552,
+    "macro avg": {
+      "precision": 0.5934615044630325,
+      "recall": 0.7654985779677181,
+      "f1-score": 0.6047207268674212,
+      "support": 28032.0
+    },
+    "weighted avg": {
+      "precision": 0.9251357769638289,
+      "recall": 0.8004780251141552,
+      "f1-score": 0.8457779727238446,
+      "support": 28032.0
+    }
+  }
+}

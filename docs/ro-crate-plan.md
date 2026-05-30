@@ -1,6 +1,6 @@
 # RO-Crate Preparation Notes
 
-The draft `ro-crate-metadata.json` is available in the repository root. The generated-output licence is recorded as CC BY 4.0 unless the verified EEA source-data licence requires a different compatible licence. The DBRepo database DOI has been minted. The final RO-Crate cannot be completed until the group has the trained model deposit DOI, generated-data deposit DOI, and final artefact filenames. The current Zenodo DOI, DBRepo database identifier, DBRepo DOI, and available ORCIDs are already included in the draft crate.
+The draft `ro-crate-metadata.json` is available in the repository root. The generated-output licence is recorded as CC BY 4.0 unless the verified EEA source-data licence requires a different compatible licence. The DBRepo database DOI has been minted. The local trained model and evaluation outputs are now included in the draft crate. The final RO-Crate still needs the TUWRD model DOI and generated-data DOI after deposit.
 
 ## Entities To Include
 
@@ -13,7 +13,7 @@ The draft `ro-crate-metadata.json` is available in the repository root. The gene
 | Semantic mapping | `docs/semantic-mapping.md` | Repository path and DBRepo metadata reference |
 | Code metadata | `codemeta.json` | Repository path |
 | Model card | `docs/model-card.md` | Repository path |
-| Trained model | `outputs/models/` | TUWRD model DOI |
+| Trained model | `outputs/models/no2_air_quality_classifier.joblib` | TUWRD model DOI |
 | Generated outputs | `outputs/results/`, `outputs/figures/` | TUWRD generated-data DOI |
 
 ## Relationships To Model

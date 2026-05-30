@@ -96,9 +96,23 @@ Input data from the European Environment Agency is reused under the CC BY 4.0 li
 
 The following SQL views are defined in `docs/views.sql` to de-normalize data into accessible formats for the ML pipeline:
 
-*   **`view_no2_classification_features`**: A primary feature table that flattens raw NO2 measurements with sampling point details, suitable for direct ML input. It includes a `high_pollution_label` as a target variable.
-*   **`view_balanced_pollution_samples`**: Provides a class-balanced sample of NO2 measurements, useful for addressing class imbalance in ML training. It combines a subsample of normal pollution events with all high pollution events.
+*   **`view_no2_classification_features`**: A primary feature table that flattens raw NO2 measurements with sampling point details, suitable for direct ML input. It includes an `elevated_no2_label` target variable based on `Value >= 40 ug/m3`.
+*   **`view_balanced_pollution_samples`**: Provides a class-balanced sample of NO2 measurements, useful for addressing class imbalance in ML training. It combines a subsample of normal NO2 events with elevated NO2 events.
 *   **`view_regional_daily_aggregates`**: Exposes engineered trend features by aggregating daily NO2 values (average, max, min) per station, providing temporal context.
+
+---
+
+## Baseline Model
+
+The current baseline model is trained locally from the raw EEA station files. The measured NO2 value is used only to create the target label and is not used as an input feature.
+
+*   **Training script**: `python scripts/train_no2_classifier.py`
+*   **Model artefact**: `outputs/models/no2_air_quality_classifier.joblib`
+*   **Metrics**: `outputs/results/model_metrics.json`
+*   **Predictions**: `outputs/results/test_predictions.csv`
+*   **Confusion matrix**: `outputs/results/confusion_matrix.csv` and `outputs/figures/confusion_matrix.png`
+
+Current test-set metrics for the elevated NO2 class are accuracy `0.8005`, precision `0.2107`, recall `0.7251`, and F1 `0.3266`. The model is a baseline for the FAIR package, not a final air-quality production model.
 
 ---
 

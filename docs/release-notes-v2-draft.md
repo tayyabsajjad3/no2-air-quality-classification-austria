@@ -19,8 +19,12 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - DBRepo CSV import fallback files in `outputs/dbrepo_import/`.
 - Idempotent DBRepo loading script in `scripts/load_dbrepo_import_csvs.py`.
 - Loaded DBRepo tables with 140,160 measurement rows and all lookup/reference rows.
+- Baseline NO2 elevated-class classifier in `outputs/models/no2_air_quality_classifier.joblib`.
+- Reproducible model training script in `scripts/train_no2_classifier.py`.
+- Evaluation outputs in `outputs/results/` and `outputs/figures/confusion_matrix.png`.
 
 ## To Add Before Release
 
 - SQL view execution and schema-compatibility verification from T2.4/T2.5.
 - API-based data loading implementation from T2.6.
+- TUWRD model DOI and generated-output DOI after final deposit.
