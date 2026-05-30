@@ -42,7 +42,7 @@ FIGURES_DIR = ROOT / "outputs" / "figures"
 
 # Add src to python path to import our DBRepo ingestor
 sys.path.append(str(ROOT / "src"))
-from data_ingestion.ingest_dbrepo import fetch_view_data
+from data_ingestion.ingest_dbrepo import fetch_actual_view_data
 
 THRESHOLD_UG_M3 = 40.0
 RANDOM_STATE = 42
@@ -50,7 +50,7 @@ RANDOM_STATE = 42
 
 def get_data_from_dbrepo() -> tuple[pd.DataFrame, pd.Series, pd.DataFrame]:
     print("Loading data via DBRepo API...")
-    df = fetch_view_data("view_no2_classification_features")
+    df = fetch_actual_view_data("view_no2_classification_features")
     
     feature_columns = [
         "hour",
