@@ -1,6 +1,7 @@
 import os
 import requests
 import pandas as pd
+import sys
 
 try:
     from dotenv import load_dotenv
@@ -51,6 +52,14 @@ def fetch_view_data(view_name: str) -> pd.DataFrame:
     except requests.exceptions.ConnectionError as e:
         raise RuntimeError(f"Connection error: Failed to connect to DBRepo while fetching '{view_name}'. Check your network or the URL: {e}")
     except requests.exceptions.HTTPError as e:
+        if e.response.status_code == 404:
+            raise RuntimeError(f"HTTP error: View '{view_name}' not found (404). Please ensure the view exists in DBRepo and the name is correct.")
+        elif e.response.status_code == 401:
+            raise RuntimeError(f"HTTP error: Unauthorized access when fetching view '{view_name}' (401). Check your API token and permissions.")
+        elif e.response.status_code == 403:
+            raise RuntimeError(f"HTTP error: Forbidden access when fetching view '{view_name}' (403). Check your API token and permissions.")
+        elif e.response.status_code >= 500:
+            raise RuntimeError(f"HTTP error: Server error while fetching view '{view_name}' (status code {e.response.status_code}). Try again later or contact support.")
         raise RuntimeError(f"HTTP error: Unexpected response code for view '{view_name}': {e}")
     except requests.exceptions.Timeout as e:
         raise RuntimeError(f"Timeout error: The request timed out while fetching view '{view_name}': {e}")
@@ -61,8 +70,12 @@ def fetch_view_data(view_name: str) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    features_df = fetch_view_data("view_no2_classification_features")
-    balanced_df = fetch_view_data("view_balanced_pollution_samples")
-    
-    print("\n--- SUCCESS! DATA PIPELINE IS LIVE ---")
-    print(features_df.head())
+    try:
+        features_df = fetch_view_data("view_no2_classification_features")
+        balanced_df = fetch_view_data("view_balanced_pollution_samples")
+        
+        print("\n--- SUCCESS! DATA PIPELINE IS LIVE ---")
+        print(features_df.head())
+    except RuntimeError as e:
+        print(f"\n--- ERROR! DATA PIPELINE FAILED ---\n{e}")
+        sys.exit(1)
