@@ -2,6 +2,7 @@ import os
 import requests
 from pathlib import Path
 from dotenv import load_dotenv
+from requests.auth import HTTPBasicAuth
 
 ROOT = Path(__file__).resolve().parents[1]
 VIEWS_FILE = ROOT / "docs" / "views.sql"
@@ -34,6 +35,12 @@ def create_views():
     # if token:
     #     headers["Authorization"] = f"Bearer {token}"
 
+    username = os.environ.get("TU_USERNAME") or os.environ.get("DBREPO_USERNAME")
+    password = os.environ.get("TU_PASSWORD") or os.environ.get("DBREPO_PASSWORD")
+    
+    auth_creds = HTTPBasicAuth(username, password) if username and password else None
+
+
     # Split the views.sql file into individual CREATE VIEW statements
     sql_text = VIEWS_FILE.read_text(encoding="utf-8")
     statements = [stmt.strip() for stmt in sql_text.split(";") if "CREATE VIEW" in stmt.upper()]
@@ -51,7 +58,7 @@ def create_views():
         }
         
         print(f"Creating view: {view_name}...")
-        response = requests.post(api_url, json=payload, headers=headers)
+        response = requests.post(api_url, json=payload, headers=headers, auth=auth_creds)
         
         if response.status_code in [200, 201, 202]:
             print(f" -> Successfully created {view_name}!")
