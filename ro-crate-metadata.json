@@ -98,6 +98,9 @@
           "@id": "docs/model-card.md"
         },
         {
+          "@id": "docs/tuwrd-model-deposit-metadata.md"
+        },
+        {
           "@id": "docs/ro-crate-plan.md"
         },
         {
@@ -132,6 +135,9 @@
         },
         {
           "@id": "outputs/figures/confusion_matrix.png"
+        },
+        {
+          "@id": "https://doi.org/10.70124/4wqg-7oc34"
         }
       ],
       "keywords": [
@@ -305,6 +311,15 @@
       }
     },
     {
+      "@id": "docs/tuwrd-model-deposit-metadata.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "TUWRD model deposit metadata draft",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      }
+    },
+    {
       "@id": "docs/ro-crate-plan.md",
       "@type": "File",
       "encodingFormat": "text/markdown",
@@ -379,6 +394,34 @@
       "identifier": "10.82556/3zan-dn41"
     },
     {
+      "@id": "https://doi.org/10.70124/4wqg-7oc34",
+      "@type": "Dataset",
+      "name": "Generated outputs for NO2 Air Quality Classification across Austrian Monitoring Stations",
+      "description": "Reserved TUWRD DOI for generated evaluation outputs: metrics, test predictions, confusion matrix table, and confusion matrix figure.",
+      "url": "https://doi.org/10.70124/4wqg-7oc34",
+      "identifier": "10.70124/4wqg-7oc34",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "isBasedOn": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "hasPart": [
+        {
+          "@id": "outputs/results/model_metrics.json"
+        },
+        {
+          "@id": "outputs/results/confusion_matrix.csv"
+        },
+        {
+          "@id": "outputs/results/test_predictions.csv"
+        },
+        {
+          "@id": "outputs/figures/confusion_matrix.png"
+        }
+      ]
+    },
+    {
       "@id": "scripts/load_dbrepo_import_csvs.py",
       "@type": [
         "File",
@@ -445,6 +488,9 @@
       "encodingFormat": "application/json",
       "about": {
         "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
       }
     },
     {
@@ -454,6 +500,9 @@
       "encodingFormat": "text/csv",
       "about": {
         "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
       }
     },
     {
@@ -465,7 +514,10 @@
         "@id": "outputs/models/no2_air_quality_classifier.joblib"
       },
       "sameAs": {
-        "@id": "#tuwrd-generated-data-doi-pending"
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
       }
     },
     {
@@ -475,6 +527,9 @@
       "encodingFormat": "image/png",
       "about": {
         "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
       }
     }
   ]

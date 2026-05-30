@@ -114,6 +114,8 @@ The current baseline model is trained locally from the raw EEA station files. Th
 
 Current test-set metrics for the elevated NO2 class are accuracy `0.8005`, precision `0.2107`, recall `0.7251`, and F1 `0.3266`. The model is a baseline for the FAIR package, not a final air-quality production model.
 
+Generated evaluation outputs are prepared for TUWRD with reserved DOI `https://doi.org/10.70124/4wqg-7oc34`. The separate trained-model deposit still needs the model file `outputs/models/no2_air_quality_classifier.joblib`.
+
 ---
 
 ## DBRepo API (T2.6)
@@ -150,6 +152,7 @@ DBRepo DOI: https://doi.org/10.82556/3zan-dn41
 * Licence decisions: `docs/licences.md`
 * EEA licence review: `docs/eea-licence-review.md`
 * Model Card draft: `docs/model-card.md`
+* TUWRD model deposit metadata draft: `docs/tuwrd-model-deposit-metadata.md`
 * RO-Crate preparation notes: `docs/ro-crate-plan.md`
 * DBRepo metadata plan: `docs/dbrepo-metadata-plan.md`
 * DBRepo notebook template: `notebooks/dbrepo_setup_template.ipynb`
