@@ -14,10 +14,10 @@ This project classifies nitrogen dioxide (NO2) air quality levels across Austria
 
 | Role | Name | ORCID |
 |------|------|-------|
-| Owner A | Sina Sadeghi | [0009-0008-1996-4666](https://orcid.org/0009-0008-1996-4666) |
-| Owner B | Glent Rembeci | [0009-0003-3981-8301](https://orcid.org/0009-0003-3981-8301) |
+| Owner A | Glent Rembeci | [0009-0003-3981-8301](https://orcid.org/0009-0003-3981-8301) |
+| Owner B | Somayeh Zeraati | [0009-0001-3666-0911](https://orcid.org/0009-0001-3666-0911) |
 | Owner C | Muhammed Tayyab Sajjad | [0009-0000-6631-8482](https://orcid.org/0009-0000-6631-8482) |
-| Owner D | Somayeh Zeraati | [0009-0001-3666-0911](https://orcid.org/0009-0001-3666-0911) |
+| Owner D | Sina Sadeghi | [0009-0008-1996-4666](https://orcid.org/0009-0008-1996-4666) |
 
 ---
 
