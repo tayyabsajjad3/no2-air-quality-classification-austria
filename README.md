@@ -107,6 +107,7 @@ The experiment's data loading will be reimplemented to retrieve data exclusively
 
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
 *   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
+*   **Authentication**: None required (publicly accessible database).
 
 ---
 
