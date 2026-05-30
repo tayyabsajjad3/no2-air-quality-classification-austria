@@ -1,6 +1,6 @@
 # Release Notes Draft: v2.0
 
-This draft supports T2.7. It should be finalised only after all WP2 work is complete.
+This draft supports T2.7. It records the main changes since the first project release and can be used as the body of the second GitHub release.
 
 ## Added
 
@@ -10,30 +10,28 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - 3NF relational schema in `docs/schema.sql`.
 - Entity-relationship diagram and 3NF rationale in `docs/er-diagram.md`.
 - Semantic attribute mapping in `docs/semantic-mapping.md`.
-- Visible DBRepo database and manually created table schemas for the normalised 3NF model.
-- SQL view definitions draft in `docs/views.sql`.
-- Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
-- Croissant dataset metadata in `croissant.json`.
-- Licence decision record selecting CC BY 4.0 for generated outputs, subject to final source-licence compatibility verification.
-<<<<<<< HEAD
-- API-based data loading implementation (`src/ingest_dbrepo.py`) retrieving data exclusively from DBRepo (T2.6).
-=======
+- Visible DBRepo database and manually created table schemas for the normalized 3NF model.
 - DBRepo database DOI `10.82556/3zan-dn41`.
 - DBRepo CSV import fallback files in `outputs/dbrepo_import/`.
 - Idempotent DBRepo loading script in `scripts/load_dbrepo_import_csvs.py`.
-- Loaded DBRepo tables with 140,160 measurement rows and all lookup/reference rows.
+- Loaded DBRepo tables with measurement and lookup/reference rows.
+- SQL view definitions draft in `docs/views.sql`.
+- API-based DBRepo ingestion implementation in `src/data_ingestion/ingest_dbrepo.py`.
+- Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20465449`.
+- CodeMeta software metadata in `codemeta.json`.
+- Croissant dataset metadata in `croissant.json`.
+- Licence decision record selecting CC BY 4.0 for generated outputs and MIT for project code.
 - Baseline NO2 elevated-class classifier in `outputs/models/no2_air_quality_classifier.joblib`.
 - Reproducible model training script in `scripts/train_no2_classifier.py`.
 - Evaluation outputs in `outputs/results/` and `outputs/figures/confusion_matrix.png`.
+- Model Card in `docs/model-card.md`.
+- RO-Crate metadata in `ro-crate-metadata.json`.
+- RO-Crate validation reports in `docs/validation/`.
 - Reserved TUWRD generated-output DOI `10.70124/4wqg-7oc34`.
->>>>>>> f13ede9ff3bc103a2603100cf489ffa06bda4f48
+- Separate TUWRD metadata drafts for the model deposit and generated-data deposit.
 
-## To Add Before Release
+## Notes
 
-- SQL view execution and schema-compatibility verification from T2.4/T2.5.
-<<<<<<< HEAD
-- DBRepo data loading and view verification from T2.5.
-=======
-- API-based data loading implementation from T2.6.
-- TUWRD model DOI after the trained model artefact is deposited.
->>>>>>> f13ede9ff3bc103a2603100cf489ffa06bda4f48
+- The local repository contains the trained model and generated outputs needed for the TUWRD records.
+- The final GitHub release should use tag `v2.0` and should point to the current repository state after the final A/B updates are pushed.
+- The separate TUWRD model DOI should be added later once the model-only TUWRD record is published by the team/reviewer.

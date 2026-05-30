@@ -1,6 +1,6 @@
 # NO2 Air Quality Classification across Austrian Monitoring Stations
 
-[![DOI](https://zenodo.org/badge/1230137926.svg)](https://doi.org/10.5281/zenodo.20432795)
+[![DOI](https://zenodo.org/badge/1230137926.svg)](https://doi.org/10.5281/zenodo.20465449)
 
 ---
 
@@ -235,7 +235,7 @@ Loaded DBRepo row counts: `sampling_points` 16, `pollutants` 1, `measurement_uni
 
 ## Zenodo DOI (T3.8)
 
-[![DOI](https://zenodo.org/badge/1230137926.svg)](https://doi.org/10.5281/zenodo.20432795)
+[![DOI](https://zenodo.org/badge/1230137926.svg)](https://doi.org/10.5281/zenodo.20465449)
 
 A `CITATION.cff` file is available in the repository root, referencing the Zenodo DOI.
 

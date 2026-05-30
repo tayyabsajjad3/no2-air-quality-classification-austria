@@ -17,7 +17,7 @@
       "@type": "Dataset",
       "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
       "description": "A FAIR Data Science project package for classifying nitrogen dioxide (NO2) air-quality levels across Austrian monitoring stations using European Environment Agency hourly measurement data.",
-      "identifier": "https://doi.org/10.5281/zenodo.20432795",
+      "identifier": "https://doi.org/10.5281/zenodo.20465449",
       "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
       "datePublished": "2026-05-28",
       "license": [
@@ -74,6 +74,9 @@
           "@id": "data/raw/"
         },
         {
+          "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
+        },
+        {
           "@id": "docs/schema.sql"
         },
         {
@@ -101,10 +104,28 @@
           "@id": "docs/tuwrd-model-deposit-metadata.md"
         },
         {
+          "@id": "docs/tuwrd-generated-data-deposit-metadata.md"
+        },
+        {
           "@id": "docs/ro-crate-plan.md"
         },
         {
-          "@id": "src/ingest_dbrepo.py"
+          "@id": "docs/release-notes-v2-draft.md"
+        },
+        {
+          "@id": "docs/a-b-final-check.md"
+        },
+        {
+          "@id": "docs/validation/ro-crate-json-syntax-check.txt"
+        },
+        {
+          "@id": "docs/validation/ro-crate-validator-output.json"
+        },
+        {
+          "@id": "docs/validation/ro-crate-validator-output.txt"
+        },
+        {
+          "@id": "src/data_ingestion/ingest_dbrepo.py"
         },
         {
           "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
@@ -151,10 +172,10 @@
       ]
     },
     {
-      "@id": "https://doi.org/10.5281/zenodo.20432795",
+      "@id": "https://doi.org/10.5281/zenodo.20465449",
       "@type": "CreativeWork",
       "name": "Zenodo software release DOI",
-      "url": "https://doi.org/10.5281/zenodo.20432795"
+      "url": "https://doi.org/10.5281/zenodo.20465449"
     },
     {
       "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db",
@@ -320,13 +341,52 @@
       }
     },
     {
+      "@id": "docs/tuwrd-generated-data-deposit-metadata.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "TUWRD generated-data deposit metadata draft",
+      "about": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
+    },
+    {
       "@id": "docs/ro-crate-plan.md",
       "@type": "File",
       "encodingFormat": "text/markdown",
       "name": "RO-Crate preparation notes"
     },
     {
-      "@id": "src/ingest_dbrepo.py",
+      "@id": "docs/release-notes-v2-draft.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Second GitHub release notes draft"
+    },
+    {
+      "@id": "docs/a-b-final-check.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "A/B final local verification note"
+    },
+    {
+      "@id": "docs/validation/ro-crate-json-syntax-check.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "RO-Crate JSON syntax validation output"
+    },
+    {
+      "@id": "docs/validation/ro-crate-validator-output.json",
+      "@type": "File",
+      "encodingFormat": "application/json",
+      "name": "RO-Crate validator JSON report"
+    },
+    {
+      "@id": "docs/validation/ro-crate-validator-output.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "RO-Crate validator text report"
+    },
+    {
+      "@id": "src/data_ingestion/ingest_dbrepo.py",
       "@type": "File",
       "encodingFormat": "text/x-python",
       "name": "DBRepo API ingestion script"

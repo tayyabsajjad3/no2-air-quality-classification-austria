@@ -14,7 +14,9 @@ This folder contains the files that are useful for submitting the local A/B work
 
 ## Documentation
 
-- `docs/final-a-b-status-report.md`
+- `docs/pdf-alignment-check.md`
+- `docs/a-b-final-check.md`
+- `docs/dmp-tool-contributors-note.md`
 - `docs/model-card.md`
 - `docs/licences.md`
 - `docs/eea-licence-review.md`
@@ -25,6 +27,10 @@ This folder contains the files that are useful for submitting the local A/B work
 - `docs/release-notes-v2-draft.md`
 - `docs/ostrails-test-assignment.md`
 - `docs/tuwrd-model-deposit-metadata.md`
+- `docs/tuwrd-generated-data-deposit-metadata.md`
+- `docs/validation/ro-crate-json-syntax-check.txt`
+- `docs/validation/ro-crate-validator-output.json`
+- `docs/validation/ro-crate-validator-output.txt`
 - `docs/schema.sql`
 - `docs/views.sql`
 - `docs/er-diagram.md`
@@ -50,5 +56,6 @@ This folder contains the files that are useful for submitting the local A/B work
 
 - TUWRD generated-output/model draft DOI: `https://doi.org/10.70124/4wqg-7oc34`
 - DBRepo DOI: `https://doi.org/10.82556/3zan-dn41`
-- Zenodo DOI: `https://doi.org/10.5281/zenodo.20432795`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.20465449`
 - Final TUWRD publication is team/reviewer controlled.
+- Strict PDF compliance expects two separate TUWRD records: `tuwrd-upload-t3-9-model.zip` for A/T3.9 and `tuwrd-upload-t3-10-generated-data.zip` for B/T3.10.

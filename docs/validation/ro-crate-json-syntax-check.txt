@@ -1,0 +1,11 @@
+RO-Crate JSON syntax check
+Date: 2026-05-30
+
+Command run:
+python -m json.tool ro-crate-metadata.json
+
+Result:
+The JSON file parsed successfully.
+
+Follow-up validation:
+Full RO-Crate validation was also run with rocrate-validator 0.9.0. The machine-readable report is stored in docs/validation/ro-crate-validator-output.json and the text report is stored in docs/validation/ro-crate-validator-output.txt.

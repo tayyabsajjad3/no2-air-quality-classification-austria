@@ -1,6 +1,6 @@
 # TUWRD Model Deposit Metadata Draft
 
-Use this draft for the separate TUWRD deposit required for T3.9. The generated-output deposit is already prepared separately with reserved DOI `https://doi.org/10.70124/4wqg-7oc34`.
+Use this draft for the separate TUWRD deposit required for T3.9. The generated-output deposit has reserved DOI `https://doi.org/10.70124/4wqg-7oc34`. The exercise PDF says the trained-model deposit and generated-output deposit must be separate records, so uploading the model file into the generated-output record alone is not enough for a strict match.
 
 ## File
 
@@ -62,7 +62,7 @@ Publisher:
 
 ## Alternate Identifiers
 
-- Identifier: `10.5281/zenodo.20432795`
+- Identifier: `10.5281/zenodo.20465449`
   Scheme: `DOI`
   Use for the software repository release.
 
@@ -77,7 +77,7 @@ Publisher:
 ## Related Works
 
 - Relation: `References`
-  Identifier: `10.5281/zenodo.20432795`
+  Identifier: `10.5281/zenodo.20465449`
   Scheme: `DOI`
   Resource type: `Software`
 
