@@ -3,6 +3,7 @@
     "@language": "en",
     "@vocab": "https://schema.org/",
     "cr": "http://mlcommons.org/croissant/",
+    "sc": "https://schema.org/",
     "qudt": "http://qudt.org/schema/qudt/",
     "unit": "http://qudt.org/vocab/unit/"
   },
@@ -31,29 +32,29 @@
           "@type": "cr:Field",
           "@id": "start_time",
           "name": "start_time",
-          "dataType": "cr:DateTime",
+          "dataType": "sc:DateTime",
           "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Start" } }
         },
         {
           "@type": "cr:Field",
           "@id": "measured_value",
           "name": "measured_value",
-          "dataType": "cr:Float",
+          "dataType": "sc:Float",
           "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Value" } },
-          "http://schema.org/unitCode": "http://qudt.org/vocab/unit/MicroGM-PER-M3"
+          "sc:unitCode": "unit:MicroGM-PER-M3"
         },
         {
           "@type": "cr:Field",
           "@id": "end_time",
           "name": "end_time",
-          "dataType": "cr:DateTime",
+          "dataType": "sc:DateTime",
           "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "End" } }
         },
         {
           "@type": "cr:Field",
           "@id": "sampling_point",
           "name": "sampling_point",
-          "dataType": "cr:Text",
+          "dataType": "sc:Text",
           "source": { "fileSet": { "@id": "raw_parquet_files" }, "extract": { "column": "Samplingpoint" } }
         }
       ]

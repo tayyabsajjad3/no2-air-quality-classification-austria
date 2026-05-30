@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
 
 import joblib
 import matplotlib
@@ -39,49 +40,39 @@ MODEL_DIR = ROOT / "outputs" / "models"
 RESULTS_DIR = ROOT / "outputs" / "results"
 FIGURES_DIR = ROOT / "outputs" / "figures"
 
+# Add src to python path to import our DBRepo ingestor
+sys.path.append(str(ROOT / "src"))
+from data_ingestion.ingest_dbrepo import fetch_view_data
+
 THRESHOLD_UG_M3 = 40.0
 RANDOM_STATE = 42
 
 
-def load_raw_measurements() -> pd.DataFrame:
-    frames = []
-    for path in sorted(RAW_DIR.glob("*.parquet")):
-        df = pd.read_parquet(path)
-        df["source_file"] = path.name
-        frames.append(df)
-    if not frames:
-        raise FileNotFoundError(f"No Parquet files found in {RAW_DIR}")
-    return pd.concat(frames, ignore_index=True)
-
-
-def prepare_features(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.Series, pd.DataFrame]:
-    data = df.copy()
-    data["Value"] = pd.to_numeric(data["Value"], errors="coerce")
-    data["Start"] = pd.to_datetime(data["Start"], errors="coerce")
-    data = data.dropna(subset=["Value", "Start", "Samplingpoint"])
-
-    data["hour"] = data["Start"].dt.hour
-    data["month"] = data["Start"].dt.month
-    data["weekday"] = data["Start"].dt.weekday
-    data["data_capture_missing"] = data["DataCapture"].isna().astype(int)
-    data["target_elevated_no2"] = (data["Value"] >= THRESHOLD_UG_M3).astype(int)
-
+def get_data_from_dbrepo() -> tuple[pd.DataFrame, pd.Series, pd.DataFrame]:
+    print("Loading data via DBRepo API...")
+    df = fetch_view_data("view_no2_classification_features")
+    
     feature_columns = [
         "hour",
         "month",
         "weekday",
-        "Validity",
-        "Verification",
+        "validity",
+        "verification",
         "data_capture_missing",
-        "Samplingpoint",
+        "samplingpoint",
     ]
-    metadata_columns = ["Samplingpoint", "Start", "Value", "source_file"]
-    return data[feature_columns], data["target_elevated_no2"], data[metadata_columns]
+    metadata_columns = ["measurement_id", "samplingpoint", "start_time", "value"]
+    
+    # Ensure types are correct after JSON deserialization
+    df[feature_columns] = df[feature_columns].apply(pd.to_numeric, errors='ignore')
+    df["target_elevated_no2"] = pd.to_numeric(df["target_elevated_no2"])
+    
+    return df[feature_columns], df["target_elevated_no2"], df[metadata_columns]
 
 
 def build_pipeline() -> Pipeline:
-    categorical_features = ["Samplingpoint"]
-    numeric_features = ["hour", "month", "weekday", "Validity", "Verification", "data_capture_missing"]
+    categorical_features = ["samplingpoint"]
+    numeric_features = ["hour", "month", "weekday", "validity", "verification", "data_capture_missing"]
 
     preprocessor = ColumnTransformer(
         transformers=[
@@ -111,8 +102,7 @@ def main() -> None:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
-    raw = load_raw_measurements()
-    x, y, metadata = prepare_features(raw)
+    x, y, metadata = get_data_from_dbrepo()
     train_idx, test_idx = train_test_split(
         x.index,
         test_size=0.2,

@@ -1,0 +1,160 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "ml": "https://fair4ml.com/terms/",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@type": "ml:Model",
+  "name": "NO2 Air Quality Classifier",
+  "version": "1.0.0",
+  "dateCreated": "2026-05-30",
+  "description": "A Random Forest binary classifier that predicts whether hourly NO2 concentrations at Austrian monitoring stations are elevated (>= 40 µg/m³) or normal (< 40 µg/m³). The model is trained on temporal and station features derived from EEA air quality measurements.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Muhammed",
+      "familyName": "Tayyab",
+      "affiliation": "TU Wien"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sina",
+      "familyName": "Sadeghi",
+      "affiliation": "TU Wien"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Glent",
+      "familyName": "Rembeci",
+      "affiliation": "TU Wien"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Somayeh",
+      "familyName": "Zeraati",
+      "affiliation": "TU Wien"
+    }
+  ],
+  "ml:algorithm": {
+    "@type": "ml:Algorithm",
+    "name": "RandomForestClassifier",
+    "library": "scikit-learn",
+    "version": "1.x",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html"
+  },
+  "ml:hyperparameters": {
+    "random_state": 42,
+    "classification_threshold_ug_m3": 40.0,
+    "target_definition": "Value >= 40.0 µg/m³ is classified as elevated"
+  },
+  "ml:trainingData": {
+    "@type": "Dataset",
+    "name": "EEA NO2 Air Quality Measurements Austria 2024",
+    "description": "Hourly NO2 measurements from 16 Austrian monitoring stations sourced from the European Environment Agency data hub.",
+    "url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d",
+    "publisher": "European Environment Agency",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "doi": "https://doi.org/10.5281/zenodo.20432795"
+  },
+  "ml:features": [
+    {
+      "name": "hour",
+      "description": "Hour of day extracted from measurement start time (0-23)",
+      "type": "integer"
+    },
+    {
+      "name": "month",
+      "description": "Month of year extracted from measurement start time (1-12)",
+      "type": "integer"
+    },
+    {
+      "name": "weekday",
+      "description": "Day of week extracted from measurement start time (0=Monday, 6=Sunday)",
+      "type": "integer"
+    },
+    {
+      "name": "Validity",
+      "description": "EEA validity flag for the measurement (-1, 0, 1, 2, 3)",
+      "type": "integer"
+    },
+    {
+      "name": "Verification",
+      "description": "EEA verification flag for the measurement (0, 1, 2)",
+      "type": "integer"
+    },
+    {
+      "name": "data_capture_missing",
+      "description": "Binary flag indicating whether DataCapture value is missing",
+      "type": "binary"
+    },
+    {
+      "name": "Samplingpoint",
+      "description": "EEA sampling point identifier (station code)",
+      "type": "categorical"
+    }
+  ],
+  "ml:targetVariable": {
+    "name": "no2_elevated",
+    "description": "Binary label: 1 (elevated) if NO2 value >= 40 µg/m³, 0 (normal) otherwise",
+    "note": "The measured Value column is used to create the label but is NOT used as a model feature to avoid data leakage"
+  },
+  "ml:datasetSplit": {
+    "total_rows": 140160,
+    "train_rows": 112128,
+    "test_rows": 28032,
+    "split_ratio": "80/20",
+    "random_state": 42
+  },
+  "ml:classDistribution": {
+    "total_positive_rows": 9352,
+    "positive_rate": 0.0667,
+    "note": "Dataset is highly imbalanced — only 6.7% of measurements are elevated"
+  },
+  "ml:evaluationMetrics": {
+    "overall": {
+      "accuracy": 0.8005,
+      "macro_avg_precision": 0.5935,
+      "macro_avg_recall": 0.7655,
+      "macro_avg_f1": 0.6047
+    },
+    "class_normal": {
+      "precision": 0.9762,
+      "recall": 0.8059,
+      "f1": 0.8829,
+      "support": 26162
+    },
+    "class_elevated": {
+      "precision": 0.2107,
+      "recall": 0.7251,
+      "f1": 0.3266,
+      "support": 1870
+    },
+    "weighted_avg": {
+      "precision": 0.9251,
+      "recall": 0.8005,
+      "f1": 0.8458
+    }
+  },
+  "ml:intendedUse": "This model is intended for research and educational purposes as part of a FAIR Data Science course at TU Wien. It demonstrates how temporal and station-based features can be used to classify NO2 pollution levels at Austrian monitoring stations. It may also serve as a baseline model for air quality monitoring research.",
+  "ml:outOfScopeUse": "This model should not be used for real-time air quality monitoring, public health decision-making, or regulatory compliance purposes. It is not validated for deployment in production environments.",
+  "ml:limitations": [
+    "The dataset is highly imbalanced (only 6.7% elevated readings), which affects precision for the elevated class (0.21). The model has high recall (0.73) but low precision for elevated predictions.",
+    "Features are limited to temporal variables and station identifiers — no meteorological variables (wind, temperature, humidity) are included, which are known to influence NO2 levels.",
+    "The model is trained on data from 16 Austrian stations only and may not generalise to other regions or countries.",
+    "The 40 µg/m³ threshold is based on the WHO interim target — results would differ with a different threshold."
+  ],
+  "ml:ethicalConsiderations": "The input data is publicly available from the EEA and does not contain personal information. No sensitive attributes are used as features. The model predictions should not be used to make decisions affecting individuals or communities without expert review.",
+  "ml:modelCard": "docs/model-card.md",
+  "ml:artifactLocation": "outputs/models/no2_air_quality_classifier.joblib",
+  "ml:resultsLocation": "outputs/results/",
+  "dcterms:references": [
+    {
+      "@type": "Dataset",
+      "name": "EEA Air Quality Data Hub",
+      "url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
+    }
+  ]
+}
