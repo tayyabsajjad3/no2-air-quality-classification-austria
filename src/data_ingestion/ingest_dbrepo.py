@@ -100,7 +100,64 @@ def fetch_view_data(view_name: str) -> pd.DataFrame:
     except Exception as e:
         raise RuntimeError(f"Failed to fetch data from DBRepo API: {e}")
 
+def fetch_actual_view_data(view_name: str) -> pd.DataFrame:
+    """Fetches data directly from a created DBRepo view via the REST API."""
+    base_url = DBREPO_BASE_URL.rstrip('/')
+    
+    username = os.environ.get("TU_USERNAME") or os.environ.get("DBREPO_USERNAME")
+    password = os.environ.get("TU_PASSWORD") or os.environ.get("DBREPO_PASSWORD")
+    auth_creds = HTTPBasicAuth(username, password) if username and password else None
+    headers = {"Accept": "application/json"}
+    
+    print(f"1. Looking up view ID for '{view_name}'...")
+    views_url = f"{base_url}/api/v1/database/{DATABASE_ID}/view"
+    views_resp = requests.get(views_url, headers=headers, auth=auth_creds)
+    views_resp.raise_for_status()
+    
+    view_id = next((v.get("id") for v in views_resp.json() if v.get("name") == view_name), None)
+    if not view_id:
+        raise ValueError(f"View '{view_name}' not found in the database. Please create it first.")
+        
+    print(f"2. Fetching view data from DBRepo API (View ID: {view_id})...")
+    data_url = f"{base_url}/api/v1/database/{DATABASE_ID}/view/{view_id}/data"
+    
+    all_data = []
+    page = 0
+    size = 10000
+    
+    while True:
+        response = requests.get(f"{data_url}?page={page}&size={size}", headers=headers, timeout=60, auth=auth_creds)
+        response.raise_for_status()
+        
+        chunk = response.json()
+        if not chunk:
+            break
+            
+        all_data.extend(chunk)
+        if len(chunk) < size:
+            break
+        page += 1
+        
+    df = pd.DataFrame(all_data)
+    
+    # 3. Apply the Python-side feature engineering mapping because the API structured query omits SQL extensions
+    if view_name == "view_no2_classification_features" and not df.empty:
+        df['start_time'] = pd.to_datetime(df['start_time'])
+        df['month'] = df['start_time'].dt.month
+        df['hour'] = df['start_time'].dt.hour
+        df['weekday'] = df['start_time'].dt.weekday
+        
+        df['value'] = pd.to_numeric(df['value'])
+        df['target_elevated_no2'] = (df['value'] >= 40).astype(int)
+        
+        if 'data_capture' not in df.columns:
+            df['data_capture'] = pd.NA
+        df['data_capture_missing'] = df['data_capture'].isna().astype(int)
+        
+    print(f"Successfully constructed {len(df)} rows from view API.")
+    return df
+
 if __name__ == "__main__":
-    features_df = fetch_view_data("view_no2_classification_features")
+    features_df = fetch_actual_view_data("view_no2_classification_features")
     print("\n--- SUCCESS! DATA PIPELINE IS LIVE ---")
     print(features_df.head())
