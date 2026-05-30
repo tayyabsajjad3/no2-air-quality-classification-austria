@@ -26,7 +26,10 @@ This folder contains the files that are useful for submitting the local A/B work
 - `docs/release-notes-v2-draft.md`
 - `docs/ostrails-test-assignment.md`
 - `docs/tuwrd-model-deposit-metadata.md`
+- `docs/tuwrd-generated-data-deposit-metadata.md`
 - `docs/validation/ro-crate-json-syntax-check.txt`
+- `docs/validation/ro-crate-validator-output.json`
+- `docs/validation/ro-crate-validator-output.txt`
 - `docs/schema.sql`
 - `docs/views.sql`
 - `docs/er-diagram.md`
@@ -54,3 +57,4 @@ This folder contains the files that are useful for submitting the local A/B work
 - DBRepo DOI: `https://doi.org/10.82556/3zan-dn41`
 - Zenodo DOI: `https://doi.org/10.5281/zenodo.20432795`
 - Final TUWRD publication is team/reviewer controlled.
+- Strict PDF compliance expects two separate TUWRD records: `tuwrd-upload-t3-9-model.zip` for A/T3.9 and `tuwrd-upload-t3-10-generated-data.zip` for B/T3.10.

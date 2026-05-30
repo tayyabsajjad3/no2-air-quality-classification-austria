@@ -74,6 +74,9 @@
           "@id": "data/raw/"
         },
         {
+          "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
+        },
+        {
           "@id": "docs/schema.sql"
         },
         {
@@ -104,7 +107,7 @@
           "@id": "docs/ro-crate-plan.md"
         },
         {
-          "@id": "src/ingest_dbrepo.py"
+          "@id": "src/data_ingestion/ingest_dbrepo.py"
         },
         {
           "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
@@ -326,7 +329,7 @@
       "name": "RO-Crate preparation notes"
     },
     {
-      "@id": "src/ingest_dbrepo.py",
+      "@id": "src/data_ingestion/ingest_dbrepo.py",
       "@type": "File",
       "encodingFormat": "text/x-python",
       "name": "DBRepo API ingestion script"
