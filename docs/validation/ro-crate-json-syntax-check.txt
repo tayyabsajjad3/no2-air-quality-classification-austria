@@ -1,0 +1,11 @@
+RO-Crate validation note
+Date: 2026-05-30
+
+Command run:
+python -m json.tool ro-crate-metadata.json
+
+Result:
+The JSON file parsed successfully.
+
+Important note:
+The exercise asks for ro-crate-validator output. The ro-crate-validator command was not installed in the local environment used for this check, so this file is only a JSON syntax check and not a full RO-Crate validation report. A full ro-crate-validator report should still be added before final submission if the tool is available.

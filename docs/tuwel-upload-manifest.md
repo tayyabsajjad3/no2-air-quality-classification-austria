@@ -15,6 +15,7 @@ This folder contains the files that are useful for submitting the local A/B work
 ## Documentation
 
 - `docs/final-a-b-status-report.md`
+- `docs/pdf-alignment-check.md`
 - `docs/model-card.md`
 - `docs/licences.md`
 - `docs/eea-licence-review.md`
@@ -25,6 +26,7 @@ This folder contains the files that are useful for submitting the local A/B work
 - `docs/release-notes-v2-draft.md`
 - `docs/ostrails-test-assignment.md`
 - `docs/tuwrd-model-deposit-metadata.md`
+- `docs/validation/ro-crate-json-syntax-check.txt`
 - `docs/schema.sql`
 - `docs/views.sql`
 - `docs/er-diagram.md`
