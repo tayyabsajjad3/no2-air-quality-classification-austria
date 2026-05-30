@@ -36,7 +36,7 @@
           "@id": "https://orcid.org/0009-0001-3666-0911"
         },
         {
-          "@id": "#muhammed-tayyab"
+          "@id": "https://orcid.org/0009-0000-6631-8482"
         },
         {
           "@id": "https://orcid.org/0009-0008-1996-4666"
@@ -59,6 +59,12 @@
           "@id": "requirements.txt"
         },
         {
+          "@id": "pyproject.toml"
+        },
+        {
+          "@id": "uv.lock"
+        },
+        {
           "@id": "LICENSE"
         },
         {
@@ -69,6 +75,9 @@
         },
         {
           "@id": "docs/schema.sql"
+        },
+        {
+          "@id": "docs/views.sql"
         },
         {
           "@id": "docs/er-diagram.md"
@@ -89,16 +98,46 @@
           "@id": "docs/model-card.md"
         },
         {
+          "@id": "docs/tuwrd-model-deposit-metadata.md"
+        },
+        {
           "@id": "docs/ro-crate-plan.md"
+        },
+        {
+          "@id": "src/ingest_dbrepo.py"
         },
         {
           "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db"
         },
         {
-          "@id": "#trained-model-pending"
+          "@id": "scripts/load_dbrepo_import_csvs.py"
         },
         {
-          "@id": "#generated-data-pending"
+          "@id": "outputs/dbrepo_import/"
+        },
+        {
+          "@id": "https://doi.org/10.82556/3zan-dn41"
+        },
+        {
+          "@id": "scripts/train_no2_classifier.py"
+        },
+        {
+          "@id": "outputs/models/no2_air_quality_classifier.joblib"
+        },
+        {
+          "@id": "outputs/results/model_metrics.json"
+        },
+        {
+          "@id": "outputs/results/confusion_matrix.csv"
+        },
+        {
+          "@id": "outputs/results/test_predictions.csv"
+        },
+        {
+          "@id": "outputs/figures/confusion_matrix.png"
+        },
+        {
+          "@id": "https://doi.org/10.70124/4wqg-7oc34"
         }
       ],
       "keywords": [
@@ -125,7 +164,19 @@
       "encodingFormat": "DBRepo relational database",
       "isBasedOn": {
         "@id": "data/raw/"
-      }
+      },
+      "identifier": "https://doi.org/10.82556/3zan-dn41",
+      "sameAs": {
+        "@id": "https://doi.org/10.82556/3zan-dn41"
+      },
+      "hasPart": [
+        {
+          "@id": "outputs/dbrepo_import/"
+        },
+        {
+          "@id": "scripts/load_dbrepo_import_csvs.py"
+        }
+      ]
     },
     {
       "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d",
@@ -149,24 +200,6 @@
       },
       "isBasedOn": {
         "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d"
-      }
-    },
-    {
-      "@id": "#trained-model-pending",
-      "@type": "CreativeWork",
-      "name": "Trained NO2 classification model",
-      "description": "Placeholder for the final trained model artefact and TUWRD model DOI. This entity must be replaced when the model deposit is complete.",
-      "sameAs": {
-        "@id": "#tuwrd-model-doi-pending"
-      }
-    },
-    {
-      "@id": "#generated-data-pending",
-      "@type": "Dataset",
-      "name": "Generated classification outputs",
-      "description": "Placeholder for predictions, evaluation figures, confusion matrices, and the TUWRD generated-data DOI. This entity must be replaced when the generated data deposit is complete.",
-      "sameAs": {
-        "@id": "#tuwrd-generated-data-doi-pending"
       }
     },
     {
@@ -203,6 +236,18 @@
       "name": "Pinned Python dependencies"
     },
     {
+      "@id": "pyproject.toml",
+      "@type": "File",
+      "encodingFormat": "application/toml",
+      "name": "Python project metadata"
+    },
+    {
+      "@id": "uv.lock",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "uv dependency lock file"
+    },
+    {
       "@id": "LICENSE",
       "@type": "File",
       "encodingFormat": "text/plain",
@@ -219,6 +264,12 @@
       "@type": "File",
       "encodingFormat": "application/sql",
       "name": "DBRepo relational schema"
+    },
+    {
+      "@id": "docs/views.sql",
+      "@type": "File",
+      "encodingFormat": "application/sql",
+      "name": "DBRepo SQL view definitions"
     },
     {
       "@id": "docs/er-diagram.md",
@@ -254,9 +305,18 @@
       "@id": "docs/model-card.md",
       "@type": "File",
       "encodingFormat": "text/markdown",
-      "name": "Model Card draft",
+      "name": "Model Card",
       "about": {
-        "@id": "#trained-model-pending"
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      }
+    },
+    {
+      "@id": "docs/tuwrd-model-deposit-metadata.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "TUWRD model deposit metadata draft",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
       }
     },
     {
@@ -264,6 +324,12 @@
       "@type": "File",
       "encodingFormat": "text/markdown",
       "name": "RO-Crate preparation notes"
+    },
+    {
+      "@id": "src/ingest_dbrepo.py",
+      "@type": "File",
+      "encodingFormat": "text/x-python",
+      "name": "DBRepo API ingestion script"
     },
     {
       "@id": "https://spdx.org/licenses/MIT",
@@ -293,7 +359,7 @@
       }
     },
     {
-      "@id": "#muhammed-tayyab",
+      "@id": "https://orcid.org/0009-0000-6631-8482",
       "@type": "Person",
       "name": "Muhammed Tayyab",
       "affiliation": {
@@ -319,6 +385,152 @@
       "@type": "Organization",
       "name": "European Environment Agency",
       "url": "https://www.eea.europa.eu/"
+    },
+    {
+      "@id": "https://doi.org/10.82556/3zan-dn41",
+      "@type": "CreativeWork",
+      "name": "DBRepo database DOI",
+      "url": "https://doi.org/10.82556/3zan-dn41",
+      "identifier": "10.82556/3zan-dn41"
+    },
+    {
+      "@id": "https://doi.org/10.70124/4wqg-7oc34",
+      "@type": "Dataset",
+      "name": "Generated outputs for NO2 Air Quality Classification across Austrian Monitoring Stations",
+      "description": "Reserved TUWRD DOI for generated evaluation outputs: metrics, test predictions, confusion matrix table, and confusion matrix figure.",
+      "url": "https://doi.org/10.70124/4wqg-7oc34",
+      "identifier": "10.70124/4wqg-7oc34",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "isBasedOn": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "hasPart": [
+        {
+          "@id": "outputs/results/model_metrics.json"
+        },
+        {
+          "@id": "outputs/results/confusion_matrix.csv"
+        },
+        {
+          "@id": "outputs/results/test_predictions.csv"
+        },
+        {
+          "@id": "outputs/figures/confusion_matrix.png"
+        }
+      ]
+    },
+    {
+      "@id": "scripts/load_dbrepo_import_csvs.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode"
+      ],
+      "name": "Idempotent DBRepo CSV loading script",
+      "description": "Loads prepared DBRepo import CSV files in foreign-key order, skips existing primary keys, and uploads missing rows in chunks.",
+      "programmingLanguage": "Python",
+      "encodingFormat": "text/x-python",
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "outputs/dbrepo_import/",
+      "@type": "Dataset",
+      "name": "Prepared DBRepo import CSV files",
+      "description": "CSV files exported from the EEA Parquet source files for reproducible DBRepo loading.",
+      "encodingFormat": "text/csv",
+      "isBasedOn": {
+        "@id": "data/raw/"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "scripts/train_no2_classifier.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode"
+      ],
+      "name": "NO2 classifier training script",
+      "description": "Trains the baseline elevated-NO2 classifier and writes the model, metrics, predictions, and confusion matrix outputs.",
+      "programmingLanguage": "Python",
+      "encodingFormat": "text/x-python",
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "outputs/models/no2_air_quality_classifier.joblib",
+      "@type": [
+        "File",
+        "SoftwareApplication"
+      ],
+      "name": "Trained NO2 elevated-class classifier",
+      "description": "Baseline RandomForestClassifier model for the educational elevated-NO2 target Value >= 40 ug/m3.",
+      "encodingFormat": "application/octet-stream",
+      "isBasedOn": {
+        "@id": "data/raw/"
+      },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sameAs": {
+        "@id": "#tuwrd-model-doi-pending"
+      }
+    },
+    {
+      "@id": "outputs/results/model_metrics.json",
+      "@type": "File",
+      "name": "NO2 classifier evaluation metrics",
+      "encodingFormat": "application/json",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
+    },
+    {
+      "@id": "outputs/results/confusion_matrix.csv",
+      "@type": "File",
+      "name": "NO2 classifier confusion matrix",
+      "encodingFormat": "text/csv",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
+    },
+    {
+      "@id": "outputs/results/test_predictions.csv",
+      "@type": "File",
+      "name": "NO2 classifier test predictions",
+      "encodingFormat": "text/csv",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "sameAs": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
+    },
+    {
+      "@id": "outputs/figures/confusion_matrix.png",
+      "@type": "File",
+      "name": "NO2 classifier confusion matrix figure",
+      "encodingFormat": "image/png",
+      "about": {
+        "@id": "outputs/models/no2_air_quality_classifier.joblib"
+      },
+      "isPartOf": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
     }
   ]
 }

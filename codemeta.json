@@ -39,7 +39,9 @@
     {
       "@type": "Person",
       "givenName": "Muhammed",
-      "familyName": "Tayyab"
+      "familyName": "Tayyab",
+      "@id": "https://orcid.org/0009-0000-6631-8482",
+      "identifier": "https://orcid.org/0009-0000-6631-8482"
     },
     {
       "@type": "Person",
@@ -55,7 +57,8 @@
     "matplotlib==3.10.8",
     "pyarrow==23.0.1",
     "requests==2.33.1",
-    "notebook==7.5.5"
+    "notebook==7.5.5",
+    "python-dotenv==1.2.2"
   ],
   "readme": "README.md",
   "issueTracker": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/issues"

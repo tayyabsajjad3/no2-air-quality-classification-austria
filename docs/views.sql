@@ -5,13 +5,13 @@ SELECT
     m.start_time AS measurement_timestamp,
     EXTRACT(MONTH FROM m.start_time) AS feature_month,
     EXTRACT(HOUR FROM m.start_time) AS feature_hour,  
-    m.measured_value AS no2_value,
+    m.value AS no2_value,
     
-    -- Target Variable: Automatically binary-classify high pollution events 
+    -- Label for the exercise baseline model.
     CASE 
-        WHEN m.measured_value > 100 THEN 1 
+        WHEN m.value >= 40 THEN 1
         ELSE 0 
-    END AS high_pollution_label,
+    END AS elevated_no2_label,
     
     sp.station_code,
     sp.sampling_point_code,
@@ -30,14 +30,14 @@ WHERE
 CREATE VIEW view_balanced_pollution_samples AS
 (
     SELECT * FROM view_no2_classification_features
-    WHERE high_pollution_label = 0 
+    WHERE elevated_no2_label = 0
     ORDER BY measurement_timestamp DESC
     LIMIT 5000
 )
 UNION ALL
 (
     SELECT * FROM view_no2_classification_features
-    WHERE high_pollution_label = 1
+    WHERE elevated_no2_label = 1
     ORDER BY measurement_timestamp DESC 
 );
 
@@ -45,12 +45,12 @@ UNION ALL
 -- VIEW 3: Regional Daily Aggregates (Engineered Trend Features)
 CREATE VIEW view_regional_daily_aggregates AS
 SELECT 
-    TO_CHAR(m.start_time, 'YYYY-MM-DD') AS measurement_date, 
+    DATE_FORMAT(m.start_time, '%Y-%m-%d') AS measurement_date, 
     sp.station_code,
     sp.sampling_point_code AS station_identifier,
-    AVG(m.measured_value) AS daily_avg_no2,
-    MAX(m.measured_value) AS daily_max_no2,
-    MIN(m.measured_value) AS daily_min_no2
+    AVG(m.value) AS daily_avg_no2,
+    MAX(m.value) AS daily_max_no2,
+    MIN(m.value) AS daily_min_no2
 FROM
     measurements m
 JOIN
@@ -60,6 +60,6 @@ JOIN
 WHERE
     p.pollutant_name = 'NO2'
 GROUP BY 
-    TO_CHAR(m.start_time, 'YYYY-MM-DD'), 
+    DATE_FORMAT(m.start_time, '%Y-%m-%d'), 
     sp.station_code,
     sp.sampling_point_code;

@@ -11,7 +11,9 @@ DBRepo database:
 - ID: `ed890fa1-154c-4a66-8529-4088c97f68db`
 - Name: `no2_air_quality_classification_austria`
 - Internal name: `no2_air_quality_classification_austria_jlnb`
+- DOI: `https://doi.org/10.82556/3zan-dn41`
 - Tables created: `sampling_points`, `pollutants`, `measurement_units`, `aggregation_types`, `validity_flags`, `verification_flags`, `observation_logs`, `measurements`
+- Data loaded: 140,160 measurement rows plus all lookup/reference rows
 
 Recommended database title:
 
@@ -53,3 +55,22 @@ Manual DBRepo UI completion notes:
 3. The NO2 value column was annotated with concept `http://www.w3.org/ns/sosa/hasSimpleResult`.
 4. The NO2 value column was annotated with unit URI `http://qudt.org/vocab/unit/MicroGM-PER-M3`.
 5. The timestamp, sampling point, pollutant, unit, aggregation, and observation-log mappings listed above were added manually where the UI exposed editable metadata fields.
+
+## T2.5 Data Loading
+
+Owner: A/B
+
+The DBRepo tables were loaded with `scripts/load_dbrepo_import_csvs.py` from prepared CSV files in `outputs/dbrepo_import/`. This script is idempotent: it checks existing primary keys and only imports missing rows, so it can be re-run without duplicating data.
+
+Confirmed row counts:
+
+| Table | Rows |
+| --- | ---: |
+| `sampling_points` | 16 |
+| `pollutants` | 1 |
+| `measurement_units` | 1 |
+| `aggregation_types` | 1 |
+| `validity_flags` | 2 |
+| `verification_flags` | 1 |
+| `observation_logs` | 19 |
+| `measurements` | 140,160 |

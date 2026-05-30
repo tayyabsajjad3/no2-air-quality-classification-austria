@@ -66,6 +66,7 @@ All file names follow lowercase naming with underscores for consistency.
 * matplotlib
 * pyarrow
 * requests
+* python-dotenv
 
 Dependencies are pinned in `requirements.txt`.
 
@@ -95,19 +96,45 @@ Input data from the European Environment Agency is reused under the CC BY 4.0 li
 
 The following SQL views are defined in `docs/views.sql` to de-normalize data into accessible formats for the ML pipeline:
 
-*   **`view_no2_classification_features`**: A primary feature table that flattens raw NO2 measurements with sampling point details, suitable for direct ML input. It includes a `high_pollution_label` as a target variable.
-*   **`view_balanced_pollution_samples`**: Provides a class-balanced sample of NO2 measurements, useful for addressing class imbalance in ML training. It combines a subsample of normal pollution events with all high pollution events.
+*   **`view_no2_classification_features`**: A primary feature table that flattens raw NO2 measurements with sampling point details, suitable for direct ML input. It includes an `elevated_no2_label` target variable based on `Value >= 40 ug/m3`.
+*   **`view_balanced_pollution_samples`**: Provides a class-balanced sample of NO2 measurements, useful for addressing class imbalance in ML training. It combines a subsample of normal NO2 events with elevated NO2 events.
 *   **`view_regional_daily_aggregates`**: Exposes engineered trend features by aggregating daily NO2 values (average, max, min) per station, providing temporal context.
+
+---
+
+## Baseline Model
+
+The current baseline model is trained locally from the raw EEA station files. The measured NO2 value is used only to create the target label and is not used as an input feature.
+
+*   **Training script**: `python scripts/train_no2_classifier.py`
+*   **Model artefact**: `outputs/models/no2_air_quality_classifier.joblib`
+*   **Metrics**: `outputs/results/model_metrics.json`
+*   **Predictions**: `outputs/results/test_predictions.csv`
+*   **Confusion matrix**: `outputs/results/confusion_matrix.csv` and `outputs/figures/confusion_matrix.png`
+
+Current test-set metrics for the elevated NO2 class are accuracy `0.8005`, precision `0.2107`, recall `0.7251`, and F1 `0.3266`. The model is a baseline for the FAIR package, not a final air-quality production model.
+
+Generated evaluation outputs are prepared for TUWRD with reserved DOI `https://doi.org/10.70124/4wqg-7oc34`. The separate trained-model deposit still needs the model file `outputs/models/no2_air_quality_classifier.joblib`.
 
 ---
 
 ## DBRepo API (T2.6)
 
-The experiment's data loading will be reimplemented to retrieve data exclusively from the DBRepo REST API.
+The experiment's data loading and retrieval are documented for DBRepo. Table loading is handled through an idempotent CSV loader because direct notebook imports intermittently returned HTTP 503 from the DBRepo test instance.
 
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
+<<<<<<< HEAD
 *   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
 *   **Authentication**: None required (publicly accessible database).
+=======
+*   **Database ID**: `ed890fa1-154c-4a66-8529-4088c97f68db`
+*   **DBRepo DOI**: `https://doi.org/10.82556/3zan-dn41`
+*   **Data loading**: `python scripts/load_dbrepo_import_csvs.py`
+*   **Implementation**: `src/ingest_dbrepo.py`
+*   **Configuration**: `DBREPO_BASE_URL`, `DBREPO_DATABASE_ID`, optional `DBREPO_API_TOKEN`, and optional `DBREPO_VIEW_DATA_PATH_TEMPLATE`
+
+Loaded DBRepo row counts: `sampling_points` 16, `pollutants` 1, `measurement_units` 1, `aggregation_types` 1, `validity_flags` 2, `verification_flags` 1, `observation_logs` 19, and `measurements` 140,160.
+>>>>>>> f13ede9ff3bc103a2603100cf489ffa06bda4f48
 
 ---
 
@@ -122,6 +149,7 @@ A `CITATION.cff` file is available in the repository root, referencing the Zenod
 ## Metadata And Documentation
 
 DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db
+DBRepo DOI: https://doi.org/10.82556/3zan-dn41
 
 * CodeMeta draft: `codemeta.json`
 * RO-Crate metadata draft: `ro-crate-metadata.json`
@@ -129,6 +157,7 @@ DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-85
 * Licence decisions: `docs/licences.md`
 * EEA licence review: `docs/eea-licence-review.md`
 * Model Card draft: `docs/model-card.md`
+* TUWRD model deposit metadata draft: `docs/tuwrd-model-deposit-metadata.md`
 * RO-Crate preparation notes: `docs/ro-crate-plan.md`
 * DBRepo metadata plan: `docs/dbrepo-metadata-plan.md`
 * DBRepo notebook template: `notebooks/dbrepo_setup_template.ipynb`
