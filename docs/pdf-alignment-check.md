@@ -42,3 +42,7 @@ That is good evidence that the model file was uploaded, but it is not a strict m
 ## Student-like Wording Check
 
 The documents are written in a clear student-report style: concise explanations, direct evidence, and no exaggerated claims. The remaining external actions are stated honestly instead of being hidden. The only thing to avoid in the final submission is claiming that T3.9 and T3.10 are fully complete if the model and generated outputs remain in one TUWRD record.
+
+## DMP Tool Access Clarification
+
+The course team clarified that the DMP Tool access bug does not require all contributors to have direct access. One group member can complete the DMP Tool record. The important requirement is that all four group members are listed as contributors in the DMP.
