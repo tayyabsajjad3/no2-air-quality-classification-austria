@@ -62,7 +62,7 @@ Publisher:
 
 ## Alternate Identifiers
 
-- Identifier: `10.5281/zenodo.20465449`
+- Identifier: `10.5281/zenodo.20465916`
   Scheme: `DOI`
   Use for the software repository release.
 
@@ -77,7 +77,7 @@ Publisher:
 ## Related Works
 
 - Relation: `References`
-  Identifier: `10.5281/zenodo.20465449`
+  Identifier: `10.5281/zenodo.20465916`
   Scheme: `DOI`
   Resource type: `Software`
 

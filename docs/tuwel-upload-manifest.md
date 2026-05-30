@@ -56,6 +56,6 @@ This folder contains the files that are useful for submitting the local A/B work
 
 - TUWRD generated-output/model draft DOI: `https://doi.org/10.70124/4wqg-7oc34`
 - DBRepo DOI: `https://doi.org/10.82556/3zan-dn41`
-- Zenodo DOI: `https://doi.org/10.5281/zenodo.20465449`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.20465916`
 - Final TUWRD publication is team/reviewer controlled.
 - Strict PDF compliance expects two separate TUWRD records: `tuwrd-upload-t3-9-model.zip` for A/T3.9 and `tuwrd-upload-t3-10-generated-data.zip` for B/T3.10.

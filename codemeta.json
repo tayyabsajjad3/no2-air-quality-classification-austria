@@ -4,7 +4,7 @@
   "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
   "description": "Python project for classifying nitrogen dioxide (NO2) air quality levels across Austrian monitoring stations using European Environment Agency hourly measurement data.",
   "version": "2.0.0",
-  "identifier": "https://doi.org/10.5281/zenodo.20465449",
+  "identifier": "https://doi.org/10.5281/zenodo.20465916",
   "codeRepository": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
   "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
   "license": "https://spdx.org/licenses/MIT",

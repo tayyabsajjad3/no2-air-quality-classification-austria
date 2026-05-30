@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 title: "NO2 Air Quality Classification across Austrian Monitoring Stations"
 version: 2.0.0
 date-released: 2026-05-28
-doi: 10.5281/zenodo.20465449
+doi: 10.5281/zenodo.20465916
 url: "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria"
 license: MIT
 repository-code: "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria"

@@ -17,7 +17,7 @@
       "@type": "Dataset",
       "name": "NO2 Air Quality Classification across Austrian Monitoring Stations",
       "description": "A FAIR Data Science project package for classifying nitrogen dioxide (NO2) air-quality levels across Austrian monitoring stations using European Environment Agency hourly measurement data.",
-      "identifier": "https://doi.org/10.5281/zenodo.20465449",
+      "identifier": "https://doi.org/10.5281/zenodo.20465916",
       "url": "https://github.com/tayyabsajjad3/no2-air-quality-classification-austria",
       "datePublished": "2026-05-28",
       "license": [
@@ -172,10 +172,10 @@
       ]
     },
     {
-      "@id": "https://doi.org/10.5281/zenodo.20465449",
+      "@id": "https://doi.org/10.5281/zenodo.20465916",
       "@type": "CreativeWork",
       "name": "Zenodo software release DOI",
-      "url": "https://doi.org/10.5281/zenodo.20465449"
+      "url": "https://doi.org/10.5281/zenodo.20465916"
     },
     {
       "@id": "https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db",
