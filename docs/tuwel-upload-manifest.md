@@ -14,7 +14,6 @@ This folder contains the files that are useful for submitting the local A/B work
 
 ## Documentation
 
-- `docs/final-a-b-status-report.md`
 - `docs/pdf-alignment-check.md`
 - `docs/dmp-tool-contributors-note.md`
 - `docs/model-card.md`
