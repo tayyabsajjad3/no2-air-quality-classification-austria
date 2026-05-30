@@ -17,7 +17,7 @@ This draft supports T2.7. It records the main changes since the first project re
 - Loaded DBRepo tables with measurement and lookup/reference rows.
 - SQL view definitions draft in `docs/views.sql`.
 - API-based DBRepo ingestion implementation in `src/data_ingestion/ingest_dbrepo.py`.
-- Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
+- Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20465449`.
 - CodeMeta software metadata in `codemeta.json`.
 - Croissant dataset metadata in `croissant.json`.
 - Licence decision record selecting CC BY 4.0 for generated outputs and MIT for project code.

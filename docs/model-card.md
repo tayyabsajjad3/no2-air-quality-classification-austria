@@ -18,7 +18,7 @@ The model is not intended for regulatory air-quality enforcement decisions. It i
 
 ## Training Data
 
-The training data is derived from EEA NO2 hourly measurement files stored in `data/raw/`. The current raw dataset contains 16 station-specific Parquet files and 140,160 hourly observations. The repository DOI is `https://doi.org/10.5281/zenodo.20432795`, and the DBRepo database is `https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db` with DOI `https://doi.org/10.82556/3zan-dn41`.
+The training data is derived from EEA NO2 hourly measurement files stored in `data/raw/`. The current raw dataset contains 16 station-specific Parquet files and 140,160 hourly observations. The repository DOI is `https://doi.org/10.5281/zenodo.20465449`, and the DBRepo database is `https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db` with DOI `https://doi.org/10.82556/3zan-dn41`.
 
 The train/test split is stratified with an 80/20 split. The final run used 112,128 training rows and 28,032 test rows. There are 9,352 elevated-NO2 rows in total, which is about 6.67% of the dataset.
 

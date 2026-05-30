@@ -6,7 +6,7 @@ The draft `ro-crate-metadata.json` is available in the repository root. The gene
 
 | Entity | Current source | Final identifier needed |
 | --- | --- | --- |
-| Repository | GitHub repository | Zenodo DOI: `https://doi.org/10.5281/zenodo.20432795` |
+| Repository | GitHub repository | Zenodo DOI: `https://doi.org/10.5281/zenodo.20465449` |
 | Raw EEA input data | `data/raw/*.parquet`, `data/data-inventory.csv` | Source URL and verified input-data licence |
 | Database schema | `docs/schema.sql` | DBRepo database URL: `https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db`; DOI: `https://doi.org/10.82556/3zan-dn41` |
 | ER diagram | `docs/er-diagram.md` | Repository path |
