@@ -15,7 +15,6 @@ This folder contains the files that are useful for submitting the local A/B work
 ## Documentation
 
 - `docs/pdf-alignment-check.md`
-- `docs/a-b-final-check.md`
 - `docs/dmp-tool-contributors-note.md`
 - `docs/model-card.md`
 - `docs/licences.md`
@@ -54,7 +53,9 @@ This folder contains the files that are useful for submitting the local A/B work
 
 ## Notes
 
-- TUWRD generated-output/model draft DOI: `https://doi.org/10.70124/4wqg-7oc34`
+- TUWRD generated-output DOI: `https://doi.org/10.70124/4jwcg-70c34`
+- TUWRD model deposit DOI: `https://doi.org/10.70124/ye7mg-p5v03`
+- Final DMP DOI: `https://doi.org/10.70124/pcepy-07563`
 - DBRepo DOI: `https://doi.org/10.82556/3zan-dn41`
 - Zenodo DOI: `https://doi.org/10.5281/zenodo.20465916`
 - Final TUWRD publication is team/reviewer controlled.

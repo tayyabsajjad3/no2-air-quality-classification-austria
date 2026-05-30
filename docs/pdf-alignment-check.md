@@ -21,7 +21,7 @@ That is good evidence that the model file was uploaded, but it is not a strict m
 | T2.1 | Matches locally | Schema, ER diagram, DBRepo DOI, database metadata notes, and import evidence are documented. |
 | T3.1 | Matches locally | RO-Crate exists, references the main artefacts, and passes `rocrate-validator 0.9.0` for RO-Crate 1.1 required checks: 38/38 passed, 0 failed. |
 | T3.5 | Matches locally | Model Card has the required sections and metric table. Sections were expanded to keep the report student-like but complete. |
-| T3.9 | Ready for strict upload | The model file exists locally and a separate `tuwrd-upload-t3-9-model.zip` package plus metadata draft are prepared. A separate TUWRD model-only record still has to be created/published in the TUWRD UI. |
+| T3.9 | Submitted for review | The separate model-only TUWRD record contains `no2_air_quality_classifier.joblib` and `model-card.md`; DOI `https://doi.org/10.70124/ye7mg-p5v03`. |
 | T4.4 | External/manual | Needs the final DMP PDF/A and maDMP JSON, then a single DMP record in the DaSt-2026-final community. TUWEL must receive only `<group_id>-final-dmp-doi.txt` containing the single DOI URL. |
 | T5.1 | External/manual | A single group pull request named `group-3` is needed after all group tests are contributed. |
 | T5.2 | Matches locally | A tests 026, 037, and 065 are implemented locally. Pass/fail examples were checked through the local service and returned the expected outcomes. |
@@ -36,12 +36,12 @@ That is good evidence that the model file was uploaded, but it is not a strict m
 | T3.6 | Matches locally | Licences are documented for input data, software, and produced outputs. |
 | T3.10 | Ready for strict upload | Generated outputs exist locally and a separate `tuwrd-upload-t3-10-generated-data.zip` package plus metadata draft are prepared. A generated-data-only TUWRD record should be used for strict PDF compliance. |
 | T4.3 | External/manual | Needs maDMP JSON export from the TU Wien DMP Tool. |
-| T4.5 | Prepared, final DMP needed | Comparison template exists; it needs the final DMP link/DOI before it can be completed in the final report. |
+| T4.5 | Complete locally | Comparison note includes the initial DMP DOI and final DMP DOI `https://doi.org/10.70124/pcepy-07563`. |
 | T5.3 | Matches locally | B tests 058, 069, and 083 are implemented locally. Pass/fail examples were checked through the local service and returned the expected outcomes. |
 
 ## Student-like Wording Check
 
-The documents are written in a clear student-report style: concise explanations, direct evidence, and no exaggerated claims. The remaining external actions are stated honestly instead of being hidden. The only thing to avoid in the final submission is claiming that T3.9 and T3.10 are fully complete if the model and generated outputs remain in one TUWRD record.
+The documents are written in a clear student-report style: concise explanations, direct evidence, and no exaggerated claims. External actions that depend on community review are stated as submitted for review rather than already curator-approved.
 
 ## DMP Tool Access Clarification
 

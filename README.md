@@ -241,6 +241,7 @@ A `CITATION.cff` file is available in the repository root, referencing the Zenod
 
 ## TUWRD Deposits
 
-- Generated data deposit DOI: `https://doi.org/10.70124/4wqg-7oc34`
-- Model deposit: to be added after upload
+- Generated data deposit DOI: `https://doi.org/10.70124/4jwcg-70c34`
+- Model deposit DOI: `https://doi.org/10.70124/ye7mg-p5v03`
+- Final DMP DOI: `https://doi.org/10.70124/pcepy-07563`
 - DBRepo DOI: `https://doi.org/10.82556/3zan-dn41`

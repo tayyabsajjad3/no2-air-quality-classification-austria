@@ -27,11 +27,13 @@ This draft supports T2.7. It records the main changes since the first project re
 - Model Card in `docs/model-card.md`.
 - RO-Crate metadata in `ro-crate-metadata.json`.
 - RO-Crate validation reports in `docs/validation/`.
-- Reserved TUWRD generated-output DOI `10.70124/4wqg-7oc34`.
+- TUWRD generated-output DOI `10.70124/4jwcg-70c34`.
+- Separate TUWRD model deposit DOI `10.70124/ye7mg-p5v03`.
+- Final DMP DOI `10.70124/pcepy-07563`.
 - Separate TUWRD metadata drafts for the model deposit and generated-data deposit.
 
 ## Notes
 
 - The local repository contains the trained model and generated outputs needed for the TUWRD records.
 - The final GitHub release should use tag `v2.0` and should point to the current repository state after the final A/B updates are pushed.
-- The separate TUWRD model DOI should be added later once the model-only TUWRD record is published by the team/reviewer.
+- TUWRD records are submitted for community review; final publication is handled by the TUWRD community curators.

@@ -1,12 +1,13 @@
 # TUWRD Model Deposit Metadata Draft
 
-Use this draft for the separate TUWRD deposit required for T3.9. The generated-output deposit has reserved DOI `https://doi.org/10.70124/4wqg-7oc34`. The exercise PDF says the trained-model deposit and generated-output deposit must be separate records, so uploading the model file into the generated-output record alone is not enough for a strict match.
+Use this draft for the separate TUWRD deposit required for T3.9. The model deposit DOI is `https://doi.org/10.70124/ye7mg-p5v03`. The generated-output deposit DOI is `https://doi.org/10.70124/4jwcg-70c34`. The final DMP deposit DOI is `https://doi.org/10.70124/pcepy-07563`. The exercise PDF says the trained-model deposit and generated-output deposit must be separate records, so uploading the model file into the generated-output record alone is not enough for a strict match.
 
 ## File
 
 Upload:
 
 - `outputs/models/no2_air_quality_classifier.joblib`
+- `docs/model-card.md`
 
 ## Basic Information
 
@@ -70,7 +71,7 @@ Publisher:
   Scheme: `DOI`
   Use for the DBRepo database.
 
-- Identifier: `10.70124/4wqg-7oc34`
+- Identifier: `10.70124/4jwcg-70c34`
   Scheme: `DOI`
   Use for the generated-output deposit.
 
@@ -82,7 +83,7 @@ Publisher:
   Resource type: `Software`
 
 - Relation: `Is supplement to`
-  Identifier: `10.70124/4wqg-7oc34`
+  Identifier: `10.70124/4jwcg-70c34`
   Scheme: `DOI`
   Resource type: `Dataset`
 
@@ -91,9 +92,14 @@ Publisher:
   Scheme: `DOI`
   Resource type: `Dataset`
 
+- Relation: `References`
+  Identifier: `10.70124/pcepy-07563`
+  Scheme: `DOI`
+  Resource type: `Data Management Plan`
+
 ## Final Step
 
-After publishing, copy the final model DOI back into:
+The model DOI has been copied back into:
 
 - `README.md`
 - `docs/model-card.md`

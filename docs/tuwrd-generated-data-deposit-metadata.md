@@ -36,7 +36,7 @@ Creative Commons Attribution 4.0 International
 ## Related Works
 
 - References: DBRepo source database, DOI `10.82556/3zan-dn41`, resource type Dataset.
-- IsSupplementedBy: trained model deposit, DOI pending until the separate T3.9 model record is published.
+- IsSupplementedBy: trained model deposit, DOI `10.70124/ye7mg-p5v03`, resource type Software.
 
 ## Contributor Note
 

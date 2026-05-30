@@ -1,30 +1,20 @@
 # Initial vs Final DMP Comparison
 
-This template supports T4.5. It can be completed once the group has the initial DMP from Part 2 and the final DMP from WP4.
+This note supports T4.5 by comparing the initial DMP from Part 2 with the final DMP record prepared for WP4.
 
 ## Links
 
 - Initial DMP: https://handle.test.datacite.org/10.70124/3gj7h-t2832
-- Final DMP: To be added
+- Final DMP: https://doi.org/10.70124/pcepy-07563
 
 ## 1. Unrealistic Promises In The Initial DMP
 
-Describe promises that turned out to be unrealistic and explain why they were never achievable in the real project context. Focus on claims that would not have happened regardless of later assignment requirements.
+The initial DMP was useful as a first plan, but it treated several FAIR publication steps as simpler than they were in practice. It underestimated the effort needed to coordinate persistent identifiers across GitHub/Zenodo, DBRepo, TUWRD generated outputs, the trained model, and the final DMP record. It also assumed that licensing and reuse decisions could be handled briefly, while the final project required explicit documentation of the EEA source-data terms, generated-output licence, software licence, and reuse conditions.
 
-Draft points to check:
-
-- Did the initial DMP underestimate the effort needed for persistent identifiers and repository deposits?
-- Did it assume that data licensing was simple without checking the original EEA reuse terms?
-- Did it omit the work needed for DBRepo schema design, semantic mappings, and API-based reuse?
-- Did it imply that a model could be published without separate metadata, model card, evaluation artefacts, and deposit links?
+The initial DMP also did not fully capture the later DBRepo work. The final project required a normalized relational schema, semantic mappings, unit mappings, documented API-based reuse, and checks that the machine-learning workflow could be reproduced from repository/database artefacts rather than only local files. Finally, it did not anticipate how much model documentation would be needed: the final submission includes a Model Card, generated evaluation artefacts, and references to the model and generated-data deposits.
 
 ## 2. What The Final DMP Required That The Initial DMP Glossed Over
 
-Explain the concrete work, decisions, and knowledge required by the final DMP.
+The final DMP required concrete FAIR implementation evidence, not only planning text. The group had to select and maintain several metadata standards, including RO-Crate, CodeMeta, Croissant, FAIR4ML metadata, and a Model Card. The final plan also had to distinguish the input database, software release, trained model, generated outputs, and DMP itself as related but separate artefacts with separate metadata records and identifiers.
 
-Draft points to check:
-
-- Selection and justification of metadata standards: RO-Crate, CodeMeta, FAIR4ML, Croissant, and Model Card.
-- Separation of input data, software, trained model, and generated outputs into different licence and deposit decisions.
-- Need to document provenance, semantic mappings, unit mappings, DBRepo access, and API endpoints.
-- Need to coordinate persistent identifiers across GitHub, Zenodo, DBRepo, TUWRD model deposit, TUWRD generated-data deposit, and the final DMP record.
+Compared with the initial plan, the final DMP required more detailed provenance and access documentation. The DBRepo database DOI, GitHub/Zenodo software release DOI, generated-data DOI, and final DMP DOI had to be cross-linked. The final DMP also needed contributor identities and ORCIDs, repository relationships, publication dates, licence choices, and a maDMP JSON representation suitable for the TUWRD final DMP record.
