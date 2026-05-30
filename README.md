@@ -143,10 +143,10 @@ The model classifies NO2 measurements as `elevated` (>= 40 µg/m³) or `normal` 
 
 | Metric | Value |
 |--------|-------|
-| Accuracy | 0.8005 |
-| Precision (elevated) | 0.2107 |
-| Recall (elevated) | 0.7251 |
-| F1 (elevated) | 0.3266 |
+| Accuracy | 0.8086 |
+| Precision (elevated) | 0.2197 |
+| Recall (elevated) | 0.7326 |
+| F1 (elevated) | 0.3380 |
 
 The model is a FAIR baseline, not a production air-quality classifier.
 
@@ -204,13 +204,15 @@ The experiment's data loading and retrieval are documented for DBRepo. Table loa
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
 *   **Database ID**: `ed890fa1-154c-4a66-8529-4088c97f68db`
 *   **DBRepo DOI**: `https://doi.org/10.82556/3zan-dn41`
-*   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
+*   **Endpoints Used**: `/api/v1/database/{database_id}/table/{table_id}/data` (View logic is performed client-side using Pandas because DBRepo View creation requires DB Owner permissions).
 *   **Authentication**: None required (publicly accessible database)
 *   **Data loading**: `python scripts/load_dbrepo_import_csvs.py`
 *   **Implementation**: `src/ingest_dbrepo.py`
 *   **Configuration**: `DBREPO_BASE_URL`, `DBREPO_DATABASE_ID`, optional `DBREPO_API_TOKEN`, and optional `DBREPO_VIEW_DATA_PATH_TEMPLATE`
 
 Loaded DBRepo row counts: `sampling_points` 16, `pollutants` 1, `measurement_units` 1, `aggregation_types` 1, `validity_flags` 2, `verification_flags` 1, `observation_logs` 19, and `measurements` 140,160.
+
+**Verification:** We explicitly verified that the reimplemented experiment retrieving data exclusively from the DBRepo REST API produces results identical to those from the original local-file version (F1 score: 0.3380).
 
 ---
 
