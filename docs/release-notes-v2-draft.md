@@ -15,10 +15,12 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
 - Croissant dataset metadata in `croissant.json`.
 - Licence decision record selecting CC BY 4.0 for generated outputs, subject to final source-licence compatibility verification.
+- DBRepo database DOI `10.82556/3zan-dn41`.
+- DBRepo CSV import fallback files in `outputs/dbrepo_import/`.
+- Idempotent DBRepo loading script in `scripts/load_dbrepo_import_csvs.py`.
+- Loaded DBRepo tables with 140,160 measurement rows and all lookup/reference rows.
 
 ## To Add Before Release
 
-- Remaining DBRepo metadata/PID for database and tables.
 - SQL view execution and schema-compatibility verification from T2.4/T2.5.
-- DBRepo data loading and view verification from T2.5.
 - API-based data loading implementation from T2.6.

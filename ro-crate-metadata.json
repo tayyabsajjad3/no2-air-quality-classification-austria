@@ -111,6 +111,15 @@
         },
         {
           "@id": "#generated-data-pending"
+        },
+        {
+          "@id": "scripts/load_dbrepo_import_csvs.py"
+        },
+        {
+          "@id": "outputs/dbrepo_import/"
+        },
+        {
+          "@id": "https://doi.org/10.82556/3zan-dn41"
         }
       ],
       "keywords": [
@@ -137,7 +146,19 @@
       "encodingFormat": "DBRepo relational database",
       "isBasedOn": {
         "@id": "data/raw/"
-      }
+      },
+      "identifier": "https://doi.org/10.82556/3zan-dn41",
+      "sameAs": {
+        "@id": "https://doi.org/10.82556/3zan-dn41"
+      },
+      "hasPart": [
+        {
+          "@id": "outputs/dbrepo_import/"
+        },
+        {
+          "@id": "scripts/load_dbrepo_import_csvs.py"
+        }
+      ]
     },
     {
       "@id": "https://www.eea.europa.eu/en/datahub/datahubitem-view/778ef9f5-6293-4846-badd-56a29c70880d",
@@ -355,6 +376,40 @@
       "@type": "Organization",
       "name": "European Environment Agency",
       "url": "https://www.eea.europa.eu/"
+    },
+    {
+      "@id": "https://doi.org/10.82556/3zan-dn41",
+      "@type": "CreativeWork",
+      "name": "DBRepo database DOI",
+      "url": "https://doi.org/10.82556/3zan-dn41",
+      "identifier": "10.82556/3zan-dn41"
+    },
+    {
+      "@id": "scripts/load_dbrepo_import_csvs.py",
+      "@type": [
+        "File",
+        "SoftwareSourceCode"
+      ],
+      "name": "Idempotent DBRepo CSV loading script",
+      "description": "Loads prepared DBRepo import CSV files in foreign-key order, skips existing primary keys, and uploads missing rows in chunks.",
+      "programmingLanguage": "Python",
+      "encodingFormat": "text/x-python",
+      "isPartOf": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "outputs/dbrepo_import/",
+      "@type": "Dataset",
+      "name": "Prepared DBRepo import CSV files",
+      "description": "CSV files exported from the EEA Parquet source files for reproducible DBRepo loading.",
+      "encodingFormat": "text/csv",
+      "isBasedOn": {
+        "@id": "data/raw/"
+      },
+      "isPartOf": {
+        "@id": "./"
+      }
     }
   ]
 }

@@ -104,12 +104,16 @@ The following SQL views are defined in `docs/views.sql` to de-normalize data int
 
 ## DBRepo API (T2.6)
 
-The experiment's data loading will be reimplemented to retrieve data exclusively from the DBRepo REST API.
+The experiment's data loading and retrieval are documented for DBRepo. Table loading is handled through an idempotent CSV loader because direct notebook imports intermittently returned HTTP 503 from the DBRepo test instance.
 
 *   **Base URL**: `https://test.dbrepo.tuwien.ac.at`
-*   **Endpoints Used**: `/api/v1/database/ed890fa1-154c-4a66-8529-4088c97f68db/view/<view_name>/data` (e.g., `view_no2_classification_features`, `view_balanced_pollution_samples`)
+*   **Database ID**: `ed890fa1-154c-4a66-8529-4088c97f68db`
+*   **DBRepo DOI**: `https://doi.org/10.82556/3zan-dn41`
+*   **Data loading**: `python scripts/load_dbrepo_import_csvs.py`
 *   **Implementation**: `src/ingest_dbrepo.py`
 *   **Configuration**: `DBREPO_BASE_URL`, `DBREPO_DATABASE_ID`, optional `DBREPO_API_TOKEN`, and optional `DBREPO_VIEW_DATA_PATH_TEMPLATE`
+
+Loaded DBRepo row counts: `sampling_points` 16, `pollutants` 1, `measurement_units` 1, `aggregation_types` 1, `validity_flags` 2, `verification_flags` 1, `observation_logs` 19, and `measurements` 140,160.
 
 ---
 
@@ -124,6 +128,7 @@ A `CITATION.cff` file is available in the repository root, referencing the Zenod
 ## Metadata And Documentation
 
 DBRepo database: https://test.dbrepo.tuwien.ac.at/database/ed890fa1-154c-4a66-8529-4088c97f68db
+DBRepo DOI: https://doi.org/10.82556/3zan-dn41
 
 * CodeMeta draft: `codemeta.json`
 * RO-Crate metadata draft: `ro-crate-metadata.json`
