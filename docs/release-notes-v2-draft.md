@@ -15,6 +15,9 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - Code citation metadata in `CITATION.cff` with Zenodo DOI `10.5281/zenodo.20432795`.
 - Croissant dataset metadata in `croissant.json`.
 - Licence decision record selecting CC BY 4.0 for generated outputs, subject to final source-licence compatibility verification.
+<<<<<<< HEAD
+- API-based data loading implementation (`src/ingest_dbrepo.py`) retrieving data exclusively from DBRepo (T2.6).
+=======
 - DBRepo database DOI `10.82556/3zan-dn41`.
 - DBRepo CSV import fallback files in `outputs/dbrepo_import/`.
 - Idempotent DBRepo loading script in `scripts/load_dbrepo_import_csvs.py`.
@@ -23,9 +26,14 @@ This draft supports T2.7. It should be finalised only after all WP2 work is comp
 - Reproducible model training script in `scripts/train_no2_classifier.py`.
 - Evaluation outputs in `outputs/results/` and `outputs/figures/confusion_matrix.png`.
 - Reserved TUWRD generated-output DOI `10.70124/4wqg-7oc34`.
+>>>>>>> f13ede9ff3bc103a2603100cf489ffa06bda4f48
 
 ## To Add Before Release
 
 - SQL view execution and schema-compatibility verification from T2.4/T2.5.
+<<<<<<< HEAD
+- DBRepo data loading and view verification from T2.5.
+=======
 - API-based data loading implementation from T2.6.
 - TUWRD model DOI after the trained model artefact is deposited.
+>>>>>>> f13ede9ff3bc103a2603100cf489ffa06bda4f48
