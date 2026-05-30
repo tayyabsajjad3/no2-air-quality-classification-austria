@@ -34,8 +34,16 @@ def fetch_view_data(view_name: str) -> pd.DataFrame:
         print(f"Successfully loaded {len(df)} rows from {view_name}.")
         return df
         
+    except requests.exceptions.ConnectionError as e:
+        raise RuntimeError(f"Connection error: Failed to connect to DBRepo while fetching '{view_name}'. Check your network or the URL: {e}")
+    except requests.exceptions.HTTPError as e:
+        raise RuntimeError(f"HTTP error: Unexpected response code for view '{view_name}': {e}")
+    except requests.exceptions.Timeout as e:
+        raise RuntimeError(f"Timeout error: The request timed out while fetching view '{view_name}': {e}")
+    except ValueError as e:
+        raise RuntimeError(f"Parse error: Failed to decode JSON response for view '{view_name}'. The API may have returned an unexpected format: {e}")
     except requests.exceptions.RequestException as e:
-        raise RuntimeError(f"Failed to fetch data from DBRepo API for view '{view_name}': {e}")
+        raise RuntimeError(f"An unexpected request error occurred for view '{view_name}': {e}")
 
 if __name__ == "__main__":
     features_df = fetch_view_data("view_no2_classification_features")
