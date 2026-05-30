@@ -143,10 +143,10 @@ The model classifies NO2 measurements as `elevated` (>= 40 µg/m³) or `normal` 
 
 | Metric | Value |
 |--------|-------|
-| Accuracy | 0.8086 |
-| Precision (elevated) | 0.2197 |
-| Recall (elevated) | 0.7326 |
-| F1 (elevated) | 0.3380 |
+| Accuracy | 0.8056 |
+| Precision (elevated) | 0.217 |
+| Recall (elevated) | 0.7336 |
+| F1 (elevated) | 0.3349 |
 
 The model is a FAIR baseline, not a production air-quality classifier.
 
