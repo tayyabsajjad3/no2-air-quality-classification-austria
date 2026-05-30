@@ -104,7 +104,25 @@
           "@id": "docs/tuwrd-model-deposit-metadata.md"
         },
         {
+          "@id": "docs/tuwrd-generated-data-deposit-metadata.md"
+        },
+        {
           "@id": "docs/ro-crate-plan.md"
+        },
+        {
+          "@id": "docs/release-notes-v2-draft.md"
+        },
+        {
+          "@id": "docs/a-b-final-check.md"
+        },
+        {
+          "@id": "docs/validation/ro-crate-json-syntax-check.txt"
+        },
+        {
+          "@id": "docs/validation/ro-crate-validator-output.json"
+        },
+        {
+          "@id": "docs/validation/ro-crate-validator-output.txt"
         },
         {
           "@id": "src/data_ingestion/ingest_dbrepo.py"
@@ -323,10 +341,49 @@
       }
     },
     {
+      "@id": "docs/tuwrd-generated-data-deposit-metadata.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "TUWRD generated-data deposit metadata draft",
+      "about": {
+        "@id": "https://doi.org/10.70124/4wqg-7oc34"
+      }
+    },
+    {
       "@id": "docs/ro-crate-plan.md",
       "@type": "File",
       "encodingFormat": "text/markdown",
       "name": "RO-Crate preparation notes"
+    },
+    {
+      "@id": "docs/release-notes-v2-draft.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "Second GitHub release notes draft"
+    },
+    {
+      "@id": "docs/a-b-final-check.md",
+      "@type": "File",
+      "encodingFormat": "text/markdown",
+      "name": "A/B final local verification note"
+    },
+    {
+      "@id": "docs/validation/ro-crate-json-syntax-check.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "RO-Crate JSON syntax validation output"
+    },
+    {
+      "@id": "docs/validation/ro-crate-validator-output.json",
+      "@type": "File",
+      "encodingFormat": "application/json",
+      "name": "RO-Crate validator JSON report"
+    },
+    {
+      "@id": "docs/validation/ro-crate-validator-output.txt",
+      "@type": "File",
+      "encodingFormat": "text/plain",
+      "name": "RO-Crate validator text report"
     },
     {
       "@id": "src/data_ingestion/ingest_dbrepo.py",

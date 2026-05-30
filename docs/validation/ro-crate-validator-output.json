@@ -1,7 +1,7 @@
 {
     "meta": {
         "generated_by": "rocrate-validator",
-        "version": "0.9.0_623aa88+52-dirty"
+        "version": "0.9.0_4b2b626+53-dirty"
     },
     "validation_settings": {
         "rocrate_uri": ".",
@@ -28,9 +28,9 @@
     "passed": true,
     "issues": [],
     "statistics": {
-        "started_at": "2026-05-30T15:53:24.959124+00:00",
-        "finished_at": "2026-05-30T15:53:27.364602+00:00",
-        "duration": 2.405478,
+        "started_at": "2026-05-30T16:09:44.210831+00:00",
+        "finished_at": "2026-05-30T16:09:48.648731+00:00",
+        "duration": 4.4379,
         "profiles": [
             "ro-crate-1.1"
         ],
