@@ -42,7 +42,7 @@ FIGURES_DIR = ROOT / "outputs" / "figures"
 
 # Add src to python path to import our DBRepo ingestor
 sys.path.append(str(ROOT / "src"))
-from ingest_dbrepo import fetch_view_data
+from data_ingestion.ingest_dbrepo import fetch_view_data
 
 THRESHOLD_UG_M3 = 40.0
 RANDOM_STATE = 42
