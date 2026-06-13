@@ -1,0 +1,87 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1.2em,itemsep=2pt,topsep=2pt}
+
+\title{\vspace{-1.5em}Group 3 Review of Group 5 DMP and Published Artefacts}
+\author{Group 3}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.5em}
+
+\textbf{Review target:} Group 5, \url{https://test.researchdata.tuwien.ac.at/records/v888d-r0r44}
+
+\textbf{Scope of this draft:} This report draft summarizes the checks already performed for the A and B parts of the WP6 DMP review. The GitHub, Zenodo, TUWRD model/generated-output records, DMP PDF, and maDMP JSON were checked. DBRepo details and the detailed metadata-standard artefact review should still be finalized with the C and D contributions before submission.
+
+\section*{Summary Ratings}
+
+\begin{center}
+\begin{tabular}{|p{0.58\linewidth}|c|p{0.22\linewidth}|}
+\hline
+\textbf{Review dimension} & \textbf{Rating} & \textbf{Short note} \\
+\hline
+(a) Completeness of all FWF DMP fields & 3/3 & Main DMP sections are present. \\
+\hline
+(b) Quality and specificity of data descriptions & 2/3 & Needs final DBRepo/UI check. \\
+\hline
+(c) Correctness of metadata standard artefacts & 2/3 & Artefacts are present; one README placeholder remains. \\
+\hline
+(d) maDMP technical validity & 2/3 & JSON is valid; stricter schema check is still recommended. \\
+\hline
+(e) Consistency between DMP text and published artefacts & 2/3 & Main links resolve; minor documentation mismatch remains. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{(a) Completeness of all FWF DMP Fields -- 3/3}
+
+The DMP record is published and openly accessible in TUWRD, and it contains both the human-readable DMP PDF and the machine-actionable maDMP JSON. The DMP follows the FWF DMP structure and includes administrative information, data responsibilities, reused and produced datasets, metadata and documentation, data quality, storage and backup, publication and preservation, legal aspects, and ethical aspects.
+
+The DMP also explains the SDCC SCOOT traffic dataset, DBRepo reuse, GitHub and Zenodo software publication, TUWRD model and generated-output deposits, and the planned metadata standards. Overall, the DMP fields are complete enough for review, so this dimension receives the highest rating.
+
+\section*{(b) Quality and Specificity of Data Descriptions -- 2/3}
+
+From the DMP and the available artefacts, the data description is specific and describes the source traffic data, the transformed data, the model artefacts, and the generated outputs. The DMP also links the workflow to DBRepo, TUWRD, GitHub, and Zenodo, which makes the overall publication chain understandable.
+
+This rating is kept at 2/3 for now because the DBRepo schema, views, and semantic annotations still need a direct UI/API check by the C-side review. If those checks confirm that the schema and annotations are complete and understandable, this score could reasonably be increased.
+
+\section*{(c) Correctness of Metadata Standard Artefacts -- 2/3}
+
+The GitHub repository is public and includes important metadata and documentation files, including \texttt{README.md}, \texttt{LICENSE}, \texttt{CITATION.cff}, \texttt{codemeta.json}, \texttt{croissant.json}, \texttt{ro-crate-metadata.json}, and a model card. The repository also contains source code, notebooks, output/model artefacts, and validation reports, which is a good basis for FAIR software and model documentation.
+
+The main issue found during the A-side check is that the README still contains a placeholder for the TUWRD model DOI, even though the model deposit is available through the DMP/TUWRD record. Because of this small consistency issue, and because D should still do the final detailed metadata-standard check, this dimension is rated 2/3 in this draft.
+
+\section*{(d) maDMP Technical Validity -- 2/3}
+
+The maDMP file is syntactically valid JSON and contains an RDA-style top-level \texttt{dmp} object. It includes contact information, contributors, cost, created and modified dates, project information, ethical issue status, and five dataset entries with distributions.
+
+The maDMP is therefore technically usable at the JSON level. However, some dataset entries are not very easy to inspect with simple JSON access because clear human-readable titles are not exposed consistently. A strict RDA schema validation should still be run before the final submission, so this dimension is rated 2/3.
+
+\section*{(e) Consistency Between DMP Text and Published Artefacts -- 2/3}
+
+The main published artefacts mentioned in the DMP could be found. The GitHub repository resolves, the Zenodo DOI records resolve, the TUWRD model deposit is separate and includes model files such as \texttt{mlp\_model.keras} and \texttt{scaler.pkl}, and the generated-output deposit is separate and includes metrics and confusion-matrix outputs.
+
+The DMP PDF and maDMP JSON are also present in the TUWRD DMP record. The remaining consistency concern is the README placeholder for the TUWRD model DOI and the need for final DBRepo and metadata-standard checks. For this reason, the consistency score is currently 2/3.
+
+\section*{Final Notes Before Submission}
+
+For the final group submission, C should still confirm the DBRepo schema, views, and semantic annotations through the live UI/API. D should complete the detailed check of RO-Crate, CodeMeta, FAIR4ML, Croissant, and the Model Card, then harmonize the ratings. Based on the A/B checks, the Group 5 DMP package is mostly complete and the main artefacts are findable, but a few documentation and validation details should be confirmed before assigning final scores.
+
+\end{document}
