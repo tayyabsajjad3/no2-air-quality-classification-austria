@@ -1,0 +1,259 @@
+{
+  "dmp": {
+    "@context": {
+      "@vocab": "https://w3id.org/rda/dmp#",
+      "schema": "http://schema.org/",
+      "rdap": "https://w3id.org/rda/dmp#",
+      "orcid": "https://orcid.org/",
+      "doi": "https://doi.org/"
+    },
+    "@type": "rdap:DMP",
+    "@id": "https://researchdata.tuwien.ac.at/record/4bcm8-dcj47",
+    "contact": {
+      "@type": "schema:Person",
+      "@id": "orcid:0000-0003-4463-3929",
+      "schema:email": "e12427543@student.tuwien.ac.at",
+      "schema:name": "Kyzer Gerez"
+    },
+    "contributor": [
+      {
+        "@type": "schema:Person",
+        "@id": "orcid:0009-0002-0332-2702",
+        "schema:email": "e12532822@student.tuwien.ac.at",
+        "schema:name": "Habib Ahmad",
+        "rdap:role": [ "Project Member" ]
+      },
+      {
+        "@type": "schema:Person",
+        "@id": "orcid:0009-0003-3806-507X",
+        "schema:email": "e11705340@student.tuwien.ac.at",
+        "schema:name": "Johannes Held",
+        "rdap:role": [ "Project Member" ]
+      },
+      {
+        "@type": "schema:Person",
+        "@id": "orcid:0000-0003-4463-3929",
+        "schema:email": "e12427543@student.tuwien.ac.at",
+        "schema:name": "Kyzer Gerez",
+        "rdap:role": [ "Project Member" ]
+      },
+      {
+        "@type": "schema:Person",
+        "@id": "orcid:0009-0002-8980-8948",
+        "schema:email": "e11941370@student.tuwien.ac.at",
+        "schema:name": "Gevorg Zakaryan",
+        "rdap:role": [ "Project Member" ]
+      }
+    ],
+    "rdap:cost": [
+      {
+        "@type": "rdap:Cost",
+        "rdap:costType": "Data Management",
+        "rdap:costValue": "0",
+        "rdap:currency": "EUR",
+        "schema:description": "There are no costs dedicated to data management and ensuring that data will be FAIR. All data management activities were performed by project members as part of their regular duties."
+      }
+    ],
+    "rdap:created": "2026-05-28T09:00:00Z",
+    "rdap:dataset": [
+      {
+        "@type": "rdap:Dataset",
+        "schema:description": "SDCC Traffic Congestion Saturation Flow Data for January to June 2022. Traffic volumes, traffic saturation, and congestion data for sites across South Dublin County. Used by traffic management to control stage timings on junctions. Reused dataset ingested into DBRepo.",
+        "rdap:distribution": [
+          {
+            "@type": "rdap:Distribution",
+            "schema:accessURL": "https://data-sdublincoco.opendata.arcgis.com/datasets/sdublincoco::traffic-flow-data-jan-to-june-2022-sdcc",
+            "rdap:dataAccess": "open",
+            "schema:description": "Original source data from SDCC Open Data Portal.",
+            "schema:encodingFormat": [ "CSV" ],
+            "rdap:host": {
+              "@type": "rdap:Repository",
+              "schema:description": "SDCC Open Data Portal",
+              "schema:name": "South Dublin County Council",
+              "schema:url": "https://data-sdublincoco.opendata.arcgis.com/"
+            },
+            "rdap:license": [
+              {
+                "schema:license": "https://creativecommons.org/licenses/by/4.0/",
+                "rdap:startDate": "2026-03-30"
+              }
+            ],
+            "rdap:technicalResource": [ "Python", "Jupyter Notebooks", "DBRepo REST API" ],
+            "schema:name": "Traffic Flow Data Jan to June 2022 SDCC"
+          }
+        ],
+        "rdap:personalData": "no",
+        "rdap:sensitiveData": "no",
+        "schema:name": "Traffic Flow Data Jan to June 2022 SDCC",
+        "rdap:type": "Dataset"
+      },
+      {
+        "@type": "rdap:Dataset",
+        "schema:description": "Normalized 3NF relational representation of the SDCC traffic dataset stored in DBRepo with semantic metadata annotations, ontology mappings, and SQL views for ML workflows.",
+        "rdap:distribution": [
+          {
+            "@type": "rdap:Distribution",
+            "schema:accessURL": "https://test.dbrepo.tuwien.ac.at/",
+            "schema:contentSize": 2500000000,
+            "rdap:dataAccess": "open",
+            "schema:description": "Database hosted on TU Wien DBRepo infrastructure.",
+            "schema:encodingFormat": [ "DBRepo relational database" ],
+            "rdap:host": {
+              "@type": "rdap:Repository",
+              "schema:description": "TU Wien DBRepo Test Instance",
+              "rdap:pidSystem": [ "url" ],
+              "rdap:storageType": "institutional",
+              "rdap:supportVersioning": "yes",
+              "schema:name": "DBRepo",
+              "schema:url": "https://test.dbrepo.tuwien.ac.at/"
+            },
+            "rdap:license": [
+              {
+                "schema:license": "https://creativecommons.org/licenses/by/4.0/",
+                "rdap:startDate": "2026-03-30"
+              }
+            ],
+            "rdap:technicalResource": [ "SQL", "Python", "DBRepo REST API" ],
+            "schema:name": "Processed SDCC Traffic Database"
+          }
+        ],
+        "rdap:personalData": "no",
+        "rdap:sensitiveData": "no",
+        "schema:name": "Processed SDCC Traffic Database",
+        "rdap:type": "Databases"
+      },
+      {
+        "@type": "rdap:Dataset",
+        "schema:description": "RO-Crate, Croissant, FAIR4ML, CodeMeta, CITATION.cff, and Model Card metadata describing datasets, software, workflows, and models. Includes the Zenodo DOI for the software release.",
+        "rdap:distribution": [
+          {
+            "@type": "rdap:Distribution",
+            "schema:accessURL": "https://github.com/gevzak/predicting-urban-traffic-congestion",
+            "schema:contentSize": 250000000,
+            "rdap:dataAccess": "open",
+            "schema:description": "Metadata files stored in the GitHub repository.",
+            "schema:encodingFormat": [ "JSON-LD", "JSON", "Markdown" ],
+            "rdap:host": {
+              "@type": "rdap:Repository",
+              "schema:description": "GitHub Repository",
+              "rdap:pidSystem": [ "url" ],
+              "schema:name": "GitHub",
+              "schema:url": "https://github.com/gevzak/predicting-urban-traffic-congestion"
+            },
+            "rdap:license": [
+              {
+                "schema:license": "https://creativecommons.org/licenses/by/4.0/",
+                "rdap:startDate": "2026-05-30"
+              }
+            ],
+            "rdap:pid": {
+              "@id": "doi:10.5281/zenodo.20365705",
+              "@type": "schema:PropertyValue",
+              "schema:propertyID": "DOI",
+              "schema:value": "10.5281/zenodo.20365705"
+            },
+            "rdap:technicalResource": [ "JSON-LD compatible tools" ],
+            "schema:name": "FAIR Metadata Records"
+          }
+        ],
+        "rdap:personalData": "no",
+        "rdap:sensitiveData": "no",
+        "schema:name": "FAIR Metadata Records",
+        "rdap:type": "Structured text, Plain text"
+      },
+      {
+        "@type": "rdap:Dataset",
+        "schema:description": "Trained machine learning model artefacts generated during congestion prediction experiments, including associated FAIR4ML metadata and Model Cards.",
+        "rdap:distribution": [
+          {
+            "@type": "rdap:Distribution",
+            "schema:accessURL": "https://researchdata.tuwien.ac.at/",
+            "schema:contentSize": 250000000,
+            "rdap:dataAccess": "open",
+            "schema:description": "Model artefacts deposited in TU Wien Research Data.",
+            "schema:encodingFormat": [ "PKL" ],
+            "rdap:host": {
+              "@type": "rdap:Repository",
+              "schema:description": "TU Wien Research Data is an institutional repository of TU Wien.",
+              "rdap:pidSystem": [ "doi" ],
+              "rdap:storageType": "institutional",
+              "rdap:supportVersioning": "yes",
+              "schema:name": "TU Wien Research Data",
+              "schema:url": "https://researchdata.tuwien.ac.at/"
+            },
+            "rdap:license": [
+              {
+                "schema:license": "https://opensource.org/license/mit",
+                "rdap:startDate": "2026-05-30"
+              }
+            ],
+            "rdap:pid": {
+              "@id": "doi:10.70124/0wpaq-xkp80",
+              "@type": "schema:PropertyValue",
+              "schema:propertyID": "DOI",
+              "schema:value": "10.70124/0wpaq-xkp80"
+            },
+            "rdap:technicalResource": [ "Python", "TensorFlow" ],
+            "schema:name": "Machine Learning Models"
+          }
+        ],
+        "rdap:personalData": "no",
+        "rdap:sensitiveData": "no",
+        "schema:name": "Machine Learning Models",
+        "rdap:type": "Other"
+      },
+      {
+        "@type": "rdap:Dataset",
+        "schema:description": "Generated predictions, evaluation metrics, confusion matrices, and visualizations produced during model evaluation.",
+        "rdap:distribution": [
+          {
+            "@type": "rdap:Distribution",
+            "schema:accessURL": "https://researchdata.tuwien.ac.at/",
+            "schema:contentSize": 250000000,
+            "rdap:dataAccess": "open",
+            "schema:description": "Evaluation outputs deposited in TU Wien Research Data.",
+            "schema:encodingFormat": [ "CSV", "JSON", "PNG" ],
+            "rdap:host": {
+              "@type": "rdap:Repository",
+              "schema:description": "TU Wien Research Data is an institutional repository of TU Wien.",
+              "rdap:pidSystem": [ "doi" ],
+              "rdap:storageType": "institutional",
+              "rdap:supportVersioning": "yes",
+              "schema:name": "TU Wien Research Data",
+              "schema:url": "https://researchdata.tuwien.ac.at/"
+            },
+            "rdap:license": [
+              {
+                "schema:license": "https://creativecommons.org/licenses/by/4.0/",
+                "rdap:startDate": "2026-05-30"
+              }
+            ],
+            "rdap:pid": {
+              "@id": "doi:10.70124/4bcm8-dcj47",
+              "@type": "schema:PropertyValue",
+              "schema:propertyID": "DOI",
+              "schema:value": "10.70124/4bcm8-dcj47"
+            },
+            "rdap:technicalResource": [ "Python", "Jupyter Notebooks" ],
+            "schema:name": "Prediction and Evaluation Outputs"
+          }
+        ],
+        "rdap:personalData": "no",
+        "rdap:sensitiveData": "no",
+        "schema:name": "Prediction and Evaluation Outputs",
+        "rdap:type": "Structured text, Images"
+      }
+    ],
+    "rdap:ethicalIssuesExist": "no",
+    "rdap:modified": "2026-05-30T15:00:00Z",
+    "rdap:project": [
+      {
+        "@type": "rdap:Project",
+        "schema:description": "This experiment aims to classify traffic congestion levels across South Dublin County. Using the Traffic Flow Data Jan to June 2022 SDCC dataset, which contains high-resolution (15-minute) measurements of flow, saturation (dsat), and congestion (cong), we engineered a 5-tier classification system (Free Flow (0) to Severe Congestion (5)) based on site-specific quantiles. A Multi-Layer Perceptron (MLP) was implemented using TensorFlow to predict these categories. Despite a heavy class imbalance (93% Free Flow), the model was optimized using class-weighting and cyclical time encoding. The results demonstrate the feasibility of using SCOOT-derived metrics to provide early warnings for traffic management systems.",
+        "schema:endDate": "2026-05-30",
+        "schema:startDate": "2026-04-08",
+        "schema:name": "Predicting Urban Traffic Congestion Levels using Multi-Layer Perceptrons on SDCC SCOOT Data"
+      }
+    ]
+  }
+}
