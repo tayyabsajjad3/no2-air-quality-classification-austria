@@ -1,0 +1,175 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\renewcommand{\arraystretch}{1.18}
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+\newcommand{\pending}{\textcolor{red}{pending}}
+\newcommand{\done}{\textcolor{teal}{done}}
+
+\title{Group 3 Final Report Draft\\NO2 Air Quality Classification across Austrian Monitoring Stations}
+\author{Glent Rembeci, Somayeh Zeraati, Muhammed Tayyab Sajjad, Sina Sadeghi}
+\date{June 2026}
+
+\begin{document}
+\maketitle
+
+\textbf{Report status.} This draft completes the report material for Owner A and
+Owner B. Owner C and Owner D still need to add/check their final contribution text
+and confirmation entries before the final PDF is submitted to TUWEL as
+\texttt{group-3-final-report.pdf}.
+
+\section*{1. Title and Authors}
+\textbf{Project title:} NO2 Air Quality Classification across Austrian Monitoring Stations.
+
+\begin{longtable}{p{0.19\linewidth}p{0.25\linewidth}p{0.36\linewidth}p{0.12\linewidth}}
+\toprule
+Owner & Name & ORCID & Status \\
+\midrule
+A & Glent Rembeci & \href{https://orcid.org/0009-0003-3981-8301}{0009-0003-3981-8301} & \done \\
+B & Somayeh Zeraati & \href{https://orcid.org/0009-0001-3666-0911}{0009-0001-3666-0911} & \done \\
+C & Muhammed Tayyab Sajjad & \href{https://orcid.org/0009-0000-6631-8482}{0009-0000-6631-8482} & \pending \\
+D & Sina Sadeghi & \href{https://orcid.org/0009-0008-1996-4666}{0009-0008-1996-4666} & \pending \\
+\bottomrule
+\end{longtable}
+
+\section*{2. Abstract}
+This project implements a FAIR data science workflow for classifying nitrogen
+dioxide (NO2) air quality levels across Austrian monitoring stations. Hourly 2024
+measurements from the European Environment Agency were normalized into DBRepo and
+used to train a Random Forest classifier that predicts whether NO2 concentration
+is elevated, defined as \(\geq 40\) ug/m3. The project publishes the source
+database, software, trained model, generated outputs, final DMP, and metadata
+records with persistent identifiers and cross-links.
+
+\section*{3. DBRepo Schema, ER Diagram, Ontology and Unit Mapping}
+Owner A prepared the normalized DBRepo database structure and publication
+evidence. The database is available through DBRepo with DOI
+\href{https://doi.org/10.82556/3zan-dn41}{10.82556/3zan-dn41}. The repository
+contains the schema definition in \texttt{docs/schema.sql}, an ER description in
+\texttt{docs/er-diagram.md}, DBRepo metadata notes in
+\texttt{docs/dbrepo-metadata-plan.md}, and view/API reuse notes in
+\texttt{docs/views.sql}.
+
+Owner B prepared the semantic and unit mapping documentation. The semantic mapping
+uses SOSA/SSN for observations, OWL-Time for temporal intervals, ChEBI for NO2,
+PROV-O for provenance, and QUDT for units. The detailed mapping is documented in
+\texttt{docs/semantic-mapping.md} and \texttt{docs/unit-mapping.md}.
+
+\begin{longtable}{p{0.18\linewidth}p{0.31\linewidth}p{0.32\linewidth}p{0.11\linewidth}}
+\toprule
+Attribute & Meaning & Mapping & Owner \\
+\midrule
+\texttt{Samplingpoint} & EEA monitoring point identifier & \texttt{sosa:FeatureOfInterest} / \texttt{sosa:Platform} & B \\
+\texttt{Pollutant} & NO2 pollutant code & \texttt{sosa:observedProperty}, ChEBI 33101 & B \\
+\texttt{Start}, \texttt{End} & Hourly measurement interval & \texttt{sosa:phenomenonTime}, OWL-Time beginning/end & B \\
+\texttt{Value} & NO2 concentration & \texttt{sosa:hasSimpleResult}, QUDT mass concentration & B \\
+\texttt{Unit} & ug/m3 concentration unit & \texttt{unit:MicroGM-PER-M3} & B \\
+\texttt{ResultTime} & Time result was produced & \texttt{sosa:resultTime}, \texttt{prov:generatedAtTime} & B \\
+\bottomrule
+\end{longtable}
+
+\section*{4. Standards Application and Overlap Analysis}
+Owner A prepared the RO-Crate and Model Card evidence. The
+\texttt{ro-crate-metadata.json} file describes the main software, data, model,
+generated outputs, and related identifiers, and the local validation note reports
+that the RO-Crate 1.1 required checks passed. The Model Card in
+\texttt{docs/model-card.md} documents the classifier purpose, inputs, target
+definition, evaluation metrics, ethical limitations, and reuse information.
+
+Owner B prepared the CodeMeta and licensing evidence. The \texttt{codemeta.json}
+record documents the software package, authors, license, repository, runtime, and
+dependencies. The licensing notes distinguish the EEA input data terms, MIT
+software license, CC BY 4.0 generated outputs/model documentation, and reuse
+conditions for published artefacts. The standards-overlap draft in
+\texttt{docs/standards-overlap-analysis.md} identifies RO-Crate as the integration
+layer, FAIR4ML and Model Card as the most overlapping machine-learning standards,
+and CodeMeta and Croissant as complementary software/data standards.
+
+\section*{5. DMP Comparison}
+Owner B prepared the initial-vs-final DMP comparison in
+\texttt{docs/dmp-comparison-template.md}. The initial DMP is available at
+\href{https://handle.test.datacite.org/10.70124/3gj7h-t2832}{10.70124/3gj7h-t2832};
+the final DMP record is available at
+\href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563}. The initial
+plan was useful as a starting point, but it underestimated the coordination needed
+for persistent identifiers, separate artefact deposits, licensing, semantic
+mapping, model documentation, and reproducibility from DBRepo and repository
+artefacts. The final DMP adds concrete FAIR implementation evidence, including
+DBRepo, GitHub/Zenodo, generated-output, model, and DMP identifiers.
+
+\section*{6. OSTrails Test Results Table}
+The group assessment service was implemented under
+\texttt{groups/group-3} in the course GitLab repository. The merge request is
+\href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15}.
+The A and B tests include pass/fail example JSON files and a Node.js registry.
+
+\begin{longtable}{p{0.14\linewidth}p{0.14\linewidth}p{0.12\linewidth}p{0.44\linewidth}}
+\toprule
+Metric ID & Owner & Outcome & Message \\
+\midrule
+T-DCSC-026 & A & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-037 & A & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-065 & A & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-058 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-069 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-083 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-001, 016, 032 & C & \pending & Owner C should add final outcome and message. \\
+T-DCSC-003, 022, 090 & D & \pending & Owner D should add final outcome and message. \\
+\bottomrule
+\end{longtable}
+
+\section*{7. Individual Contribution and Sign-off Tables}
+\subsection*{Owner A: Glent Rembeci}
+\begin{longtable}{p{0.18\linewidth}p{0.56\linewidth}p{0.16\linewidth}}
+\toprule
+Task & Contribution & Status \\
+\midrule
+T2.1 & DBRepo schema, ER diagram, database publication evidence, and metadata notes. & \done \\
+T3.1 & RO-Crate metadata and validation evidence. & \done \\
+T3.5 & Model Card documentation. & \done \\
+T3.9 & Separate TUWRD model record with \texttt{no2\_air\_quality\_classifier.joblib} and \texttt{model-card.md}; DOI \href{https://doi.org/10.70124/ye7mg-p5v03}{10.70124/ye7mg-p5v03}. & \done \\
+T4.4 & Final DMP PDF and maDMP JSON submitted as TUWRD final DMP record; DOI \href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563}. & \done \\
+T5.1 & Group-3 GitLab merge request created for the assessment service. & \done \\
+T5.2 & Implemented assigned OSTrails tests 026, 037, and 065. & \done \\
+\bottomrule
+\end{longtable}
+\textbf{Sign-off chain:} Owner A confirmation by Owner B is pending final manual check.
+
+\subsection*{Owner B: Somayeh Zeraati}
+\begin{longtable}{p{0.18\linewidth}p{0.56\linewidth}p{0.16\linewidth}}
+\toprule
+Task & Contribution & Status \\
+\midrule
+T2.2 & Semantic mapping and DBRepo semantic annotation notes. & \done \\
+T2.7 & Release notes for the software publication and final release preparation. & \done \\
+T3.2 & CodeMeta metadata for software authorship, repository, runtime, and dependencies. & \done \\
+T3.6 & License review covering EEA input data, software, generated outputs, and model documentation. & \done \\
+T3.10 & TUWRD generated-output deposit with metrics, predictions, confusion matrix table, and figure; DOI \href{https://doi.org/10.70124/4jwcg-70c34}{10.70124/4jwcg-70c34}. & \done \\
+T4.3 & maDMP JSON exported from the DMP Tool and included in the final DMP TUWRD record. & \done \\
+T4.5 & Initial-vs-final DMP comparison with final DOI references. & \done \\
+T5.3 & Implemented assigned OSTrails tests 058, 069, and 083. & \done \\
+\bottomrule
+\end{longtable}
+\textbf{Sign-off chain:} Owner B confirmation by Owner C is pending final manual check.
+
+\subsection*{Owner C: Muhammed Tayyab Sajjad}
+Owner C should add final contribution notes, OSTrails results for tests 001, 016,
+and 032, and confirmation of Owner B.
+
+\subsection*{Owner D: Sina Sadeghi}
+Owner D should add final contribution notes, OSTrails results for tests 003, 022,
+and 090, assemble the final full PDF, and confirmation of Owner C. Owner A should
+then confirm Owner D to close the confirmation chain.
+
+\end{document}
