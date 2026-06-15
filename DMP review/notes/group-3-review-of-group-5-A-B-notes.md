@@ -2,7 +2,7 @@
 
 Review target: Group 5  
 Review record: https://test.researchdata.tuwien.ac.at/records/v888d-r0r44  
-Prepared by: Group 3, A/B contribution draft  
+Prepared by: Group 3, A/B/C contribution draft  
 
 ## A - GitHub repository and Zenodo/software publication
 
@@ -51,3 +51,41 @@ Suggested contribution to final review:
 
 - C should still verify DBRepo through the browser/UI or API because the downloaded static HTML page does not expose tables/views/semantic annotations without JavaScript.
 - D should verify metadata standard artefacts in detail, especially RO-Crate, CodeMeta, FAIR4ML, Croissant, and Model Card content against the DMP text.
+
+## C - DBRepo and Data Description
+
+Checked artefacts:
+- DBRepo database: https://test.dbrepo.tuwien.ac.at/database/4c334c86-77a1-44b7-a649-0588a5362a06
+- Database name: SDCC Traffic Flow Experiment 2022
+- Database size: 128.73 MB
+
+Findings:
+
+**Tables (3):**
+- `TrafficMeasurements` — Core fact table containing 15-minute traffic flow and congestion metrics. Contains 1,048,575 rows with columns: observation_id, site_id, date, start_time, end_time, flow, flow_pc, cong, cong_pc, dsat, dsat_pc. Publicly visible.
+- `TrafficSites` — Contains data for physical sensor locations. Publicly visible.
+- `Calendar` — Table to handle date-to-day mapping. Publicly visible.
+
+**Views (3):**
+- `v_peak_hour_measurements` — Filters traffic measurements to peak hours. Publicly visible.
+- `v_weekday_measurements` — Filters traffic measurements to weekdays. Publicly visible.
+- `v_measurements_enriched` — Enriched view combining traffic measurements with additional context. Publicly visible.
+
+**Semantic Annotations:**
+- The `TrafficMeasurements` schema shows columns for Concept and Measurement Unit but ALL are empty — no ontology concepts or unit URIs have been assigned to any column.
+- No QUDT unit URIs, no SI Digital Framework references, no SOSA/SSN concept mappings visible in the DBRepo UI.
+- The DMP mentions DBRepo as a storage location but does not explicitly describe the unit mappings or semantic annotations applied to the columns.
+
+**Comparison with DMP:**
+- The DMP describes the SDCC SCOOT traffic dataset and mentions DBRepo as a storage location. The database exists and is publicly accessible, which is consistent with the DMP.
+- The DMP does not explicitly describe the DBRepo schema, views, or semantic annotations, making it difficult to verify completeness from the DMP text alone.
+- The 3 views are descriptively named and cover useful ML-relevant subsets (peak hours, weekdays, enriched features), which is good practice.
+- The table descriptions in DBRepo are short but meaningful.
+
+**Issues found:**
+- No semantic annotations (unit URIs or ontology concept mappings) on any column in the TrafficMeasurements table. This reduces the FAIR quality of the database metadata.
+- The DMP text does not describe the DBRepo schema or column-level metadata in detail.
+
+**Suggested rating for (b) Quality and specificity of data descriptions: 2/3**
+- Data is present and publicly accessible with descriptive table names and 3 useful views.
+- Absence of semantic annotations on columns reduces the specificity of the data description.

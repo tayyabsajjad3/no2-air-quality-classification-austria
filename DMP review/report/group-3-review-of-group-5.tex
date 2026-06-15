@@ -28,7 +28,7 @@
 
 \textbf{Review target:} Group 5, \url{https://test.researchdata.tuwien.ac.at/records/v888d-r0r44}
 
-\textbf{Scope of this draft:} This report draft summarizes the checks already performed for the A and B parts of the WP6 DMP review. The GitHub, Zenodo, TUWRD model/generated-output records, DMP PDF, and maDMP JSON were checked. DBRepo details and the detailed metadata-standard artefact review should still be finalized with the C and D contributions before submission.
+\textbf{Project:} Predicting Urban Traffic Congestion Levels using Multi-Layer Perceptrons on SDCC SCOOT Data
 
 \section*{Summary Ratings}
 
@@ -37,15 +37,15 @@
 \hline
 \textbf{Review dimension} & \textbf{Rating} & \textbf{Short note} \\
 \hline
-(a) Completeness of all FWF DMP fields & 3/3 & Main DMP sections are present. \\
+(a) Completeness of all FWF DMP fields & 3/3 & All main DMP sections are present. \\
 \hline
-(b) Quality and specificity of data descriptions & 2/3 & Needs final DBRepo/UI check. \\
+(b) Quality and specificity of data descriptions & 2/3 & Data present and accessible; no semantic annotations on DBRepo columns. \\
 \hline
-(c) Correctness of metadata standard artefacts & 2/3 & Artefacts are present; one README placeholder remains. \\
+(c) Correctness of metadata standard artefacts & 2/3 & Artefacts present; one README placeholder remains. \\
 \hline
-(d) maDMP technical validity & 2/3 & JSON is valid; stricter schema check is still recommended. \\
+(d) maDMP technical validity & 2/3 & JSON is valid; stricter schema check recommended. \\
 \hline
-(e) Consistency between DMP text and published artefacts & 2/3 & Main links resolve; minor documentation mismatch remains. \\
+(e) Consistency between DMP text and published artefacts & 2/3 & Main links resolve; minor documentation mismatch. \\
 \hline
 \end{tabular}
 \end{center}
@@ -58,15 +58,15 @@ The DMP also explains the SDCC SCOOT traffic dataset, DBRepo reuse, GitHub and Z
 
 \section*{(b) Quality and Specificity of Data Descriptions -- 2/3}
 
-From the DMP and the available artefacts, the data description is specific and describes the source traffic data, the transformed data, the model artefacts, and the generated outputs. The DMP also links the workflow to DBRepo, TUWRD, GitHub, and Zenodo, which makes the overall publication chain understandable.
+The DBRepo database (SDCC Traffic Flow Experiment 2022, \url{https://test.dbrepo.tuwien.ac.at/database/4c334c86-77a1-44b7-a649-0588a5362a06}) is publicly accessible and contains three tables: \texttt{TrafficMeasurements} (1,048,575 rows of 15-minute traffic flow and congestion metrics), \texttt{TrafficSites} (physical sensor locations), and \texttt{Calendar} (date-to-day mapping). Three descriptively named SQL views are also present: \texttt{v\_peak\_hour\_measurements}, \texttt{v\_weekday\_measurements}, and \texttt{v\_measurements\_enriched}, which expose useful ML-relevant subsets of the data.
 
-This rating is kept at 2/3 for now because the DBRepo schema, views, and semantic annotations still need a direct UI/API check by the C-side review. If those checks confirm that the schema and annotations are complete and understandable, this score could reasonably be increased.
+However, the \texttt{TrafficMeasurements} schema shows empty \textit{Concept} and \textit{Measurement Unit} fields for all columns -- no ontology concept URIs or unit of measurement annotations (such as QUDT or SI Digital Framework references) have been assigned to any column. The DMP text also does not describe the DBRepo schema or column-level metadata in detail. Because the data is present and findable but lacks semantic column-level annotations that would make it fully FAIR-compliant, this dimension is rated 2/3.
 
 \section*{(c) Correctness of Metadata Standard Artefacts -- 2/3}
 
 The GitHub repository is public and includes important metadata and documentation files, including \texttt{README.md}, \texttt{LICENSE}, \texttt{CITATION.cff}, \texttt{codemeta.json}, \texttt{croissant.json}, \texttt{ro-crate-metadata.json}, and a model card. The repository also contains source code, notebooks, output/model artefacts, and validation reports, which is a good basis for FAIR software and model documentation.
 
-The main issue found during the A-side check is that the README still contains a placeholder for the TUWRD model DOI, even though the model deposit is available through the DMP/TUWRD record. Because of this small consistency issue, and because D should still do the final detailed metadata-standard check, this dimension is rated 2/3 in this draft.
+The main issue found during the A-side check is that the README still contains a placeholder for the TUWRD model DOI, even though the model deposit is available through the DMP/TUWRD record. Because of this small consistency issue, this dimension is rated 2/3.
 
 \section*{(d) maDMP Technical Validity -- 2/3}
 
@@ -76,12 +76,8 @@ The maDMP is therefore technically usable at the JSON level. However, some datas
 
 \section*{(e) Consistency Between DMP Text and Published Artefacts -- 2/3}
 
-The main published artefacts mentioned in the DMP could be found. The GitHub repository resolves, the Zenodo DOI records resolve, the TUWRD model deposit is separate and includes model files such as \texttt{mlp\_model.keras} and \texttt{scaler.pkl}, and the generated-output deposit is separate and includes metrics and confusion-matrix outputs.
+The main published artefacts mentioned in the DMP could be found. The GitHub repository resolves, the Zenodo DOI records resolve, the TUWRD model deposit is separate and includes model files such as \texttt{mlp\_model.keras} and \texttt{scaler.pkl}, and the generated-output deposit is separate and includes metrics and confusion-matrix outputs. The DBRepo database is publicly accessible and consistent with the DMP description of SDCC SCOOT data storage.
 
-The DMP PDF and maDMP JSON are also present in the TUWRD DMP record. The remaining consistency concern is the README placeholder for the TUWRD model DOI and the need for final DBRepo and metadata-standard checks. For this reason, the consistency score is currently 2/3.
-
-\section*{Final Notes Before Submission}
-
-For the final group submission, C should still confirm the DBRepo schema, views, and semantic annotations through the live UI/API. D should complete the detailed check of RO-Crate, CodeMeta, FAIR4ML, Croissant, and the Model Card, then harmonize the ratings. Based on the A/B checks, the Group 5 DMP package is mostly complete and the main artefacts are findable, but a few documentation and validation details should be confirmed before assigning final scores.
+The remaining consistency concern is the README placeholder for the TUWRD model DOI and the absence of semantic annotations in DBRepo despite the DMP implying FAIR-compliant data storage. For this reason, the consistency score is 2/3.
 
 \end{document}
