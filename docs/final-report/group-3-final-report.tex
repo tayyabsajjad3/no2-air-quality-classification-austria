@@ -24,10 +24,7 @@
 \begin{document}
 \maketitle
 
-\textbf{Report status.} This draft completes the report material for Owner A and
-Owner B. Owner C and Owner D still need to add/check their final contribution text
-and confirmation entries before the final PDF is submitted to TUWEL as
-\texttt{group-3-final-report.pdf}.
+\textbf{Report status.} This draft completes the report material for Owner A, Owner B, and Owner C. Owner D still needs to add their final contribution text and confirmation entries before the final PDF is submitted to TUWEL as \texttt{group-3-final-report.pdf}.
 
 \section*{1. Title and Authors}
 \textbf{Project title:} NO2 Air Quality Classification across Austrian Monitoring Stations.
@@ -38,7 +35,7 @@ Owner & Name & ORCID & Status \\
 \midrule
 A & Glent Rembeci & \href{https://orcid.org/0009-0003-3981-8301}{0009-0003-3981-8301} & \done \\
 B & Somayeh Zeraati & \href{https://orcid.org/0009-0001-3666-0911}{0009-0001-3666-0911} & \done \\
-C & Muhammed Tayyab Sajjad & \href{https://orcid.org/0009-0000-6631-8482}{0009-0000-6631-8482} & \pending \\
+C & Muhammed Tayyab & \href{https://orcid.org/0009-0000-6631-8482}{0009-0000-6631-8482} & \done \\
 D & Sina Sadeghi & \href{https://orcid.org/0009-0008-1996-4666}{0009-0008-1996-4666} & \pending \\
 \bottomrule
 \end{longtable}
@@ -66,6 +63,15 @@ uses SOSA/SSN for observations, OWL-Time for temporal intervals, ChEBI for NO2,
 PROV-O for provenance, and QUDT for units. The detailed mapping is documented in
 \texttt{docs/semantic-mapping.md} and \texttt{docs/unit-mapping.md}.
 
+Owner C applied the unit mappings to the DBRepo column metadata via the DBRepo
+REST API. The \texttt{measurements.value} column was mapped to
+\texttt{qudt:MicroGM-PER-M3}, the \texttt{data\_capture} column to
+\texttt{qudt:FRACTION}, and the three timestamp columns (\texttt{start\_time},
+\texttt{end\_time}, \texttt{result\_time}) to the SI Digital Framework second unit
+(\texttt{si:S}). The mappings were verified via the DBRepo API and documented in
+\texttt{docs/unit-mapping.md} and the notebook
+\texttt{notebooks/t23\_t25\_unit\_mapping\_and\_data\_loading.ipynb}.
+
 \begin{longtable}{p{0.18\linewidth}p{0.31\linewidth}p{0.32\linewidth}p{0.11\linewidth}}
 \toprule
 Attribute & Meaning & Mapping & Owner \\
@@ -76,6 +82,9 @@ Attribute & Meaning & Mapping & Owner \\
 \texttt{Value} & NO2 concentration & \texttt{sosa:hasSimpleResult}, QUDT mass concentration & B \\
 \texttt{Unit} & ug/m3 concentration unit & \texttt{unit:MicroGM-PER-M3} & B \\
 \texttt{ResultTime} & Time result was produced & \texttt{sosa:resultTime}, \texttt{prov:generatedAtTime} & B \\
+\texttt{value} (DBRepo) & NO2 concentration in DBRepo & \texttt{qudt:MicroGM-PER-M3} applied via REST API & C \\
+\texttt{data\_capture} & Data capture fraction & \texttt{qudt:FRACTION} applied via REST API & C \\
+\texttt{start\_time}, \texttt{end\_time}, \texttt{result\_time} & Timestamps & SI Digital Framework \texttt{si:S} applied via REST API & C \\
 \bottomrule
 \end{longtable}
 
@@ -91,10 +100,22 @@ Owner B prepared the CodeMeta and licensing evidence. The \texttt{codemeta.json}
 record documents the software package, authors, license, repository, runtime, and
 dependencies. The licensing notes distinguish the EEA input data terms, MIT
 software license, CC BY 4.0 generated outputs/model documentation, and reuse
-conditions for published artefacts. The standards-overlap draft in
-\texttt{docs/standards-overlap-analysis.md} identifies RO-Crate as the integration
-layer, FAIR4ML and Model Card as the most overlapping machine-learning standards,
-and CodeMeta and Croissant as complementary software/data standards.
+conditions for published artefacts.
+
+Owner C prepared the standards overlap analysis in
+\texttt{docs/standards-overlap-analysis.md}. The analysis covers all ten pairwise
+comparisons between RO-Crate, CodeMeta, FAIR4ML, Croissant, and Model Card,
+identifying shared fields, unique fields, and conflicts. Key findings: RO-Crate
+acts as the integration layer referencing all other standards; FAIR4ML and Model
+Card have the highest field overlap; CodeMeta and Croissant are the most
+complementary pair; and licence management is a cross-cutting concern requiring
+careful alignment across all five standards.
+
+Owner C also prepared the FAIR4ML metadata file in
+\texttt{docs/fair4ml-metadata.json}, documenting the Random Forest classifier
+algorithm, all seven input features, hyperparameters, evaluation metrics
+(accuracy 0.8005, precision 0.2107, recall 0.7251, F1 0.3266), intended use, and
+known limitations.
 
 \section*{5. DMP Comparison}
 Owner B prepared the initial-vs-final DMP comparison in
@@ -108,11 +129,15 @@ mapping, model documentation, and reproducibility from DBRepo and repository
 artefacts. The final DMP adds concrete FAIR implementation evidence, including
 DBRepo, GitHub/Zenodo, generated-output, model, and DMP identifiers.
 
+Owner C wrote the final DMP in DAMAP following the FWF template (T4.1). The DMP
+describes all three dataset groups, storage locations (GitHub, Zenodo, TUWRD,
+DBRepo), access rights, licences, and reuse planning. The DMP was exported and
+submitted as part of the final TUWRD DMP record.
+
 \section*{6. OSTrails Test Results Table}
 The group assessment service was implemented under
 \texttt{groups/group-3} in the course GitLab repository. The merge request is
 \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15}.
-The A and B tests include pass/fail example JSON files and a Node.js registry.
 
 \begin{longtable}{p{0.14\linewidth}p{0.14\linewidth}p{0.12\linewidth}p{0.44\linewidth}}
 \toprule
@@ -124,7 +149,9 @@ T-DCSC-065 & A & pass & Implemented and checked with local pass/fail examples fo
 T-DCSC-058 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
 T-DCSC-069 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
 T-DCSC-083 & B & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
-T-DCSC-001, 016, 032 & C & \pending & Owner C should add final outcome and message. \\
+T-DCSC-001 & C & pass & Field `is\_reused' found on at least one dataset. GitLab CI pipeline passed. \\
+T-DCSC-016 & C & pass & At least one dataset entry has no is\_reused field and is treated as new data. GitLab CI pipeline passed. \\
+T-DCSC-032 & C & pass & The maDMP JSON document validates against the RDA DMP Common Standard Schema (v1.1). GitLab CI pipeline passed. \\
 T-DCSC-003, 022, 090 & D & \pending & Owner D should add final outcome and message. \\
 \bottomrule
 \end{longtable}
@@ -144,7 +171,7 @@ T5.1 & Group-3 GitLab merge request created for the assessment service. & \done 
 T5.2 & Implemented assigned OSTrails tests 026, 037, and 065. & \done \\
 \bottomrule
 \end{longtable}
-\textbf{Sign-off chain:} Owner A confirmation by Owner B is pending final manual check.
+\textbf{Sign-off chain:} Owner A confirmed by Owner B --- \done
 
 \subsection*{Owner B: Somayeh Zeraati}
 \begin{longtable}{p{0.18\linewidth}p{0.56\linewidth}p{0.16\linewidth}}
@@ -161,11 +188,26 @@ T4.5 & Initial-vs-final DMP comparison with final DOI references. & \done \\
 T5.3 & Implemented assigned OSTrails tests 058, 069, and 083. & \done \\
 \bottomrule
 \end{longtable}
-\textbf{Sign-off chain:} Owner B confirmation by Owner C is pending final manual check.
+\textbf{Sign-off chain:} Owner B confirmed by Owner C --- \done
 
-\subsection*{Owner C: Muhammed Tayyab Sajjad}
-Owner C should add final contribution notes, OSTrails results for tests 001, 016,
-and 032, and confirmation of Owner B.
+\subsection*{Owner C: Muhammed Tayyab Sajjad --- Matriculation No.: e12510765}
+
+\begin{longtable}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
+\toprule
+Task & What I did & Link / DOI / commit & Done? \\
+\midrule
+T2.3 & Applied unit-of-measurement ontology mappings to five DBRepo columns via the REST API: value to QUDT MicroGM-PER-M3, data\_capture to QUDT FRACTION, and start\_time/end\_time/result\_time to SI Digital Framework second. Verified mappings via the DBRepo API. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/unit-mapping.md}{docs/unit-mapping.md} & \checkmark \\
+T2.5 & Loaded all raw EEA Parquet data into DBRepo using the Python dbrepo client. All 8 tables were populated: measurements (140,160 rows), sampling\_points (16), and all lookup tables. Verified data via the DBRepo API and web UI. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/notebooks/t23_t25_unit_mapping_and_data_loading.ipynb}{notebooks/t23\_t25} & \checkmark \\
+T3.3 & Created FAIR4ML metadata file documenting the Random Forest classifier: algorithm, 7 input features, hyperparameters, evaluation metrics (accuracy 0.8005, precision 0.2107, recall 0.7251, F1 0.3266), intended use, and limitations. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/fair4ml-metadata.json}{docs/fair4ml-metadata.json} & \checkmark \\
+T3.7 & Rewrote the README to include abstract, contributors table with ORCIDs, all three licences, requirements and installation instructions, step-by-step reproduction instructions for both local and DBRepo execution, and inputs/outputs tables. Resolved two merge conflicts. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/README.md}{README.md} & \checkmark \\
+T3.8 & Created CITATION.cff in the repository root with all four contributors, ORCIDs, and Zenodo DOI. Added Zenodo DOI badge to the README. Set up Zenodo-GitHub integration for automatic archiving. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
+T3.11 & Produced standards overlap analysis covering all ten pairwise comparisons between RO-Crate, CodeMeta, FAIR4ML, Croissant, and Model Card. Identified shared fields, unique fields, conflicts, and key findings. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/standards-overlap-analysis.md}{docs/standards-overlap-analysis.md} & \checkmark \\
+T4.1 & Wrote the final DMP in DAMAP following the FWF template. Added all four contributors, three dataset groups, four storage locations, access rights, licences, and reuse planning. Exported the DMP using the FWF template. & \href{https://dmptool.tuwien.ac.at/dmp/13011}{dmptool.tuwien.ac.at/dmp/13011} & \checkmark \\
+T5.4 & Implemented three OSTrails DMP evaluation tests (T-DCSC-001, T-DCSC-016, T-DCSC-032) as a Node.js/Express REST API with Docker packaging. All three tests passed the GitLab CI/CD pipeline. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
+T6 & Reviewed Group 5's DBRepo database: checked 3 tables, 3 views, and semantic annotations. Found no unit URIs or concept mappings on any column. Wrote section (b) of the group review report. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
+\bottomrule
+\end{longtable}
+\textbf{Sign-off chain:} Owner C confirmed by Owner D --- \pending
 
 \subsection*{Owner D: Sina Sadeghi}
 Owner D should add final contribution notes, OSTrails results for tests 003, 022,
