@@ -64,9 +64,9 @@ However, the \texttt{TrafficMeasurements} schema shows empty \textit{Concept} an
 
 \section*{(c) Correctness of Metadata Standard Artefacts -- 2/3}
 
-The GitHub repository is public and includes important metadata and documentation files, including \texttt{README.md}, \texttt{LICENSE}, \texttt{CITATION.cff}, \texttt{codemeta.json}, \texttt{croissant.json}, \texttt{ro-crate-metadata.json}, and a model card. The repository also contains source code, notebooks, output/model artefacts, and validation reports, which is a good basis for FAIR software and model documentation.
+All five expected metadata artefacts (RO-Crate, CodeMeta, Croissant, FAIR4ML, and Model Card) are present in the repository and provide high-quality documentation. The RO-Crate (\texttt{ro-crate-metadata.json}) correctly maps the relationships between datasets, software, and evaluation outputs. The CodeMeta file includes detailed dependency tracking (e.g., TensorFlow, DBRepo) and versioning. The Croissant record defines the schema for the 3rd Normal Form tables and, notably, includes QUDT unit URIs (e.g., percent, count) for numeric attributes. The Model Card and FAIR4ML metadata provide comprehensive evaluation metrics and usage guidelines.
 
-The main issue found during the A-side check is that the README still contains a placeholder for the TUWRD model DOI, even though the model deposit is available through the DMP/TUWRD record. Because of this small consistency issue, this dimension is rated 2/3.
+The main issue found during the check is that the README still contains a placeholder for the TUWRD model DOI, even though the model deposit is available through the DMP/TUWRD record. Additionally, while the metadata files are technically correct, the semantic unit mappings provided in the Croissant file are not yet reflected in the DBRepo database UI (see Section b). Because of these consistency issues, this dimension is rated 2/3.
 
 \section*{(d) maDMP Technical Validity -- 2/3}
 
@@ -76,8 +76,8 @@ The maDMP is therefore technically usable at the JSON level. However, some datas
 
 \section*{(e) Consistency Between DMP Text and Published Artefacts -- 2/3}
 
-The main published artefacts mentioned in the DMP could be found. The GitHub repository resolves, the Zenodo DOI records resolve, the TUWRD model deposit is separate and includes model files such as \texttt{mlp\_model.keras} and \texttt{scaler.pkl}, and the generated-output deposit is separate and includes metrics and confusion-matrix outputs. The DBRepo database is publicly accessible and consistent with the DMP description of SDCC SCOOT data storage.
+The main published artefacts mentioned in the DMP could be found. The GitHub repository, Zenodo records, and TUWRD deposits for models and outputs are all consistent with the DMP's claims. The DBRepo database is publicly accessible and contains the expected tables and views.
 
-The remaining consistency concern is the README placeholder for the TUWRD model DOI and the absence of semantic annotations in DBRepo despite the DMP implying FAIR-compliant data storage. For this reason, the consistency score is 2/3.
+However, a significant consistency gap exists between the metadata documentation and the actual repository state: the Croissant metadata file correctly identifies semantic units using QUDT, but these are missing from the DBRepo database UI. This discrepancy, combined with the README placeholder issue, leads to a rating of 2/3 for consistency.
 
 \end{document}
