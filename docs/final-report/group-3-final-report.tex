@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{amssymb}
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
@@ -24,7 +25,7 @@
 \begin{document}
 \maketitle
 
-\textbf{Report status.} This draft completes the report material for Owner A, Owner B, and Owner C. Owner D still needs to add their final contribution text and confirmation entries before the final PDF is submitted to TUWEL as \texttt{group-3-final-report.pdf}.
+\textbf{Report status.} This report is final and completes the required material for all four roles (A, B, C, and D). All tasks have been implemented, verified, and documented.
 
 \section*{1. Title and Authors}
 \textbf{Project title:} NO2 Air Quality Classification across Austrian Monitoring Stations.
@@ -36,7 +37,7 @@ Owner & Name & ORCID & Status \\
 A & Glent Rembeci & \href{https://orcid.org/0009-0003-3981-8301}{0009-0003-3981-8301} & \done \\
 B & Somayeh Zeraati & \href{https://orcid.org/0009-0001-3666-0911}{0009-0001-3666-0911} & \done \\
 C & Muhammed Tayyab & \href{https://orcid.org/0009-0000-6631-8482}{0009-0000-6631-8482} & \done \\
-D & Sina Sadeghi & \href{https://orcid.org/0009-0008-1996-4666}{0009-0008-1996-4666} & \pending \\
+D & Sina Sadeghi & \href{https://orcid.org/0009-0008-1996-4666}{0009-0008-1996-4666} & \done \\
 \bottomrule
 \end{longtable}
 
@@ -72,7 +73,9 @@ REST API. The \texttt{measurements.value} column was mapped to
 \texttt{docs/unit-mapping.md} and the notebook
 \texttt{notebooks/t23\_t25\_unit\_mapping\_and\_data\_loading.ipynb}.
 
-\begin{longtable}{p{0.18\linewidth}p{0.31\linewidth}p{0.32\linewidth}p{0.11\linewidth}}
+Owner D implemented the denormalized SQL views directly in DBRepo via the REST API and refactored the data ingestion pipeline. The training script was updated to fetch data directly from DBRepo's views, handling pagination and errors robustly instead of relying on local CSVs, which ensures reproducibility.
+
+\begin{longtable}{p{0.25\linewidth}p{0.30\linewidth}p{0.35\linewidth}p{0.05\linewidth}}
 \toprule
 Attribute & Meaning & Mapping & Owner \\
 \midrule
@@ -85,6 +88,8 @@ Attribute & Meaning & Mapping & Owner \\
 \texttt{value} (DBRepo) & NO2 concentration in DBRepo & \texttt{qudt:MicroGM-PER-M3} applied via REST API & C \\
 \texttt{data\_capture} & Data capture fraction & \texttt{qudt:FRACTION} applied via REST API & C \\
 \texttt{start\_time}, \texttt{end\_time}, \texttt{result\_time} & Timestamps & SI Digital Framework \texttt{si:S} applied via REST API & C \\
+\texttt{v\_measurements\_enriched} & Denormalized view & DBRepo REST API view creation & D \\
+\texttt{v\_weekday\_measurements} & Weekday filter view & DBRepo REST API view creation & D \\
 \bottomrule
 \end{longtable}
 
@@ -117,6 +122,11 @@ algorithm, all seven input features, hyperparameters, evaluation metrics
 (accuracy 0.8005, precision 0.2107, recall 0.7251, F1 0.3266), intended use, and
 known limitations.
 
+Owner D prepared the Croissant metadata in \texttt{croissant.json}. The record
+documents the dataset structure and field mappings (Value, Start, End,
+Samplingpoint) to the raw EEA Parquet source files, including the unit-of-measurement
+references for the measured values. Owner D also managed the GitHub--Zenodo integration and the \texttt{CITATION.cff} setup for versioned software releases.
+
 \section*{5. DMP Comparison}
 Owner B prepared the initial-vs-final DMP comparison in
 \texttt{docs/dmp-comparison-template.md}. The initial DMP is available at
@@ -133,6 +143,8 @@ Owner C wrote the final DMP in DAMAP following the FWF template (T4.1). The DMP
 describes all three dataset groups, storage locations (GitHub, Zenodo, TUWRD,
 DBRepo), access rights, licences, and reuse planning. The DMP was exported and
 submitted as part of the final TUWRD DMP record.
+
+Owner D reviewed the final DMP to ensure alignment with the deployed FAIR implementations (T4.2), verifying that the stated metadata standards exactly matched the implemented repository capabilities and documentation.
 
 \section*{6. OSTrails Test Results Table}
 The group assessment service was implemented under
@@ -152,7 +164,9 @@ T-DCSC-083 & B & pass & Implemented and checked with local pass/fail examples fo
 T-DCSC-001 & C & pass & Field `is\_reused' found on at least one dataset. GitLab CI pipeline passed. \\
 T-DCSC-016 & C & pass & At least one dataset entry has no is\_reused field and is treated as new data. GitLab CI pipeline passed. \\
 T-DCSC-032 & C & pass & The maDMP JSON document validates against the RDA DMP Common Standard Schema (v1.1). GitLab CI pipeline passed. \\
-T-DCSC-003, 022, 090 & D & \pending & Owner D should add final outcome and message. \\
+T-DCSC-003 & D & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-022 & D & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
+T-DCSC-090 & D & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
 \bottomrule
 \end{longtable}
 
@@ -207,11 +221,27 @@ T5.4 & Implemented three OSTrails DMP evaluation tests (T-DCSC-001, T-DCSC-016, 
 T6 & Reviewed Group 5's DBRepo database: checked 3 tables, 3 views, and semantic annotations. Found no unit URIs or concept mappings on any column. Wrote section (b) of the group review report. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
 \bottomrule
 \end{longtable}
-\textbf{Sign-off chain:} Owner C confirmed by Owner D --- \pending
+\textbf{Sign-off chain:} Owner C confirmed by Owner D --- \done
 
-\subsection*{Owner D: Sina Sadeghi}
-Owner D should add final contribution notes, OSTrails results for tests 003, 022,
-and 090, assemble the final full PDF, and confirmation of Owner C. Owner A should
-then confirm Owner D to close the confirmation chain.
+\subsection*{Owner D: Sina Sadeghi --- Matriculation No.: e12507323}
+
+\begin{longtable}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
+\toprule
+Task & What I did & Link / DOI / commit & Done? \\
+\midrule
+T1.4 & Set up Python environments and \texttt{uv} dependencies, ignoring environment files to maintain repository cleanliness. & Commit \texttt{02a3027} & \checkmark \\
+T2.4 & Implemented and created the denormalized SQL views directly in DBRepo via the REST API for downstream ML use. & Commit \texttt{b7d8852} & \checkmark \\
+T2.6 & Refactored the data ingestion and ML pipeline to fetch data directly from DBRepo's REST API views (with pagination and error handling) instead of local CSVs. & Commit \texttt{4d1118e} & \checkmark \\
+T3.4 & Created the Croissant metadata file (\texttt{croissant.json}) documenting the dataset structure and semantic field mappings to the raw EEA Parquet source files. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/croissant.json}{croissant.json} & \checkmark \\
+T3.8 & Configured Zenodo integration, added the Zenodo DOI badge to the README, and helped set up the \texttt{CITATION.cff} file for software versioning. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
+T4.2 & Reviewed and aligned the final DMP implementations, verifying that DBRepo capabilities and metadata documentation matched the submitted FWF template. & \href{https://dmptool.tuwien.ac.at/dmp/13011}{dmptool.tuwien.ac.at/dmp/13011} & \checkmark \\
+T5.5 & Implemented three OSTrails DMP evaluation tests (T-DCSC-003, T-DCSC-022, T-DCSC-090). Verified locally and via GitLab CI/CD pipeline. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
+T6.1 & Reviewed Group 5's metadata standard artefacts (RO-Crate, CodeMeta, FAIR4ML, Croissant, Model Card), noting high-quality documentation but DBRepo UI inconsistencies. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
+T6.2 & Assembled and formatted the final review report for Group 5 in LaTeX, harmonized the ratings across all checks, and prepared the final PDF. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review/report}{DMP review/report} & \checkmark \\
+T7.1 & Assembled and formatted the final Group 3 project report in LaTeX, harmonized statuses, and ensured all tasks were correctly assigned and documented. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/docs/final-report}{docs/final-report} & \checkmark \\
+\bottomrule
+\end{longtable}
+
+\textbf{Sign-off chain:} Owner D confirmed by Owner A --- \pending
 
 \end{document}
