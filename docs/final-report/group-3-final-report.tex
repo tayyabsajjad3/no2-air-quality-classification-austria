@@ -5,6 +5,8 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{placeins}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{enumitem}
@@ -18,7 +20,7 @@
 \newcommand{\pending}{\textcolor{red}{pending}}
 \newcommand{\done}{\textcolor{teal}{done}}
 
-\title{Group 3 Final Report Draft\\NO2 Air Quality Classification across Austrian Monitoring Stations}
+\title{Group 3 Final Report\\NO2 Air Quality Classification across Austrian Monitoring Stations}
 \author{Glent Rembeci, Somayeh Zeraati, Muhammed Tayyab Sajjad, Sina Sadeghi}
 \date{June 2026}
 
@@ -30,7 +32,7 @@
 \section*{1. Title and Authors}
 \textbf{Project title:} NO2 Air Quality Classification across Austrian Monitoring Stations.
 
-\begin{longtable}{p{0.19\linewidth}p{0.25\linewidth}p{0.36\linewidth}p{0.12\linewidth}}
+\noindent\begin{tabular}{p{0.19\linewidth}p{0.25\linewidth}p{0.36\linewidth}p{0.12\linewidth}}
 \toprule
 Owner & Name & ORCID & Status \\
 \midrule
@@ -39,7 +41,7 @@ B & Somayeh Zeraati & \href{https://orcid.org/0009-0001-3666-0911}{0009-0001-366
 C & Muhammed Tayyab & \href{https://orcid.org/0009-0000-6631-8482}{0009-0000-6631-8482} & \done \\
 D & Sina Sadeghi & \href{https://orcid.org/0009-0008-1996-4666}{0009-0008-1996-4666} & \done \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 
 \section*{2. Abstract}
 This project implements a FAIR data science workflow for classifying nitrogen
@@ -75,7 +77,7 @@ REST API. The \texttt{measurements.value} column was mapped to
 
 Owner D implemented the denormalized SQL views directly in DBRepo via the REST API and refactored the data ingestion pipeline. The training script was updated to fetch data directly from DBRepo's views, handling pagination and errors robustly instead of relying on local CSVs, which ensures reproducibility.
 
-\begin{longtable}{p{0.25\linewidth}p{0.30\linewidth}p{0.35\linewidth}p{0.05\linewidth}}
+\noindent\begin{tabular}{p{0.25\linewidth}p{0.30\linewidth}p{0.35\linewidth}p{0.05\linewidth}}
 \toprule
 Attribute & Meaning & Mapping & Owner \\
 \midrule
@@ -91,7 +93,7 @@ Attribute & Meaning & Mapping & Owner \\
 \texttt{v\_measurements\_enriched} & Denormalized view & DBRepo REST API view creation & D \\
 \texttt{v\_weekday\_measurements} & Weekday filter view & DBRepo REST API view creation & D \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 
 \section*{4. Standards Application and Overlap Analysis}
 Owner A prepared the RO-Crate and Model Card evidence. The
@@ -128,30 +130,70 @@ Samplingpoint) to the raw EEA Parquet source files, including the unit-of-measur
 references for the measured values. Owner D also managed the GitHub--Zenodo integration and the \texttt{CITATION.cff} setup for versioned software releases.
 
 \section*{5. DMP Comparison}
-Owner B prepared the initial-vs-final DMP comparison in
-\texttt{docs/dmp-comparison-template.md}. The initial DMP is available at
-\href{https://handle.test.datacite.org/10.70124/3gj7h-t2832}{10.70124/3gj7h-t2832};
-the final DMP record is available at
-\href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563}. The initial
-plan was useful as a starting point, but it underestimated the coordination needed
-for persistent identifiers, separate artefact deposits, licensing, semantic
-mapping, model documentation, and reproducibility from DBRepo and repository
-artefacts. The final DMP adds concrete FAIR implementation evidence, including
-DBRepo, GitHub/Zenodo, generated-output, model, and DMP identifiers.
+
+Owner B prepared the initial-vs-final DMP comparison (T4.5). The initial DMP
+(prepared in Part~2) is available at
+\href{https://handle.test.datacite.org/10.70124/3gj7h-t2832}{10.70124/3gj7h-t2832}.
+The final DMP record is available at
+\href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563}.
+The full comparison is documented in \texttt{docs/dmp-comparison-template.md}.
+
+\textbf{1. What the initial DMP promised that turned out to be unrealistic.}
+
+The main thing we underestimated in the initial DMP was how much coordination
+persistent identifiers would require. We wrote that data would be published
+openly with DOIs, but the initial plan assumed this would be one or two steps.
+In practice, we ended up managing five separate artefact records: the DBRepo
+database, the GitHub/Zenodo software release, the TUWRD model deposit, the
+TUWRD generated-output deposit, and the final DMP record -- each needing its
+own metadata, licence statement, and cross-references to the others.
+
+Licensing was also more work than the initial plan suggested. We had to check
+the exact EEA source data reuse conditions, choose a compatible MIT licence for
+the code, and separately decide on CC~BY~4.0 for the outputs, including checking
+whether ShareAlike clauses from the source data would apply. The initial DMP did
+not mention DBRepo at all, so the schema design, semantic mappings, unit
+mappings via the REST API, and the full reimplementation of the data pipeline
+from local CSV files to DBRepo views were all absent from the initial plan.
+
+\textbf{2. What writing the final DMP actually required that the initial one glossed over.}
+
+The biggest gap was that the final DMP needed to show what we actually did,
+not just what we planned to do. For us that meant producing five metadata
+artefact files (RO-Crate, CodeMeta, Croissant, FAIR4ML, and a Model Card)
+and making sure they were consistent with each other. The initial DMP did
+not mention any of these standards.
+
+We also had to cross-link every persistent identifier across all records.
+This meant putting the DBRepo DOI
+(\href{https://doi.org/10.82556/3zan-dn41}{10.82556/3zan-dn41}),
+the Zenodo DOI
+(\href{https://doi.org/10.5281/zenodo.20432795}{10.5281/zenodo.20432795}),
+the TUWRD model DOI
+(\href{https://doi.org/10.70124/ye7mg-p5v03}{10.70124/ye7mg-p5v03}),
+the TUWRD generated-data DOI
+(\href{https://doi.org/10.70124/4jwcg-70c34}{10.70124/4jwcg-70c34}),
+and the DMP DOI itself
+(\href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563})
+into the maDMP JSON, the TUWRD deposit records, and the RO-Crate. Keeping
+these in sync across five different systems took noticeably more time than
+we expected when writing the initial plan.
 
 Owner C wrote the final DMP in DAMAP following the FWF template (T4.1). The DMP
 describes all three dataset groups, storage locations (GitHub, Zenodo, TUWRD,
 DBRepo), access rights, licences, and reuse planning. The DMP was exported and
 submitted as part of the final TUWRD DMP record.
 
-Owner D reviewed the final DMP to ensure alignment with the deployed FAIR implementations (T4.2), verifying that the stated metadata standards exactly matched the implemented repository capabilities and documentation.
+Owner D reviewed the final DMP to ensure alignment with the deployed FAIR
+implementations (T4.2), verifying that the stated metadata standards exactly
+matched the implemented repository capabilities and documentation.
 
 \section*{6. OSTrails Test Results Table}
 The group assessment service was implemented under
 \texttt{groups/group-3} in the course GitLab repository. The merge request is
 \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15}.
 
-\begin{longtable}{p{0.14\linewidth}p{0.14\linewidth}p{0.12\linewidth}p{0.44\linewidth}}
+\noindent\begin{tabular}{p{0.14\linewidth}p{0.14\linewidth}p{0.12\linewidth}p{0.44\linewidth}}
 \toprule
 Metric ID & Owner & Outcome & Message \\
 \midrule
@@ -168,45 +210,49 @@ T-DCSC-003 & D & pass & Implemented and checked with local pass/fail examples fo
 T-DCSC-022 & D & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
 T-DCSC-090 & D & pass & Implemented and checked with local pass/fail examples for the assigned DMP evaluation test. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 
 \section*{7. Individual Contribution and Sign-off Tables}
-\subsection*{Owner A: Glent Rembeci}
-\begin{longtable}{p{0.18\linewidth}p{0.56\linewidth}p{0.16\linewidth}}
+\subsection*{Owner A: Glent Rembeci --- Matriculation No.: e12332209}
+\noindent\begin{tabular}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
 \toprule
-Task & Contribution & Status \\
+Task & What I did & Link / DOI / commit & Done? \\
 \midrule
-T2.1 & DBRepo schema, ER diagram, database publication evidence, and metadata notes. & \done \\
-T3.1 & RO-Crate metadata and validation evidence. & \done \\
-T3.5 & Model Card documentation. & \done \\
-T3.9 & Separate TUWRD model record with \texttt{no2\_air\_quality\_classifier.joblib} and \texttt{model-card.md}; DOI \href{https://doi.org/10.70124/ye7mg-p5v03}{10.70124/ye7mg-p5v03}. & \done \\
-T4.4 & Final DMP PDF and maDMP JSON submitted as TUWRD final DMP record; DOI \href{https://doi.org/10.70124/pcepy-07563}{10.70124/pcepy-07563}. & \done \\
-T5.1 & Group-3 GitLab merge request created for the assessment service. & \done \\
-T5.2 & Implemented assigned OSTrails tests 026, 037, and 065. & \done \\
+T2.1 & Designed the normalized relational schema for the EEA NO2 data in 3NF. Produced SQL CREATE statements, an ER diagram, and descriptive database metadata. Created and configured the DBRepo database entry with publisher, licence, and provenance metadata. & \href{https://doi.org/10.82556/3zan-dn41}{DOI 10.82556/3zan-dn41}, \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/schema.sql}{docs/schema.sql} & \checkmark \\
+T3.1 & Created the \texttt{ro-crate-metadata.json} file describing the full experiment package: input datasets, code, trained model, generated outputs, authors, licences, and relationships. Validated with \texttt{rocrate-validator 0.9.0}; all 38 required RO-Crate 1.1 checks passed. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/ro-crate-metadata.json}{ro-crate-metadata.json}, \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/validation/}{docs/validation/} & \checkmark \\
+T3.5 & Wrote the Model Card at \texttt{docs/model-card.md} covering model description, intended use, out-of-scope uses, training data with DOI, evaluation results with a precision/recall/F1 table, limitations, ethical considerations, and licence. All required sections are at least three sentences. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/model-card.md}{docs/model-card.md} & \checkmark \\
+T3.9 & Uploaded the trained model artefact (\texttt{no2\_air\_quality\_classifier.joblib}) and model-card to the TUWRD test instance as a separate model-only deposit. Set resource type to Model, added all four creators with ORCIDs, CC~BY~4.0 licence, and cross-links to Zenodo, GitHub, DBRepo, and the generated-data deposit. & \href{https://doi.org/10.70124/ye7mg-p5v03}{DOI 10.70124/ye7mg-p5v03} & \checkmark \\
+T4.4 & Submitted the final DMP PDF and maDMP JSON as a single record in the DaSt-2026-final community on TUWRD. Set resource type to Data Management Plan, added all four creators with ORCIDs, CC~BY~4.0 licence, and related identifiers pointing to GitHub, Zenodo, DBRepo, and both TUWRD deposits. & \href{https://doi.org/10.70124/pcepy-07563}{DOI 10.70124/pcepy-07563} & \checkmark \\
+T5.1 & Created the group-3 GitLab merge request for the shared OSTrails assessment service, incorporating all four members' tests. Ensured a single pull request per the exercise instructions. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
+T5.2 & Implemented OSTrails DMP evaluation tests T-DCSC-026, T-DCSC-037, and T-DCSC-065. Verified correct pass/fail outcomes using local example maDMP files before submission. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
 \bottomrule
-\end{longtable}
+\end{tabular}
+
 \textbf{Sign-off chain:} Owner A confirmed by Owner B --- \done
 
-\subsection*{Owner B: Somayeh Zeraati}
-\begin{longtable}{p{0.18\linewidth}p{0.56\linewidth}p{0.16\linewidth}}
+\newpage
+\subsection*{Owner B: Somayeh Zeraati --- Matriculation No.: e12353396}
+\noindent\begin{tabular}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
 \toprule
-Task & Contribution & Status \\
+Task & What I did & Link / DOI / commit & Done? \\
 \midrule
-T2.2 & Semantic mapping and DBRepo semantic annotation notes. & \done \\
-T2.7 & Release notes for the software publication and final release preparation. & \done \\
-T3.2 & CodeMeta metadata for software authorship, repository, runtime, and dependencies. & \done \\
-T3.6 & License review covering EEA input data, software, generated outputs, and model documentation. & \done \\
-T3.10 & TUWRD generated-output deposit with metrics, predictions, confusion matrix table, and figure; DOI \href{https://doi.org/10.70124/4jwcg-70c34}{10.70124/4jwcg-70c34}. & \done \\
-T4.3 & maDMP JSON exported from the DMP Tool and included in the final DMP TUWRD record. & \done \\
-T4.5 & Initial-vs-final DMP comparison with final DOI references. & \done \\
-T5.3 & Implemented assigned OSTrails tests 058, 069, and 083. & \done \\
+T2.2 & Mapped all dataset attributes to semantic concepts in domain-specific ontologies (SOSA/SSN, OWL-Time, ChEBI, PROV-O, QUDT). Justified ontology choices in 2--3 sentences each. Added the semantic mappings to the DBRepo column metadata via the REST API. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/semantic-mapping.md}{docs/semantic-mapping.md} & \checkmark \\
+T2.7 & Prepared the second GitHub release (v2.0) incorporating all WP2 changes. Wrote descriptive release notes covering schema, semantic mappings, unit mappings, DBRepo data loading, API reimplementation, and SQL views. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/releases}{GitHub releases} & \checkmark \\
+T3.2 & Created \texttt{codemeta.json} following the CodeMeta~2.0 schema. Included name, version, all four authors with ORCIDs, MIT licence SPDX identifier, Python runtime, all pinned dependencies from \texttt{requirements.txt}, and the GitHub repository URL. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/codemeta.json}{codemeta.json} & \checkmark \\
+T3.6 & Assigned licences to all three artefact categories. Verified EEA input data reuse terms (CC~BY~4.0), confirmed compatibility with the MIT software licence, and selected CC~BY~4.0 for generated outputs and the trained model. Documented all decisions with rationale in \texttt{docs/licences.md}. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/licences.md}{docs/licences.md} & \checkmark \\
+T3.10 & Uploaded the generated output data (predictions, evaluation figures, confusion matrix, metrics) to the TUWRD test instance as a separate dataset deposit. Set resource type to Dataset, added all four creators with ORCIDs, CC~BY~4.0 licence, and cross-links to Zenodo, GitHub, DBRepo, and the model deposit. & \href{https://doi.org/10.70124/4jwcg-70c34}{DOI 10.70124/4jwcg-70c34} & \checkmark \\
+T4.3 & Exported the machine-actionable DMP from the TU Wien DMP Tool as a JSON document. Added missing identifiers (DBRepo DOI, Zenodo DOI, TUWRD deposit DOIs, initial DMP DOI) in accordance with the RDA maDMP recommendation. Included the maDMP JSON in the final TUWRD DMP record. & \href{https://doi.org/10.70124/pcepy-07563}{DOI 10.70124/pcepy-07563} & \checkmark \\
+T4.5 & Compared the initial DMP from Part~2 with the final DMP. Answered the two required questions: what the initial plan overpromised and what the final plan actually required in effort, decisions, and knowledge. Both DMP links are referenced in Section~5 of this report. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/dmp-comparison-template.md}{docs/dmp-comparison-template.md} & \checkmark \\
+T5.3 & Implemented OSTrails DMP evaluation tests T-DCSC-058, T-DCSC-069, and T-DCSC-083. Verified correct pass/fail outcomes using local example maDMP files before submission. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
 \bottomrule
-\end{longtable}
+\end{tabular}
+
 \textbf{Sign-off chain:} Owner B confirmed by Owner C --- \done
 
+\newpage
 \subsection*{Owner C: Muhammed Tayyab Sajjad --- Matriculation No.: e12510765}
 
-\begin{longtable}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
+\noindent\begin{tabular}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
 \toprule
 Task & What I did & Link / DOI / commit & Done? \\
 \midrule
@@ -214,33 +260,35 @@ T2.3 & Applied unit-of-measurement ontology mappings to five DBRepo columns via 
 T2.5 & Loaded all raw EEA Parquet data into DBRepo using the Python dbrepo client. All 8 tables were populated: measurements (140,160 rows), sampling\_points (16), and all lookup tables. Verified data via the DBRepo API and web UI. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/notebooks/t23_t25_unit_mapping_and_data_loading.ipynb}{notebooks/t23\_t25} & \checkmark \\
 T3.3 & Created FAIR4ML metadata file documenting the Random Forest classifier: algorithm, 7 input features, hyperparameters, evaluation metrics (accuracy 0.8005, precision 0.2107, recall 0.7251, F1 0.3266), intended use, and limitations. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/fair4ml-metadata.json}{docs/fair4ml-metadata.json} & \checkmark \\
 T3.7 & Rewrote the README to include abstract, contributors table with ORCIDs, all three licences, requirements and installation instructions, step-by-step reproduction instructions for both local and DBRepo execution, and inputs/outputs tables. Resolved two merge conflicts. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/README.md}{README.md} & \checkmark \\
-T3.8 & Created CITATION.cff in the repository root with all four contributors, ORCIDs, and Zenodo DOI. Added Zenodo DOI badge to the README. Set up Zenodo-GitHub integration for automatic archiving. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
+T3.8 & Created \texttt{CITATION.cff} in the repository root with all four contributors, ORCIDs, and Zenodo DOI. Set up the Zenodo--GitHub integration for automatic archiving on release. Owner D added the Zenodo DOI badge to the README. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
 T3.11 & Produced standards overlap analysis covering all ten pairwise comparisons between RO-Crate, CodeMeta, FAIR4ML, Croissant, and Model Card. Identified shared fields, unique fields, conflicts, and key findings. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/docs/standards-overlap-analysis.md}{docs/standards-overlap-analysis.md} & \checkmark \\
 T4.1 & Wrote the final DMP in DAMAP following the FWF template. Added all four contributors, three dataset groups, four storage locations, access rights, licences, and reuse planning. Exported the DMP using the FWF template. & \href{https://dmptool.tuwien.ac.at/dmp/13011}{dmptool.tuwien.ac.at/dmp/13011} & \checkmark \\
 T5.4 & Implemented three OSTrails DMP evaluation tests (T-DCSC-001, T-DCSC-016, T-DCSC-032) as a Node.js/Express REST API with Docker packaging. All three tests passed the GitLab CI/CD pipeline. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
-T6 & Reviewed Group 5's DBRepo database: checked 3 tables, 3 views, and semantic annotations. Found no unit URIs or concept mappings on any column. Wrote section (b) of the group review report. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
+T6.1 & Reviewed Group 5's DBRepo database: checked 3 tables, 3 views, and semantic annotations. Found no unit URIs or concept mappings on any column. Contributed section (b) of the group review report. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
 \bottomrule
-\end{longtable}
+\end{tabular}
+
 \textbf{Sign-off chain:} Owner C confirmed by Owner D --- \done
 
+\newpage
 \subsection*{Owner D: Sina Sadeghi --- Matriculation No.: e12507323}
 
-\begin{longtable}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
+\noindent\begin{tabular}{p{0.08\linewidth}p{0.42\linewidth}p{0.28\linewidth}p{0.1\linewidth}}
 \toprule
 Task & What I did & Link / DOI / commit & Done? \\
 \midrule
-T1.4 & Set up Python environments and \texttt{uv} dependencies, ignoring environment files to maintain repository cleanliness. & Commit \texttt{02a3027} & \checkmark \\
+T1.4 & Made the first GitHub release of the project using the GitHub release functionality. Set up the repository structure, Python environment with \texttt{uv}, and ensured the initial codebase was clean and reproducible before tagging the first release. & Commit \texttt{02a3027} & \checkmark \\
 T2.4 & Implemented and created the denormalized SQL views directly in DBRepo via the REST API for downstream ML use. & Commit \texttt{b7d8852} & \checkmark \\
 T2.6 & Refactored the data ingestion and ML pipeline to fetch data directly from DBRepo's REST API views (with pagination and error handling) instead of local CSVs. & Commit \texttt{4d1118e} & \checkmark \\
 T3.4 & Created the Croissant metadata file (\texttt{croissant.json}) documenting the dataset structure and semantic field mappings to the raw EEA Parquet source files. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/croissant.json}{croissant.json} & \checkmark \\
-T3.8 & Configured Zenodo integration, added the Zenodo DOI badge to the README, and helped set up the \texttt{CITATION.cff} file for software versioning. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
+T3.8 & Added the Zenodo DOI badge to the README and verified the GitHub--Zenodo integration was correctly linked. Supported Owner C in setting up \texttt{CITATION.cff} and confirmed that the release triggered automatic Zenodo archiving. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/blob/main/CITATION.cff}{CITATION.cff} & \checkmark \\
 T4.2 & Reviewed and aligned the final DMP implementations, verifying that DBRepo capabilities and metadata documentation matched the submitted FWF template. & \href{https://dmptool.tuwien.ac.at/dmp/13011}{dmptool.tuwien.ac.at/dmp/13011} & \checkmark \\
 T5.5 & Implemented three OSTrails DMP evaluation tests (T-DCSC-003, T-DCSC-022, T-DCSC-090). Verified locally and via GitLab CI/CD pipeline. & \href{https://gitlab.tuwien.ac.at/crdm/data-stewardship/dast-2026-ue/-/merge_requests/15}{GitLab MR 15} & \checkmark \\
 T6.1 & Reviewed Group 5's metadata standard artefacts (RO-Crate, CodeMeta, FAIR4ML, Croissant, Model Card), noting high-quality documentation but DBRepo UI inconsistencies. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review}{DMP review/} & \checkmark \\
 T6.2 & Assembled and formatted the final review report for Group 5 in LaTeX, harmonized the ratings across all checks, and prepared the final PDF. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/DMP\%20review/report}{DMP review/report} & \checkmark \\
 T7.1 & Assembled and formatted the final Group 3 project report in LaTeX, harmonized statuses, and ensured all tasks were correctly assigned and documented. & \href{https://github.com/tayyabsajjad3/no2-air-quality-classification-austria/tree/main/docs/final-report}{docs/final-report} & \checkmark \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 
 \textbf{Sign-off chain:} Owner D confirmed by Owner A --- \done
 
